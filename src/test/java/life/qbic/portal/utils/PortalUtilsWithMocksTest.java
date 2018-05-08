@@ -3,14 +3,16 @@ package life.qbic.portal.utils;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-import org.junit.Ignore;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import com.vaadin.server.VaadinRequest;
+
+
 import com.vaadin.server.VaadinService;
 import com.vaadin.server.VaadinSession;
 
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;

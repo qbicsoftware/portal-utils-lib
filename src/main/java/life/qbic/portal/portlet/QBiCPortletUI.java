@@ -1,4 +1,4 @@
-package life.qbic.portlet;
+package life.qbic.portal.portlet;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -30,28 +30,27 @@ public abstract class QBiCPortletUI extends UI {
     private final static String PORTLET_REPOSITORY_URL;
     private final static String PORTLET_VERSION;
 
-    // load values from portlet.properties
+    // load values from portlet.properties in a static block so all instances will have properly initialized values
     static {
-        if (QBiCPortletUI.class.getClass() != Object.class.getClass()) {
-            QBiCPortletUI.class.isAssignableFrom(Object.class);
-        }
-
+        boolean cleanInit = false;
         final Properties portletProperties = new Properties();
         try {
             portletProperties.load(QBiCPortletUI.class.getClassLoader().getResourceAsStream("portlet.properties"));
+            cleanInit = false;
         } catch (IOException e) {
-            LOG.error("Error loading portlet.properties", e);
-            throw new RuntimeException("Could not load portlet.properties file. Aborting portlet initialization.", e);
+            LOG.error("Error loading portlet.properties. Portlet will display bogus version/url values. " + 
+                      "Check that portlet.properties is found under the /WEB-INF/classes folder (this file " + 
+                      "is copied from src/main/resources/portlet.properties during the build).", e);
         }
-        PORTLET_VERSION = StringUtils.trimToEmpty(portletProperties.getProperty("version"));
-        PORTLET_REPOSITORY_URL = StringUtils.trimToEmpty(portletProperties.getProperty("repository.url"));
+        PORTLET_VERSION = cleanInit ? StringUtils.trimToEmpty(portletProperties.getProperty("version")) : "0.0.1-alpha";
+        PORTLET_REPOSITORY_URL = cleanInit ? StringUtils.trimToEmpty(portletProperties.getProperty("repository.url")) : "http://github.com/qbicsoftware";
     }
     
     @Override
     protected final void init(final VaadinRequest request) {
         if (StringUtils.isBlank(PORTLET_VERSION) || StringUtils.isBlank(PORTLET_REPOSITORY_URL)) {
-            LOG.error("Missing version and/or repository url. Check that portlet.properties is found under the /WEB-INF/classes folder (this file is copied from src/main/resources/portlet.properties during the build). " +
-                        "The file should contain the 'version' and 'repository.url' properties.");
+            LOG.error("Missing version and/or repository url properties in portlet.properties file. " +
+                      "The file should contain the 'version' and 'repository.url' properties.");
         }
         LOG.info("Version " + PORTLET_VERSION);
         final VerticalLayout layout = new VerticalLayout();        
