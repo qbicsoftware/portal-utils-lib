@@ -1,61 +1,52 @@
 package life.qbic.portal.utils;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static com.google.common.truth.Truth.assertThat;
 
-import org.junit.Ignore;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-
-import com.vaadin.server.VaadinRequest;
-import com.vaadin.server.VaadinService;
-import com.vaadin.server.VaadinSession;
-
-import life.qbic.portal.utils.Utils;
-
-import org.mockito.Mockito;
-import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
 
 
-@RunWith(PowerMockRunner.class)
+/**
+ * Tests without need for mocking.
+ */
 public class UtilsTest {
-	
-	@PrepareForTest({VaadinService.class, VaadinSession.class, VaadinRequest.class, Utils.class})	
-	@Test
-	public void testNoLiferayInstance() {
-		PowerMockito.mockStatic(VaadinSession.class);
-		PowerMockito.mockStatic(VaadinService.class);
-		
-		final VaadinRequest mockRequest = Mockito.mock(VaadinRequest.class);
-		final VaadinSession mockSession = Mockito.mock(VaadinSession.class);
-		
-		Mockito.when(VaadinSession.getCurrent()).thenReturn(mockSession);
-		Mockito.when(VaadinService.getCurrentRequest()).thenReturn(mockRequest);
-		
-		assertEquals(Utils.getUser(), null);
-	}
-	
-	// FIXME
-	@Ignore
-	@Test 
-	public void testWithLiferayInstance(){
-		fail("Not yet implemented");
-	}
 
-	// FIXME
-	@Ignore
-	@Test
-	public void testIsLiferayPortlet(){
-		fail("Not yet implemented");
-	}
-	
-	// FIXME
-	@Ignore
-	@Test
-	public void testCurrentBasePath(){
-		fail("Not yet implemented");
-	}
+  @Test
+  public void testHumanReadableByteCount() {
+    //bytes
+    String target = Utils.humanReadableByteCount(0, false);    
+    assertThat(target).isEqualTo("0 B");
+    target = Utils.humanReadableByteCount(0, true);    
+    assertThat(target).isEqualTo("0 B");
+
+    target = Utils.humanReadableByteCount(24, false);    
+    assertThat(target).isEqualTo("24 B");
+    
+    target = Utils.humanReadableByteCount(24, true);    
+    assertThat(target).isEqualTo("24 B");
+    
+    //k bytes
+    
+    target = Utils.humanReadableByteCount(110592, false);    
+    assertThat(target).isEqualTo("108.0 KiB");
+ 
+    target = Utils.humanReadableByteCount(110592, true);    
+
+    assertThat(target).isEqualTo("110.6 kB");
+
+    
+    //M bytes
+    target = Utils.humanReadableByteCount(6787601, false);    
+    assertThat(target).isEqualTo("6.5 MiB");
+    
+    
+    //G bytes
+    
+    target = Utils.humanReadableByteCount(8406772480L, false);    
+    assertThat(target).isEqualTo("7.8 GiB");
+    
+    target = Utils.humanReadableByteCount(106344247601L, false);    
+    assertThat(target).isEqualTo("99.0 GiB");
+
+  }
 
 }
