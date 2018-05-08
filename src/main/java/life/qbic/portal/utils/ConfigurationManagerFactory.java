@@ -17,7 +17,7 @@ public class ConfigurationManagerFactory {
    */
   public static ConfigurationManager getInstance() {
 
-    if (Utils.isLiferayPortlet()) {
+    if (PortalUtils.isLiferayPortlet()) {
       if (!LiferayConfigurationManager.Instance.isInitialized()) {
         LiferayConfigurationManager.Instance.init();
       }

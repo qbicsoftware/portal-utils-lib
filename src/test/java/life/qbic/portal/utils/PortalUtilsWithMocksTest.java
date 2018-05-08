@@ -11,8 +11,6 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinService;
 import com.vaadin.server.VaadinSession;
 
-import life.qbic.portal.utils.Utils;
-
 import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
@@ -20,9 +18,9 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 
 @RunWith(PowerMockRunner.class)
-public class UtilsWithMocksTest {
+public class PortalUtilsWithMocksTest {
 	
-	@PrepareForTest({VaadinService.class, VaadinSession.class, VaadinRequest.class, Utils.class})	
+	@PrepareForTest({VaadinService.class, VaadinSession.class, VaadinRequest.class})	
 	@Test
 	public void testNoLiferayInstance() {
 		PowerMockito.mockStatic(VaadinSession.class);
@@ -34,7 +32,7 @@ public class UtilsWithMocksTest {
 		Mockito.when(VaadinSession.getCurrent()).thenReturn(mockSession);
 		Mockito.when(VaadinService.getCurrentRequest()).thenReturn(mockRequest);
 		
-		assertEquals(Utils.getUser(), null);
+		assertEquals(PortalUtils.getUser(), null);
 	}
 	
 	// FIXME

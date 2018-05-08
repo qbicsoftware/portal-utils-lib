@@ -8,13 +8,13 @@ import life.qbic.portal.utils.user.UserRelated;
 
 
 /**
- * LiferayAndVaadinUtils is the main class of this library. It implements most of the needed
+ * This is the main class of this library. It implements most of the needed
  * functionality.
  * 
  * @author wojnar
  * 
  */
-public class Utils {
+public class PortalUtils {
   private static String LiferaySpecificAttribute = "PORTLET_ID";
   
   /**
@@ -52,7 +52,7 @@ public class Utils {
     String remoteuser = VaadinService.getCurrentRequest().getRemoteUser();
     Object PORTLET_ID =
         VaadinService.getCurrentRequest().getAttribute(
-            Utils.LiferaySpecificAttribute);
+            PortalUtils.LiferaySpecificAttribute);
     return remoteuser != null && PORTLET_ID != null;
   }
 
