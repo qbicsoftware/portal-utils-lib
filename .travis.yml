@@ -17,8 +17,6 @@ branches:
   only:
   - master
   
-before_script:
-- rm -Rf $HOME/.m2/repository/life
 script:
 - mvn --settings .travis.settings.xml clean cobertura:cobertura deploy
 after_success:
