@@ -23,7 +23,7 @@ script:
 - mvn --settings .travis.settings.xml clean cobertura:cobertura deploy
 after_success:
 - bash <(curl -s https://codecov.io/bash)
-- mvn site
+- mvn --settings .travis.settings.xml site
 env:
   global:
   - secure: JCkk8LSj5l7TvzJh9shGieo7/JTth7U8p8swMd/zke2KOd1LFCWPBALg9I7SN1Cl4RI9cm6DLttqs8MT0VFnhl60+A3F/X7Har4L1ZnpFYL+kYnBRBhDoBcYYP+G42Ui4oRZJ4eMYQQ38pFn4gLnR1w1ZZbuZ7ayPqoWxoYFMFVFlcSuWhZDj+jdn1j4tyXd54FAc/1zcpoXT4oB/h9iKh1SZQIkbUr52pxEflmQVb14Z/qdWkKYCabgwpkCnnKcype6AB2469kADj+IMePHmClANbvKBpJQoeVrgesAGSM2k99cGBaqoEZ3eF4vHyeUfUE4dYsYDYqYL63MZUHAs/IKzVR8IxRwtsRrYCSeYXsvVSRVbRFer5IgvztaDDy6zKE0/3UUo1Fxkjmxy+s+5iStr47rIcL/5gQgNXJ2/VrEpDPTNVRq/dGTqEa1NgKlpFdpH646zyu56GwLK8FAjahDCSQ1gKkMi5mqBZhnIdSQP7IprgQK9Upw92pI+gexkXE/6tH6m6zweDaiquG1lBDkEg7zXNJibrOBqsenumRSPitoHzpTBInsCsWt+vxMQjAr6Mq7pftqkVPjXHW2ITm+5PEI22teX0eoOP0ueRW3y0BSVZeijk5sF7HiWk/LSUquDIUS5InrIjxUxFK4krx9zAlgKkicFGJ4SFEzt4E=
