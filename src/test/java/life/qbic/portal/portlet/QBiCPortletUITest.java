@@ -4,6 +4,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -11,6 +12,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+
+import com.vaadin.server.VaadinRequest;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.Layout;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.VerticalLayout;
+
 import org.apache.logging.log4j.Logger;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -22,12 +31,6 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 import org.powermock.reflect.Whitebox;
-import com.vaadin.server.VaadinRequest;
-import com.vaadin.ui.Component;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.Layout;
-import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
 
 
 /**
@@ -82,6 +85,20 @@ public class QBiCPortletUITest {
     Mockito.verify(mockLogger)
         .error(ArgumentMatchers.contains("Missing version and/or repository url"));
     assertVersion(mockUI, "1.2.3-TEST-NOREPO");
+    assertRepoURL(mockUI, QBiCPortletUI.DEFAULT_REPO);
+  }
+
+  @Test
+  public void testEmptyPortletProperties() throws URISyntaxException, IOException {
+    // we expect a clean init, but some warning/error should be logged
+    copyPropertiesFrom("portlet.properties_nothing");
+
+    final UI mockUI = new MockUI();
+    mockUI.doInit(mockRequest, 1, "test");
+
+    Mockito.verify(mockLogger)
+        .error(ArgumentMatchers.contains("Missing version and/or repository url"));
+    assertVersion(mockUI, QBiCPortletUI.DEFAULT_VERSION);
     assertRepoURL(mockUI, QBiCPortletUI.DEFAULT_REPO);
   }
 
