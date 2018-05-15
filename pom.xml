@@ -13,9 +13,8 @@
 	<!-- if it's a release version, avoid using SNAPSHOT dependencies to avoid inconsistencies -->
 	<version>1.0.0-SNAPSHOT</version>
 	<name>Portal utilities library</name>
-    <description>Library that contains several Vaadin and Liferay utilities to use in a portal (formerly life.qbic.openbis.liferayandvaadinutils).</description>
+	<description>Library that contains several Vaadin and Liferay utilities to use in a portal (formerly life.qbic.openbis.liferayandvaadinutils).</description>
 	<packaging>jar</packaging>
-
 	<!-- we only need to tell maven where to find our parent pom and other QBiC dependencies -->
 	<repositories>
 		<repository>
@@ -45,8 +44,10 @@
 			<url>https://qbic-repo.am10.uni-tuebingen.de/repository/maven-releases</url>
 		</repository>
 	</repositories>
-
 	<dependencies>
-
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
 	</dependencies>
 </project>
