@@ -120,13 +120,14 @@ public class QBiCPortletUITest {
 
   @Test
   public void testInfoLabelContainsProperValues() throws URISyntaxException, IOException {
+    // happy path
     copyPropertiesFrom("portlet.properties_good");
 
     final UI mockUI = new MockUI();
     mockUI.doInit(mockRequest, 1, "test");
 
-    Mockito.verify(mockLogger)
-        .error(ArgumentMatchers.contains("Missing version and/or repository url"));
+    Mockito.verify(mockLogger, Mockito.never()).error(Mockito.anyString());
+
     assertVersion(mockUI, "1.2.3-TEST");
     assertRepoURL(mockUI, "TEST-VALUE");
   }
