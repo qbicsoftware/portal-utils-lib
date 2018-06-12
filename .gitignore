@@ -17,5 +17,8 @@
 # Maven
 target/
 
-# Misc
-bin/
+# Some of our applications generate logs, which should be ignored by git
+logs/
+
+# Other
+.factorypath
