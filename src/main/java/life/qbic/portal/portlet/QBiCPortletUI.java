@@ -46,7 +46,7 @@ public abstract class QBiCPortletUI extends UI {
         QBiCPortletUI.class.getClassLoader().getResourceAsStream(PORTLET_PROPERTIES_FILE_PATH)) {
       portletProperties.load(propertiesFileStream);
       if (!portletProperties.containsKey("version")
-          || !portletProperties.contains("repository.url")) {
+          || !portletProperties.containsKey("repository.url")) {
         LOG.error("Missing version and/or repository url properties in portlet.properties file. "
             + "The file should contain the 'version' and 'repository.url' properties. "
             + "Using default version and/or repository url.");
