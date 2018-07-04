@@ -6,12 +6,12 @@
 	<parent>
 		<groupId>life.qbic</groupId>
 		<artifactId>portal-parent-pom</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>1.0.0</version>
 	</parent>
 	<groupId>life.qbic</groupId>
 	<artifactId>portal-utils-lib</artifactId>
 	<!-- if it's a release version, avoid using SNAPSHOT dependencies to avoid inconsistencies -->
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>Portal utilities library</name>
 	<description>Library that contains several Vaadin and Liferay utilities to use in a portal (formerly life.qbic.openbis.liferayandvaadinutils).</description>
 	<packaging>jar</packaging>
