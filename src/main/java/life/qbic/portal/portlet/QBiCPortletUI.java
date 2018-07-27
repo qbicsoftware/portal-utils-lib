@@ -23,74 +23,74 @@ import com.vaadin.ui.VerticalLayout;
 @Widgetset("life.qbic.portlet.AppWidgetSet")
 public abstract class QBiCPortletUI extends UI {
 
-  static final String INFO_LABEL_CLASS = "portlet-footer";
-  static final String INFO_LABEL_ID = "qbic-portlet-info-label";
-  static final String PORTLET_PROPERTIES_FILE_PATH = "portlet.properties";
-  static final String DEFAULT_REPO = "http://github.com/qbicsoftware";
-  static final String DEFAULT_VERSION = "0.0.1-alpha";
+    static final String INFO_LABEL_CLASS = "portlet-footer";
+    static final String INFO_LABEL_ID = "qbic-portlet-info-label";
+    static final String PORTLET_PROPERTIES_FILE_PATH = "portlet.properties";
+    static final String DEFAULT_REPO = "http://github.com/qbicsoftware";
+    static final String DEFAULT_VERSION = "0.0.1-alpha";
 
 
-  private static final Logger LOG = LogManager.getLogger(QBiCPortletUI.class);
+    private static final Logger LOG = LogManager.getLogger(QBiCPortletUI.class);
 
-  private final String portletVersion;
-  private final String portletRepoURL;
+    private final String portletVersion;
+    private final String portletRepoURL;
 
-  /**
-   * Default constructor.
-   */
-  public QBiCPortletUI() {
-    // load url/version from portlet.properties
-    LOG.info("Initializing QBiCPortletUI");
-    final Properties portletProperties = new Properties();
-    try (final InputStream propertiesFileStream =
-        QBiCPortletUI.class.getClassLoader().getResourceAsStream(PORTLET_PROPERTIES_FILE_PATH)) {
-      portletProperties.load(propertiesFileStream);
-      if (!portletProperties.containsKey("version")
-          || !portletProperties.containsKey("repository.url")) {
-        LOG.error("Missing version and/or repository url properties in portlet.properties file. "
-            + "The file should contain the 'version' and 'repository.url' properties. "
-            + "Using default version and/or repository url.");
-      }
-    } catch (final Exception e) {
-      LOG.error("Error loading portlet.properties. Portlet will display bogus version/url values. "
-          + "Check that portlet.properties is found under the /WEB-INF/classes folder (this file "
-          + "is copied from src/main/resources/portlet.properties during the build).", e);
+    /**
+     * Default constructor.
+     */
+    public QBiCPortletUI() {
+        // load url/version from portlet.properties
+        LOG.info("Initializing QBiCPortletUI");
+        final Properties portletProperties = new Properties();
+        try (final InputStream propertiesFileStream =
+            QBiCPortletUI.class.getClassLoader().getResourceAsStream(PORTLET_PROPERTIES_FILE_PATH)) {
+            portletProperties.load(propertiesFileStream);
+            if (!portletProperties.containsKey("version")
+                || !portletProperties.containsKey("repository.url")) {
+                LOG.error("Missing version and/or repository url properties in portlet.properties file. "
+                    + "The file should contain the 'version' and 'repository.url' properties. "
+                    + "Using default version and/or repository url.");
+            }
+        } catch (final Exception e) {
+            LOG.error("Error loading portlet.properties. Portlet will display bogus version/url values. "
+                + "Check that portlet.properties is found under the /WEB-INF/classes folder (this file "
+                + "is copied from src/main/resources/portlet.properties during the build).", e);
+        }
+
+        portletVersion =
+            StringUtils.trimToEmpty(portletProperties.getProperty("version", DEFAULT_VERSION));
+        portletRepoURL =
+            StringUtils.trimToEmpty(portletProperties.getProperty("repository.url", DEFAULT_REPO));
     }
 
-    portletVersion =
-        StringUtils.trimToEmpty(portletProperties.getProperty("version", DEFAULT_VERSION));
-    portletRepoURL =
-        StringUtils.trimToEmpty(portletProperties.getProperty("repository.url", DEFAULT_REPO));
-  }
+    @Override
+    protected final void init(final VaadinRequest request) {
+        LOG.info("Version " + portletVersion);
+        final VerticalLayout layout = new VerticalLayout();
+        layout.setMargin(false);
+        // add the portlet
+        layout.addComponent(getPortletContent(request));
 
-  @Override
-  protected final void init(final VaadinRequest request) {
-    LOG.info("Version " + portletVersion);
-    final VerticalLayout layout = new VerticalLayout();
-    layout.setMargin(true);
-    // add the portlet
-    layout.addComponent(getPortletContent(request));
+        addPortletInfo(layout);
+        setContent(layout);
+    }
 
-    addPortletInfo(layout);
-    setContent(layout);
-  }
+    @Override
+    public final void setContent(final Component content) {
+        super.setContent(content);
+    }
 
-  @Override
-  public final void setContent(final Component content) {
-    super.setContent(content);
-  }
+    // adds version and repository information to the passed layout
+    private void addPortletInfo(final Layout layout) {
+        final Label portletInfoLabel = new Label("version " + portletVersion + " (<a href=\""
+            + portletRepoURL + "\">" + portletRepoURL + "</a>)", ContentMode.HTML);
+        portletInfoLabel.addStyleName(INFO_LABEL_CLASS);
+        portletInfoLabel.setId(INFO_LABEL_ID);
+        layout.addComponent(portletInfoLabel);
+    }
 
-  // adds version and repository information to the passed layout
-  private void addPortletInfo(final Layout layout) {
-    final Label portletInfoLabel = new Label("version " + portletVersion + " (<a href=\""
-        + portletRepoURL + "\">" + portletRepoURL + "</a>)", ContentMode.HTML);
-    portletInfoLabel.addStyleName(INFO_LABEL_CLASS);
-    portletInfoLabel.setId(INFO_LABEL_ID);
-    layout.addComponent(portletInfoLabel);
-  }
-
-  /**
-   * Provide the content that will be displayed.
-   */
-  protected abstract Layout getPortletContent(final VaadinRequest request);
+    /**
+     * Provide the content that will be displayed.
+     */
+    protected abstract Layout getPortletContent(final VaadinRequest request);
 }
