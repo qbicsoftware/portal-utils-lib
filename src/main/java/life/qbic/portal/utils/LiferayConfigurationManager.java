@@ -16,6 +16,7 @@ public enum LiferayConfigurationManager implements ConfigurationManager {
   public static final String DATASOURCE_USER = "datasource.user";
   public static final String DATASOURCE_PASS = "datasource.password";
   public static final String DATASOURCE_URL = "datasource.url";
+  public static final String DATASOURCE_API_URL = "datasource.api.url";
 
   public static final String GENOMEVIEWER_URL = "genomeviewer.url";
   public static final String GENOMEVIEWER_RESTAPI = "genomeviewer.restapi";
@@ -51,6 +52,7 @@ public enum LiferayConfigurationManager implements ConfigurationManager {
   private String dataSourceUser;
   private String dataSourcePass;
   private String dataSourceUrl;
+  private String dataSourceApiUrl;
 
   private String genomeViewerUrl;
   private String genomeViewerRestApi;
@@ -96,6 +98,7 @@ public enum LiferayConfigurationManager implements ConfigurationManager {
     dataSourceUser = portletConfig.getProperty(DATASOURCE_USER);
     dataSourcePass = portletConfig.getProperty(DATASOURCE_PASS);
     dataSourceUrl = portletConfig.getProperty(DATASOURCE_URL);
+    dataSourceApiUrl = portletConfig.getProperty(DATASOURCE_API_URL);
 
     genomeViewerUrl = portletConfig.getProperty(GENOMEVIEWER_URL);
     genomeViewerRestApi = portletConfig.getProperty(GENOMEVIEWER_RESTAPI);
@@ -152,6 +155,11 @@ public enum LiferayConfigurationManager implements ConfigurationManager {
   @Override
   public String getDataSourceUrl() {
     return dataSourceUrl;
+  }
+
+  @Override
+  public String getDataSourceApiUrl() {
+    return dataSourceApiUrl;
   }
 
   @Override

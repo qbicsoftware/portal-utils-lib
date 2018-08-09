@@ -10,71 +10,80 @@ package life.qbic.portal.utils;
  */
 public interface ConfigurationManager {
 
-  public String getConfigurationFileName();
+  String getConfigurationFileName();
 
-  public String getDataSource();
+  String getDataSource();
 
-  public String getDataSourceUser();
+  String getDataSourceUser();
 
-  public String getDataSourcePassword();
+  String getDataSourcePassword();
 
-  public String getDataSourceUrl();
+  /**
+   * @return the openBIS URL to be used by a client (e.g., openBIS client).
+   */
+  String getDataSourceUrl();
 
-  public String getGenomeViewerUrl();
+  @Deprecated
+  /**
+   * @return the openBIS URL for direct API access.
+   */
+  String getDataSourceApiUrl();
 
-  public String getGenomeViewerRestApiUrl();
+  String getGenomeViewerUrl();
 
-  public String getBarcodeScriptsFolder();
+  String getGenomeViewerRestApiUrl();
 
-  public String getTmpFolder();
+  String getBarcodeScriptsFolder();
 
-  public String getBarcodePathVariable();
+  String getTmpFolder();
 
-  public String getPathToGuseWorkflows();
+  String getBarcodePathVariable();
 
-  public void setPathToGuseWorkflows(String pathToGuseWorkflows);
+  String getPathToGuseWorkflows();
 
-  public String getPathToGuseCertificate();
+  void setPathToGuseWorkflows(String pathToGuseWorkflows);
 
-  public void setPathToGuseCertificate(String pathToGuseCertificate);
+  String getPathToGuseCertificate();
 
-  public String getPathToWFConfig();
+  void setPathToGuseCertificate(String pathToGuseCertificate);
 
-  public void setPathToWFConfig(String pathToWFConfig);
+  String getPathToWFConfig();
 
-  public String getPathToReferenceConfig();
+  void setPathToWFConfig(String pathToWFConfig);
 
-  public void setPathToReferenceConfig(String pathToReferenceConfig);
+  String getPathToReferenceConfig();
 
-  public String getPathToDropboxes();
+  void setPathToReferenceConfig(String pathToReferenceConfig);
+
+  String getPathToDropboxes();
 
   void setPathToDropboxes(String pathToDropboxes);
 
-  public boolean isInitialized();
+  boolean isInitialized();
 
-  public String getGuseRemoteApiUrl();
+  String getGuseRemoteApiUrl();
 
-  public void setGuseRemoteApiUrl(String guseRemoteApiUrl);
+  void setGuseRemoteApiUrl(String guseRemoteApiUrl);
 
-  public String getGuseRemoteApiPass();
+  String getGuseRemoteApiPass();
 
-  public void setGuseRemoteApiPass(String guseRemoteApiPass);
+  void setGuseRemoteApiPass(String guseRemoteApiPass);
 
-  public String getAttachmentURI();
+  String getAttachmentURI();
 
-  public String getAttachmentUser();
+  String getAttachmentUser();
 
-  public String getAttachmenPassword();
+  String getAttachmenPassword();
 
-  public String getAttachmentMaxSize();
+  String getAttachmentMaxSize();
 
-  public String getMsqlHost();
+  String getMsqlHost();
 
-  public String getMysqlPort();
+  String getMysqlPort();
 
-  public String getMysqlDB();
+  String getMysqlDB();
 
-  public String getMysqlUser();
+  String getMysqlUser();
 
-  public String getMysqlPass();
+  String getMysqlPass();
 }
