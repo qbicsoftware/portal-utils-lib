@@ -18,6 +18,7 @@ public enum LiferayIndependentConfigurationManager implements ConfigurationManag
   public static final String DATASOURCE_USER = "datasource.user";
   public static final String DATASOURCE_PASS = "datasource.password";
   public static final String DATASOURCE_URL = "datasource.url";
+  public static final String DATASOURCE_API_URL = "datasource.api.url";
 
   public static final String GENOMEVIEWER_URL = "genomeviewer.url";
   public static final String GENOMEVIEWER_RESTAPI = "genomeviewer.restapi";
@@ -53,6 +54,8 @@ public enum LiferayIndependentConfigurationManager implements ConfigurationManag
   private String dataSourceUser;
   private String dataSourcePass;
   private String dataSourceUrl;
+  private String dataSourceApiUrl;
+
   private String genomeViewerUrl;
   private String genomeViewerRestApi;
 
@@ -182,6 +185,10 @@ public enum LiferayIndependentConfigurationManager implements ConfigurationManag
     return dataSourceUrl;
   }
 
+  @Override
+  public String getDataSourceApiUrl() {
+    return dataSourceApiUrl;
+  }
 
   @Override
   public String getGenomeViewerUrl() {
