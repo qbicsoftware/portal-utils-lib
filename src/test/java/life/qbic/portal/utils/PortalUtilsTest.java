@@ -5,10 +5,13 @@ import static com.google.common.truth.Truth.assertThat;
 import org.junit.Test;
 
 
+
 /**
  * Tests without need for mocking.
  */
+
 public class PortalUtilsTest {
+
 
   @Test
   public void testHumanReadableByteCount() {
@@ -48,5 +51,6 @@ public class PortalUtilsTest {
     assertThat(target).isEqualTo("99.0 GiB");
 
   }
+
 
 }
