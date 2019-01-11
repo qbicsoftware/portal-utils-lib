@@ -77,7 +77,7 @@ public interface ConfigurationManager {
 
   String getAttachmentMaxSize();
 
-  String getMsqlHost();
+  String getMysqlHost();
 
   String getMysqlPort();
 
@@ -86,4 +86,29 @@ public interface ConfigurationManager {
   String getMysqlUser();
 
   String getMysqlPass();
+  
+  String getVocabularyMSLabeling();
+
+  String getBarcodeResultsFolder();
+
+  String getMetadataWriteGrp();
+
+//  String getDeletionGrp();
+
+  String getISAConfigPath();
+  
+  String getEpitopeAndSampleSizeVMHost();
+  
+  String getSampleSizeVMUser();
+  
+  String getRServePort();
+  
+  String getRNASeqSampleSizeContainerName();
+  
+  String getRServeUser();
+  
+  String getRServeHost();
+  
+  String getRServePassword();
+  
 }
