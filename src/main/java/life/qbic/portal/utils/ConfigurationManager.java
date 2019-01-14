@@ -82,6 +82,8 @@ public interface ConfigurationManager {
   String getMysqlPort();
 
   String getMysqlDB();
+  
+  String getNCCTMysqlDB();
 
   String getMysqlUser();
 

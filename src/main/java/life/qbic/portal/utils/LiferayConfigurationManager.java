@@ -49,6 +49,8 @@ public enum LiferayConfigurationManager implements ConfigurationManager {
   public static final String MSQL_PORT = "mysql.port";
   public static final String MSQL_PASS = "mysql.pass";
   
+  public static final String MSQL_NCCT_DB = "mysql.ncct.db";
+  
   public static final String METADATA_OVERWRITE_GROUP = "metadata.write.group";
   public static final String DELETION_GROUP = "UNUSEDDELETION";
   
@@ -101,6 +103,8 @@ public enum LiferayConfigurationManager implements ConfigurationManager {
   private String msqlUser;
   private String msqlPort;
   private String msqlPass;
+  
+  private String ncctMsqlDB;
 
   private String metadataOverwriteGroup;
   private String metadataDeletionGroup;
@@ -161,6 +165,8 @@ public enum LiferayConfigurationManager implements ConfigurationManager {
     msqlUser = portletConfig.getProperty(MSQL_USER);
     msqlPort = portletConfig.getProperty(MSQL_PORT);
     msqlPass = portletConfig.getProperty(MSQL_PASS);
+    
+    ncctMsqlDB = portletConfig.getProperty(MSQL_NCCT_DB);
 
     metadataOverwriteGroup = portletConfig.getProperty(METADATA_OVERWRITE_GROUP);
 //    metadataDeletionGroup = portletConfig.getProperty(metadataDeletionGroup);
@@ -404,6 +410,11 @@ public enum LiferayConfigurationManager implements ConfigurationManager {
   @Override
   public String getRServePassword() {
     return rservePass;
+  }
+
+  @Override
+  public String getNCCTMysqlDB() {
+    return ncctMsqlDB;
   }
 
 }
