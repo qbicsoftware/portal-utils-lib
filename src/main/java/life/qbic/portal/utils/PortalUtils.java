@@ -3,8 +3,11 @@ package life.qbic.portal.utils;
 import com.vaadin.server.VaadinService;
 import com.vaadin.server.VaadinSession;
 
+import java.util.Enumeration;
 import life.qbic.portal.utils.sessions.VaadinSessions;
 import life.qbic.portal.utils.user.UserRelated;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 /**
@@ -15,7 +18,8 @@ import life.qbic.portal.utils.user.UserRelated;
  * 
  */
 public class PortalUtils {
-  private static String LiferaySpecificAttribute = "PORTLET_ID";
+  private static final String LiferaySpecificAttribute = "PORTLET_ID";
+  private static final Logger LOG = LogManager.getLogger(PortalUtils.class);
   
   /**
    * returns the current Base path
@@ -53,6 +57,14 @@ public class PortalUtils {
     Object PORTLET_ID =
         VaadinService.getCurrentRequest().getAttribute(
             PortalUtils.LiferaySpecificAttribute);
+    if (LOG.isInfoEnabled()) {
+      LOG.info("remoteUser = {}, PORTLET_ID = {}", remoteuser, PORTLET_ID);
+      final Enumeration<String> attributeNames = VaadinService.getCurrentRequest().getAttributeNames();
+      while (attributeNames.hasMoreElements()) {
+        final String attributeName = attributeNames.nextElement();
+        LOG.info("  {} = {}", attributeName, VaadinService.getCurrentRequest().getAttribute(attributeName));
+      }
+    }
     return remoteuser != null && PORTLET_ID != null;
   }
 
