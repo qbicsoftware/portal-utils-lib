@@ -3,8 +3,17 @@ package life.qbic.portal.utils;
 import com.vaadin.server.VaadinService;
 import com.vaadin.server.VaadinSession;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
+import java.util.Enumeration;
+import java.util.Properties;
+
+import com.vaadin.ui.UI;
 import life.qbic.portal.utils.sessions.VaadinSessions;
 import life.qbic.portal.utils.user.UserRelated;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 /**
@@ -15,7 +24,8 @@ import life.qbic.portal.utils.user.UserRelated;
  * 
  */
 public class PortalUtils {
-  private static String LiferaySpecificAttribute = "PORTLET_ID";
+  private static final String LiferaySpecificAttribute = "PORTLET_ID";
+  private static final Logger LOG = LogManager.getLogger(PortalUtils.class);
   
   /**
    * returns the current Base path
@@ -53,6 +63,14 @@ public class PortalUtils {
     Object PORTLET_ID =
         VaadinService.getCurrentRequest().getAttribute(
             PortalUtils.LiferaySpecificAttribute);
+    if (LOG.isInfoEnabled()) {
+      LOG.info("remoteUser = {}, PORTLET_ID = {}", remoteuser, PORTLET_ID);
+      final Enumeration<String> attributeNames = VaadinService.getCurrentRequest().getAttributeNames();
+      while (attributeNames.hasMoreElements()) {
+        final String attributeName = attributeNames.nextElement();
+        LOG.info("  {} = {}", attributeName, VaadinService.getCurrentRequest().getAttribute(attributeName));
+      }
+    }
     return remoteuser != null && PORTLET_ID != null;
   }
 
@@ -70,4 +88,57 @@ public class PortalUtils {
 	    return String.format("%.1f %sB", bytes / Math.pow(unit, exp), pre);
 	}
 
+
+    /**
+     * Generates path to image path e.g. https://portal-testing.qbic.uni-tuebingen.de/slideshow-portlet/VAADIN/
+     * @param subfolder needs to be a folder placed in VAADIN folder
+     * @return path to the pictures folder of a portlet
+     */
+    public static String buildImagePath(String subfolder) {
+        StringBuilder pathBuilder = new StringBuilder();
+
+        if (isLiferayPortlet()) {
+            Properties prop = new Properties();
+            InputStream in = PortalUtils.class.getClassLoader()
+                    .getResourceAsStream("WEB-INF/liferay-plugin-package.properties");
+            try {
+                prop.load(in);
+                in.close();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            String portletName = prop.getProperty("name");
+
+
+            //pathBuilder.append("https://");
+            URI location = UI.getCurrent().getPage().getLocation();
+            // http
+            pathBuilder.append(location.getScheme());
+            pathBuilder.append("://");
+            // host+port
+            pathBuilder.append(location.getAuthority());
+
+            String port = (Integer.toString(location.getPort()));
+            if (location.toString().contains(port)) {
+                pathBuilder.append(":");
+                pathBuilder.append(port);
+            }
+            // pathBuilder.append("portal-testing.qbic.uni-tuebingen.de");
+            pathBuilder.append("/");
+            pathBuilder.append(portletName);
+        }
+
+        //path to images folder
+        pathBuilder.append("/VAADIN/"+subfolder);
+        LOG.info(pathBuilder.toString());
+        return pathBuilder.toString();
+    }
+
+    /**
+     *
+     * @return Path to image folder with default image path {@code images}
+     */
+    public static String buildImagePath() {
+        return buildImagePath("images");
+    }
 }
