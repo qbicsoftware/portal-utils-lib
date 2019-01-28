@@ -22,8 +22,10 @@ public enum LiferayConfigurationManager implements ConfigurationManager {
   public static final String GENOMEVIEWER_RESTAPI = "genomeviewer.restapi";
 
   public static final String TMP_FOLDER = "tmp.folder";
+  public static final String ISA_CONFIG = "isa.config.folder";
   public static final String BARCODE_SCRIPTS_FOLDER = "barcode.scripts";
   public static final String BARCODE_PATH_VARIABLE = "path.variable";
+  public static final String BARCODE_RESULTS = "barcode.results";
 
   public static final String PATH_TO_GUSE_WORKFLOWS = "path_to_guse_workflows";
   public static final String PATH_TO_GUSE_CERTIFICATE = "path_to_certificate";
@@ -46,6 +48,23 @@ public enum LiferayConfigurationManager implements ConfigurationManager {
   public static final String MSQL_USER = "mysql.user";
   public static final String MSQL_PORT = "mysql.port";
   public static final String MSQL_PASS = "mysql.pass";
+  
+  public static final String MSQL_NCCT_DB = "mysql.ncct.db";
+  
+  public static final String METADATA_OVERWRITE_GROUP = "metadata.write.group";
+  public static final String DELETION_GROUP = "UNUSEDDELETION";
+  
+  public static final String LABELING_METHODS = "vocabulary.ms.labeling";
+  
+  public static final String EPITOPE_PREDICTION_VM_HOST = "vm.epitope.host";
+  public static final String EPITOPE_PREDICTION_VM_USER = "vm.samplesize.user";
+  
+  public static final String RNASEQ_SAMPLESIZE_CONTAINER = "vm.container.samplesize.name";
+  
+  public static final String RSERVE_HOST = "rserve.host";
+  public static final String RSERVE_USER = "rserve.user";
+  public static final String RSERVE_PORT = "rserve.port";
+  public static final String RSERVE_PASS = "rserve.password";
 
   private String configurationFileName;
   private String dataSource;
@@ -58,8 +77,10 @@ public enum LiferayConfigurationManager implements ConfigurationManager {
   private String genomeViewerRestApi;
 
   private String tmpFolder;
+  private String isaConfigFolder;
   private String barcodeScriptsFolder;
   private String barcodePathVariable;
+  private String barcodeResultsFolder;
 
   private String pathToGuseWorkflows;
   private String pathToGuseCertificate;
@@ -82,7 +103,21 @@ public enum LiferayConfigurationManager implements ConfigurationManager {
   private String msqlUser;
   private String msqlPort;
   private String msqlPass;
+  
+  private String ncctMsqlDB;
 
+  private String metadataOverwriteGroup;
+  private String metadataDeletionGroup;
+  private String labelingMethods;
+  
+  private String epitopePredictionVMHost;
+  private String epitopePredictionVMUser;
+  private String rnaseqSampleSizeContainerName;
+  private String rserveHost;
+  private String rserveUser;
+  private String rservePort;
+  private String rservePass;
+  
   private boolean initialized = false;
 
   /*
@@ -104,8 +139,10 @@ public enum LiferayConfigurationManager implements ConfigurationManager {
     genomeViewerRestApi = portletConfig.getProperty(GENOMEVIEWER_RESTAPI);
 
     tmpFolder = portletConfig.getProperty(TMP_FOLDER);
+    isaConfigFolder = portletConfig.getProperty(ISA_CONFIG);
     barcodeScriptsFolder = portletConfig.getProperty(BARCODE_SCRIPTS_FOLDER);
     barcodePathVariable = portletConfig.getProperty(BARCODE_PATH_VARIABLE);
+    barcodeResultsFolder = portletConfig.getProperty(BARCODE_RESULTS);
 
     pathToGuseWorkflows = portletConfig.getProperty(PATH_TO_GUSE_WORKFLOWS);
     pathToGuseCertificate = portletConfig.getProperty(PATH_TO_GUSE_CERTIFICATE);
@@ -128,7 +165,21 @@ public enum LiferayConfigurationManager implements ConfigurationManager {
     msqlUser = portletConfig.getProperty(MSQL_USER);
     msqlPort = portletConfig.getProperty(MSQL_PORT);
     msqlPass = portletConfig.getProperty(MSQL_PASS);
+    
+    ncctMsqlDB = portletConfig.getProperty(MSQL_NCCT_DB);
 
+    metadataOverwriteGroup = portletConfig.getProperty(METADATA_OVERWRITE_GROUP);
+//    metadataDeletionGroup = portletConfig.getProperty(metadataDeletionGroup);
+    labelingMethods = portletConfig.getProperty(LABELING_METHODS);
+    
+    epitopePredictionVMHost = portletConfig.getProperty(EPITOPE_PREDICTION_VM_HOST);
+    epitopePredictionVMUser = portletConfig.getProperty(EPITOPE_PREDICTION_VM_USER);
+    rnaseqSampleSizeContainerName = portletConfig.getProperty(RNASEQ_SAMPLESIZE_CONTAINER);
+    rserveHost = portletConfig.getProperty(RSERVE_HOST);
+    rservePort = portletConfig.getProperty(RSERVE_PORT);
+    rserveUser = portletConfig.getProperty(RSERVE_USER);
+    rservePass = portletConfig.getProperty(RSERVE_PASS);
+    
     initialized = true;
   }
 
@@ -268,7 +319,7 @@ public enum LiferayConfigurationManager implements ConfigurationManager {
   }
 
   @Override
-  public String getMsqlHost() {
+  public String getMysqlHost() {
     return msqlHost;
   }
 
@@ -298,6 +349,72 @@ public enum LiferayConfigurationManager implements ConfigurationManager {
 
   public void setPathToReferenceConfig(String pathToReferenceConfig) {
     this.pathToReferenceConfig = pathToReferenceConfig;
+  }
+
+  @Override
+  public String getVocabularyMSLabeling() {
+    return labelingMethods;
+  }
+
+  @Override
+  public String getBarcodeResultsFolder() {
+    return barcodeResultsFolder;
+  }
+
+  @Override
+  public String getMetadataWriteGrp() {
+    return metadataOverwriteGroup;
+  }
+
+//  @Override
+//  public String getDeletionGrp() {
+//    // TODO Auto-generated method stub
+//    return null;
+//  }
+
+  @Override
+  public String getISAConfigPath() {
+    return isaConfigFolder;
+  }
+
+  @Override
+  public String getEpitopeAndSampleSizeVMHost() {
+    return epitopePredictionVMHost;
+  }
+
+  @Override
+  public String getSampleSizeVMUser() {
+    return epitopePredictionVMUser;
+  }
+
+  @Override
+  public String getRServePort() {
+    return rservePort;
+  }
+
+  @Override
+  public String getRNASeqSampleSizeContainerName() {
+    return rnaseqSampleSizeContainerName;
+  }
+  
+  @Override
+  public String getRServeHost() {
+    return rserveHost;
+  }
+  
+  @Override
+  public String getRServeUser() {
+    return rserveUser;
+  }
+
+  @Override
+  public String getRServePassword() {
+    return rservePass;
+  }
+
+  @Override
+  public String getNCCTMysqlDB() {
+    return ncctMsqlDB;
   }
 
 }
