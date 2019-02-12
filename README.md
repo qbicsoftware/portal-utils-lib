@@ -6,3 +6,4 @@ Created by Luis de la Garza (luis.delagarza@qbic.uni-tuebingen.de).
 
 ## Description
 Includes old `liferayandvaadinutils` library. New portal-specific code should be placed here.
+
