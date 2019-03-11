@@ -2,6 +2,9 @@ package life.qbic.portal.utils;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -50,6 +53,9 @@ public enum LiferayIndependentConfigurationManager implements ConfigurationManag
   public static final String MSQL_USER = "mysql.user";
   public static final String MSQL_PORT = "mysql.port";
   public static final String MSQL_PASS = "mysql.pass";
+  
+  public static final String DB_INPUT_USER_GROUPS = "mysql.input.usergrp";
+  public static final String DB_INPUT_ADMIN_GROUPS = "mysql.input.admingrp";
   
   public static final String MSQL_NCCT_DB = "mysql.ncct.db";
 
@@ -105,6 +111,9 @@ public enum LiferayIndependentConfigurationManager implements ConfigurationManag
   private String msqlUser;
   private String msqlPort;
   private String msqlPass;
+  
+  private List<String> dbInputUserGrps;
+  private List<String> dbInputAdminGrps;
   
   private String ncctMsqlDB;
   
@@ -187,6 +196,15 @@ public enum LiferayIndependentConfigurationManager implements ConfigurationManag
       msqlUser = portletConfig.getProperty(MSQL_USER);
       msqlPort = portletConfig.getProperty(MSQL_PORT);
       msqlPass = portletConfig.getProperty(MSQL_PASS);
+      
+      dbInputUserGrps = new ArrayList<String>(
+          Arrays.asList(portletConfig.getProperty(DB_INPUT_USER_GROUPS).split(",")));
+      for (int i = 0; i < dbInputUserGrps.size(); i++)
+        dbInputUserGrps.set(i, dbInputUserGrps.get(i).trim());
+      dbInputAdminGrps = new ArrayList<String>(
+          Arrays.asList(portletConfig.getProperty(DB_INPUT_ADMIN_GROUPS).split(",")));
+      for (int i = 0; i < dbInputAdminGrps.size(); i++)
+        dbInputAdminGrps.set(i, dbInputAdminGrps.get(i).trim());
       
       ncctMsqlDB = portletConfig.getProperty(MSQL_NCCT_DB);
 
@@ -448,6 +466,16 @@ public enum LiferayIndependentConfigurationManager implements ConfigurationManag
   @Override
   public String getNCCTMysqlDB() {
     return ncctMsqlDB;
+  }
+
+  @Override
+  public List<String> getUserDBInputUserGrps() {
+    return dbInputUserGrps;
+  }
+  
+  @Override
+  public List<String> getUserDBInputAdminGrps() {
+    return dbInputAdminGrps;
   }
 
 }

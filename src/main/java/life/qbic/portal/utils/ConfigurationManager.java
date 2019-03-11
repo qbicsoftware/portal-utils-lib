@@ -1,5 +1,6 @@
 package life.qbic.portal.utils;
 
+import java.util.List;
 
 /**
  * The ConfigurationManger interface represents the entire .properties file. One might think about
@@ -113,4 +114,7 @@ public interface ConfigurationManager {
   
   String getRServePassword();
   
+  List<String> getUserDBInputUserGrps();
+
+  List<String> getUserDBInputAdminGrps();
 }
