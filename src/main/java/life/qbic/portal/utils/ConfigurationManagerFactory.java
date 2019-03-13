@@ -1,9 +1,11 @@
 package life.qbic.portal.utils;
 
 import com.liferay.util.portlet.PortletProps;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import life.qbic.portal.portlet.QBiCPortletUI;
 
 /**
  * The ConfigurationManager Factory has only the {@link #getInstance()} method. This class maintains a static reference to an implementation of the
@@ -38,11 +40,14 @@ public class ConfigurationManagerFactory {
         properties = PortletProps.getProperties();
       } else {
         // load from a properties file that is in the classpath
-        try (final InputStream inputStream = ConfigurationManagerFactory.class.getClassLoader().getResourceAsStream("portlet.properties")) {
+        try (final InputStream inputStream = ConfigurationManagerFactory.class.getClassLoader().getResourceAsStream(QBiCPortletUI.PORTLET_PROPERTIES_FILE_PATH)) {
+          if (inputStream == null) {
+            throw new FileNotFoundException("Resource " + QBiCPortletUI.PORTLET_PROPERTIES_FILE_PATH + " was not found in the classpath.");
+          }
           properties = new Properties();
           properties.load(inputStream);
         } catch (IOException e) {
-          throw new RuntimeException("Could not load properties from portlet.properties file. Make sure that this file is found on the classpath.", e);
+          throw new RuntimeException("Could not load properties from a local configuration file. Make sure that this file is found on the classpath.", e);
         }
       }
       PROXY_INSTANCE = new PropertiesBasedConfigurationManager(properties);

@@ -9,30 +9,28 @@ import com.vaadin.server.VaadinService;
 import com.vaadin.server.VaadinSession;
 import com.vaadin.ui.UI;
 
-
-import java.net.MalformedURLException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 
-import org.junit.*;
+import org.junit.Ignore;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({VaadinService.class, VaadinSession.class, VaadinRequest.class, PortalUtils.class, URI.class, UI.class})
+@PowerMockIgnore("javax.management.*")
 public class PortalUtilsWithMocksTest {
 
 	@Test
 	public void testBuildImagePathNoLiferayInstance(){
 
 		PowerMockito.stub(PowerMockito.method(PortalUtils.class, "isLiferayPortlet")).toReturn(false);
-		//System.out.println(PortalUtils.isLiferayPortlet()+" is liferay portlet?");
-
 
 		assertEquals("/VAADIN/test", PortalUtils.buildImagePath("test"));
 	}
@@ -44,7 +42,6 @@ public class PortalUtilsWithMocksTest {
 
 		URI realURI = new URL("https://portal-testing.qbic.uni-tuebingen.de").toURI();
 
-		//PowerMockito.mockStatic(UI.class);
 		UI mockUI = Mockito.mock(UI.class, Mockito.RETURNS_DEEP_STUBS);
 		final Page mockPage = Mockito.mock(Page.class);
 		PowerMockito.stub(PowerMockito.method(UI.class, "getCurrent")).toReturn(mockUI);
@@ -66,9 +63,7 @@ public class PortalUtilsWithMocksTest {
 		final VaadinSession mockSession = Mockito.mock(VaadinSession.class);
 
 		Mockito.when(VaadinSession.getCurrent()).thenReturn(mockSession);
-		//VaadinSession.getCurrent().getService();
 		Mockito.when(VaadinService.getCurrentRequest()).thenReturn(mockRequest);
-		//String remoteuser = VaadinService.getCurrentRequest().getRemoteUser();
 
 		assertEquals(PortalUtils.getUser(), null);
 	}

@@ -65,16 +65,6 @@ public interface ConfigurationManager {
 
   void setPathToDropboxes(String pathToDropboxes);
 
-  /**
-   * Initializes this configuration manager. This is a detail left to implementations.
-   */
-  void init();
-
-  /**
-   * @return whether this instance has been initialized.
-   */
-  boolean isInitialized();
-
   String getGuseRemoteApiUrl();
 
   void setGuseRemoteApiUrl(String guseRemoteApiUrl);

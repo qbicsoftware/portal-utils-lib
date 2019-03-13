@@ -6,13 +6,20 @@ import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 /**
  * Implementation of the {@link ConfigurationManager} based on {@link java.util.Properties}. See {@link ConfigurationManagerFactory} for an explanation on why
  * this is not a singleton.
  */
 public class PropertiesBasedConfigurationManager implements ConfigurationManager {
+
+  private static final Logger LOG = LogManager.getLogger(PropertiesBasedConfigurationManager.class);
+
   // names of the properties
   private static final String DATASOURCE_KEY = "datasource";
   private static final String DATASOURCE_USER = "datasource.user";
@@ -78,7 +85,6 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
   private static final String ALLOW_UNAUTHENTICATED_ACCESS_PREFIX = "access.unauthenticated.";
 
   // member variables
-  private final Properties properties;
   private String dataSource;
   private String dataSourceUser;
   private String dataSourcePass;
@@ -134,18 +140,11 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
   // stores all properties that start with <ALLOW_UNAUTHENTICATED_ACCESS_PREFIX> whose value has been set to true
   private Set<String> authorizedUnauthenticatedContentIds;
 
-  private boolean initialized = false;
-
   /**
    * @param properties A {@link Properties} object that contains the properties for this instance.
    */
   public PropertiesBasedConfigurationManager(final Properties properties) {
     Validate.notNull(properties, "properties is required and cannot be null");
-    this.properties = properties;
-  }
-
-  @Override
-  public void init() {
     dataSource = properties.getProperty(DATASOURCE_KEY, "openBIS");
     dataSourceUser = properties.getProperty(DATASOURCE_USER);
     dataSourcePass = properties.getProperty(DATASOURCE_PASS);
@@ -183,19 +182,18 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
     msqlPort = properties.getProperty(MSQL_PORT);
     msqlPass = properties.getProperty(MSQL_PASS);
 
-    dbInputUserGrps = new ArrayList<String>(
-        Arrays.asList(properties.getProperty(DB_INPUT_USER_GROUPS).split(",")));
+    dbInputUserGrps = new ArrayList<>(
+        Arrays.asList(properties.getProperty(DB_INPUT_USER_GROUPS, "").split(",")));
     for (int i = 0; i < dbInputUserGrps.size(); i++)
       dbInputUserGrps.set(i, dbInputUserGrps.get(i).trim());
-    dbInputAdminGrps = new ArrayList<String>(
-        Arrays.asList(properties.getProperty(DB_INPUT_ADMIN_GROUPS).split(",")));
+    dbInputAdminGrps = new ArrayList<>(
+        Arrays.asList(properties.getProperty(DB_INPUT_ADMIN_GROUPS, "").split(",")));
     for (int i = 0; i < dbInputAdminGrps.size(); i++)
       dbInputAdminGrps.set(i, dbInputAdminGrps.get(i).trim());
 
     ncctMsqlDB = properties.getProperty(MSQL_NCCT_DB);
 
     metadataOverwriteGroup = properties.getProperty(METADATA_OVERWRITE_GROUP);
-//    metadataDeletionGroup = properties.getProperty(metadataDeletionGroup);
     labelingMethods = properties.getProperty(LABELING_METHODS);
 
     epitopePredictionVMHost = properties.getProperty(EPITOPE_PREDICTION_VM_HOST);
@@ -215,16 +213,15 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
       //   2. are set to true
       if (propertyName.startsWith(ALLOW_UNAUTHENTICATED_ACCESS_PREFIX) && Boolean.parseBoolean(properties.getProperty(propertyName))) {
         // we don't need to store the prefix
-        authorizedUnauthenticatedContentIds.add(propertyName.substring(ALLOW_UNAUTHENTICATED_ACCESS_PREFIX.length() - 1));
+        final String contentId = propertyName.substring(ALLOW_UNAUTHENTICATED_ACCESS_PREFIX.length());
+        if (StringUtils.isNotBlank(contentId)) {
+          authorizedUnauthenticatedContentIds.add(contentId);
+        } else {
+          LOG.warn("Invalid property id {} found in configuration. The format of this property name is: {}<contentId>=[true|false], " +
+              "where <contentId> identifies some content", propertyName, ALLOW_UNAUTHENTICATED_ACCESS_PREFIX);
+        }
       }
     }
-
-    initialized = true;
-  }
-
-  @Override
-  public boolean isInitialized() {
-    return initialized;
   }
 
   @Override
