@@ -11,6 +11,11 @@ import java.util.List;
  */
 public interface ConfigurationManager {
 
+  @Deprecated
+  /**
+   * @deprecated This property was never loaded, neither by the already removed LiferayConfigurarionManager nor by LiferayIndependentConfigurationManager,
+   * perhaps this method is not used at all.
+   */
   String getConfigurationFileName();
 
   String getDataSource();
@@ -59,8 +64,6 @@ public interface ConfigurationManager {
   String getPathToDropboxes();
 
   void setPathToDropboxes(String pathToDropboxes);
-
-  boolean isInitialized();
 
   String getGuseRemoteApiUrl();
 
@@ -117,4 +120,14 @@ public interface ConfigurationManager {
   List<String> getUserDBInputUserGrps();
 
   List<String> getUserDBInputAdminGrps();
+
+  /**
+   * Determines if the given content, identified by a user-generated {@code contentId}, has been configured to display content for unauthenticated users.
+   * For security and backwards compatibility purposes, implementations should use {@code false} as a default value in case a configuration is missing.
+   *
+   * @param contentId The id of the content in question. This id can be any non-blank string and gives developers the flexibility to define several content
+   *                  identifiers for the same portlet.
+   * @return {@code true} if the content identified by the given {@code contentId} can be displayed for unauthenticated users.
+   */
+  boolean isAllowUnauthenticatedAccess(final String contentId);
 }

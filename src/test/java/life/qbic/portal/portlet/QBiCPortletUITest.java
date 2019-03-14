@@ -5,21 +5,17 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
-
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import life.qbic.portal.TestUtils;
 import org.apache.logging.log4j.Logger;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -45,6 +41,7 @@ public class QBiCPortletUITest {
   @Mock
   private Logger mockLogger;
 
+  // this rule is needed to use Whitebox to set the static "LOG" variable
   @Rule
   public MockitoRule rule = MockitoJUnit.rule();
 
@@ -55,15 +52,17 @@ public class QBiCPortletUITest {
   }
 
   @Before
-  public void setUpTest() throws IOException, URISyntaxException {
+  public void setUpTest() throws Exception {
     // inject mock logger
     Whitebox.setInternalState(QBiCPortletUI.class, "LOG", mockLogger);
+    // make sure that there's no portlet.properties in the classpath
+    TestUtils.deleteConfigFile();
   }
 
   @Test
   public void testMissingVersion() throws IOException, URISyntaxException {
     // we expect a clean init, but some warning/error should be logged
-    copyPropertiesFrom("portlet.properties_no_version");
+    TestUtils.copyPropertiesFrom("portlet.properties_no_version");
 
     final UI mockUI = new MockUI();
     mockUI.doInit(mockRequest, 1, "test");
@@ -77,7 +76,7 @@ public class QBiCPortletUITest {
   @Test
   public void testMissingRepositoryUrl() throws IOException, URISyntaxException {
     // we expect a clean init, but some warning/error should be logged
-    copyPropertiesFrom("portlet.properties_no_repo");
+    TestUtils.copyPropertiesFrom("portlet.properties_no_repo");
 
     final UI mockUI = new MockUI();
     mockUI.doInit(mockRequest, 1, "test");
@@ -91,7 +90,7 @@ public class QBiCPortletUITest {
   @Test
   public void testEmptyPortletProperties() throws URISyntaxException, IOException {
     // we expect a clean init, but some warning/error should be logged
-    copyPropertiesFrom("portlet.properties_nothing");
+    TestUtils.copyPropertiesFrom("portlet.properties_nothing");
 
     final UI mockUI = new MockUI();
     mockUI.doInit(mockRequest, 1, "test");
@@ -104,10 +103,8 @@ public class QBiCPortletUITest {
 
   @Test
   public void testMissingPortletProperties() throws IOException, URISyntaxException {
-    // we expect a clean init, but some warning/error should be logged with an exception (for the
-    // stacktrace)
-    Files.deleteIfExists(Paths.get(getClass().getClassLoader()
-        .getResource(QBiCPortletUI.PORTLET_PROPERTIES_FILE_PATH).toURI()));
+    // we expect a clean init, but some warning/error should be logged with an exception (for the stacktrace)
+    TestUtils.deleteConfigFile();
 
     final UI mockUI = new MockUI();
     mockUI.doInit(mockRequest, 1, "test");
@@ -121,7 +118,7 @@ public class QBiCPortletUITest {
   @Test
   public void testInfoLabelContainsProperValues() throws URISyntaxException, IOException {
     // happy path
-    copyPropertiesFrom("portlet.properties_good");
+    TestUtils.copyPropertiesFrom("portlet.properties_good");
 
     final UI mockUI = new MockUI();
     mockUI.doInit(mockRequest, 1, "test");
@@ -135,7 +132,7 @@ public class QBiCPortletUITest {
   @Test
   public void testPortletInfoIsFooter() throws URISyntaxException, IOException {
     // we expect portlet information to be on a footer
-    copyPropertiesFrom("portlet.properties_good");
+    TestUtils.copyPropertiesFrom("portlet.properties_good");
 
     final UI mockUI = new MockUI();
     mockUI.doInit(mockRequest, 1, "test");
@@ -148,7 +145,7 @@ public class QBiCPortletUITest {
   @Test
   public void testContentIsAdded() throws URISyntaxException, IOException {
     // we expect any content the child class adds to be present
-    copyPropertiesFrom("portlet.properties_good");
+    TestUtils.copyPropertiesFrom("portlet.properties_good");
 
     final UI mockUI = new MockUI();
     mockUI.doInit(mockRequest, 1, "test");
@@ -164,7 +161,7 @@ public class QBiCPortletUITest {
   @Test(expected = NullPointerException.class)
   public void testNullContent() throws URISyntaxException, IOException {
     // we expect this to fail with a loud exception
-    copyPropertiesFrom("portlet.properties_good");
+    TestUtils.copyPropertiesFrom("portlet.properties_good");
 
     final UI mockUI = new MockUI();
     ((MockUI) mockUI).useNullContent = true;
@@ -172,15 +169,6 @@ public class QBiCPortletUITest {
   }
 
   // ========== support methods/classes ============
-  private void copyPropertiesFrom(final String propertiesFilePath)
-      throws URISyntaxException, IOException {
-    final ClassLoader classLoader = getClass().getClassLoader();
-    final Path source = Paths.get(classLoader.getResource(propertiesFilePath).toURI());
-    final Path target = Paths.get(source.getParent().toString(), File.separator,
-        QBiCPortletUI.PORTLET_PROPERTIES_FILE_PATH);
-    Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
-  }
-
   private void assertVersion(final UI ui, final String version) {
     final Label infoLabel = getInfoLabel(ui);
     assertThat(infoLabel.getValue(), containsString("version " + version + " (<a"));

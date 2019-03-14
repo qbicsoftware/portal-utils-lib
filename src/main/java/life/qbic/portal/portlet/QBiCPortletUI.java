@@ -23,9 +23,13 @@ import com.vaadin.ui.VerticalLayout;
 @Widgetset("life.qbic.portlet.AppWidgetSet")
 public abstract class QBiCPortletUI extends UI {
 
+  /**
+   * Location of the configuration file for all portlets. This path is relative to the classpath.
+   */
+  public static final String PORTLET_PROPERTIES_FILE_PATH = "portlet.properties";
+
     static final String INFO_LABEL_CLASS = "portlet-footer";
     static final String INFO_LABEL_ID = "qbic-portlet-info-label";
-    static final String PORTLET_PROPERTIES_FILE_PATH = "portlet.properties";
     static final String DEFAULT_REPO = "http://github.com/qbicsoftware";
     static final String DEFAULT_VERSION = "0.0.1-alpha";
 
