@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import life.qbic.portal.portlet.QBiCPortletUI;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * The ConfigurationManager Factory has only the {@link #getInstance()} method. This class maintains a static reference to an implementation of the
@@ -24,6 +26,8 @@ import life.qbic.portal.portlet.QBiCPortletUI;
  */
 public class ConfigurationManagerFactory {
 
+  private static final Logger LOG = LogManager.getLogger(ConfigurationManagerFactory.class);
+
   // this is a "proxy singleton" (developer's quotes, I actually don't know how to name this "pattern", again, my quotes)
   private static ConfigurationManager PROXY_INSTANCE;
   /**
@@ -36,10 +40,12 @@ public class ConfigurationManagerFactory {
       final Properties properties;
       // find out how we will populate the Properties object, that is, whether from a Liferay config file or from a file in the classpath
       if (PortalUtils.isLiferayPortlet()) {
+        LOG.info("Running on a Liferay portal");
         // this baby is running on a portal, how exciting!
         properties = PortletProps.getProperties();
       } else {
         // load from a properties file that is in the classpath
+        LOG.info("It seems that this is not a Liferay instance, reading local configuration file");
         try (final InputStream inputStream = ConfigurationManagerFactory.class.getClassLoader().getResourceAsStream(QBiCPortletUI.PORTLET_PROPERTIES_FILE_PATH)) {
           if (inputStream == null) {
             throw new FileNotFoundException("Resource " + QBiCPortletUI.PORTLET_PROPERTIES_FILE_PATH + " was not found in the classpath.");
