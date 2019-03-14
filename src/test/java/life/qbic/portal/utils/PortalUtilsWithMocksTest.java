@@ -1,8 +1,10 @@
 package life.qbic.portal.utils;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.fail;
 
+import com.liferay.portal.model.User;
 import com.vaadin.server.Page;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinService;
@@ -12,6 +14,7 @@ import com.vaadin.ui.UI;
 import java.net.URI;
 import java.net.URL;
 
+import life.qbic.portal.utils.user.UserRelated;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,7 +26,7 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({VaadinService.class, VaadinSession.class, VaadinRequest.class, PortalUtils.class, URI.class, UI.class})
+@PrepareForTest({VaadinService.class, VaadinSession.class, VaadinRequest.class, PortalUtils.class, URI.class, UI.class, UserRelated.class})
 @PowerMockIgnore("javax.management.*")
 public class PortalUtilsWithMocksTest {
 
@@ -54,18 +57,89 @@ public class PortalUtilsWithMocksTest {
 	}
 
 	@Test
-	public void testNoLiferayInstance() {
-
-		PowerMockito.mockStatic(VaadinSession.class);
-		PowerMockito.mockStatic(VaadinService.class);
-
+	public void testGetAuthenticatedUser() {
 		final VaadinRequest mockRequest = Mockito.mock(VaadinRequest.class);
-		final VaadinSession mockSession = Mockito.mock(VaadinSession.class);
+		final User mockUser = Mockito.mock(User.class);
 
-		Mockito.when(VaadinSession.getCurrent()).thenReturn(mockSession);
+		PowerMockito.mockStatic(VaadinService.class);
+		PowerMockito.mockStatic(UserRelated.class);
+
 		Mockito.when(VaadinService.getCurrentRequest()).thenReturn(mockRequest);
+		Mockito.when(mockRequest.getRemoteUser()).thenReturn("authenticated");
+		Mockito.when(UserRelated.getLiferayUser("authenticated")).thenReturn(mockUser);
 
-		assertEquals(PortalUtils.getUser(), null);
+		assertSame(mockUser, PortalUtils.getUser());
+	}
+
+	@Test
+	public void testGetUnauthenticatedUser() {
+		final VaadinRequest mockRequest = Mockito.mock(VaadinRequest.class);
+
+		PowerMockito.mockStatic(VaadinService.class);
+		PowerMockito.mockStatic(UserRelated.class);
+
+		Mockito.when(VaadinService.getCurrentRequest()).thenReturn(mockRequest);
+		Mockito.when(mockRequest.getRemoteUser()).thenReturn(null);
+
+		assertSame(null, PortalUtils.getUser());
+	}
+
+	@Test
+	public void testGetAuthenticatedScreenName() {
+		final VaadinRequest mockRequest = Mockito.mock(VaadinRequest.class);
+		final User mockUser = Mockito.mock(User.class);
+
+		PowerMockito.mockStatic(VaadinService.class);
+		PowerMockito.mockStatic(UserRelated.class);
+
+		Mockito.when(VaadinService.getCurrentRequest()).thenReturn(mockRequest);
+		Mockito.when(mockRequest.getRemoteUser()).thenReturn("authenticated");
+		Mockito.when(UserRelated.getLiferayUser("authenticated")).thenReturn(mockUser);
+		Mockito.when(mockUser.getScreenName()).thenReturn("Mr. Secure");
+
+		assertEquals("Mr. Secure", PortalUtils.getScreenName());
+	}
+
+	@Test
+	public void testGetUnauthenticatedScreenName() {
+		final VaadinRequest mockRequest = Mockito.mock(VaadinRequest.class);
+
+		PowerMockito.mockStatic(VaadinService.class);
+		PowerMockito.mockStatic(UserRelated.class);
+
+		Mockito.when(VaadinService.getCurrentRequest()).thenReturn(mockRequest);
+		Mockito.when(mockRequest.getRemoteUser()).thenReturn(null);
+
+		assertEquals(null, PortalUtils.getScreenName());
+	}
+
+	@Test
+	public void testGetAuthenticatedNonNullScreenName() {
+		final VaadinRequest mockRequest = Mockito.mock(VaadinRequest.class);
+		final User mockUser = Mockito.mock(User.class);
+
+		PowerMockito.mockStatic(VaadinService.class);
+		PowerMockito.mockStatic(UserRelated.class);
+
+		Mockito.when(VaadinService.getCurrentRequest()).thenReturn(mockRequest);
+		Mockito.when(mockRequest.getRemoteUser()).thenReturn("authenticated");
+		Mockito.when(UserRelated.getLiferayUser("authenticated")).thenReturn(mockUser);
+		Mockito.when(mockUser.getScreenName()).thenReturn("Mr. Secure");
+
+		assertEquals("Mr. Secure", PortalUtils.getNonNullScreenName());
+	}
+
+	@Test
+	public void testGetUnauthenticatedNonNullScreenName() {
+		final VaadinRequest mockRequest = Mockito.mock(VaadinRequest.class);
+
+		PowerMockito.mockStatic(VaadinService.class);
+		PowerMockito.mockStatic(UserRelated.class);
+
+		Mockito.when(VaadinService.getCurrentRequest()).thenReturn(mockRequest);
+		Mockito.when(mockRequest.getRemoteUser()).thenReturn(null);
+
+		assertEquals("Anonymous", PortalUtils.getNonNullScreenName());
 	}
 
 	// FIXME

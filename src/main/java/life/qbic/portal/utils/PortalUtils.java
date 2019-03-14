@@ -56,13 +56,8 @@ public class PortalUtils {
    * @return current Liferay user or null if no user exists.
    */
   public static com.liferay.portal.model.User getUser() {
-	VaadinSession.getCurrent().getService();
-    String remoteuser = VaadinService.getCurrentRequest().getRemoteUser();
-
-    if (remoteuser == null) {
-      return null;
-    }
-    return UserRelated.getLiferayUser(remoteuser);
+    final String remoteUser = VaadinService.getCurrentRequest().getRemoteUser();
+    return remoteUser == null ? null : UserRelated.getLiferayUser(remoteUser);
   }
 
   /**
