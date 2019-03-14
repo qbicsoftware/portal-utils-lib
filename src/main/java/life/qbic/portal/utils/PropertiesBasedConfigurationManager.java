@@ -18,71 +18,71 @@ import org.apache.logging.log4j.Logger;
  */
 public class PropertiesBasedConfigurationManager implements ConfigurationManager {
 
-  private static final Logger LOG = LogManager.getLogger(PropertiesBasedConfigurationManager.class);
+  static final Logger LOG = LogManager.getLogger(PropertiesBasedConfigurationManager.class);
 
-  // names of the properties
-  private static final String DATASOURCE_KEY = "datasource";
-  private static final String DATASOURCE_USER = "datasource.user";
-  private static final String DATASOURCE_PASS = "datasource.password";
-  private static final String DATASOURCE_URL = "datasource.url";
-  private static final String DATASOURCE_API_URL = "datasource.api.url";
+  // names of the properties (set with package access so the tests can see these constants
+  static final String DATASOURCE_KEY = "datasource";
+  static final String DATASOURCE_USER = "datasource.user";
+  static final String DATASOURCE_PASS = "datasource.password";
+  static final String DATASOURCE_URL = "datasource.url";
+  static final String DATASOURCE_API_URL = "datasource.api.url";
 
-  private static final String GENOMEVIEWER_URL = "genomeviewer.url";
-  private static final String GENOMEVIEWER_RESTAPI = "genomeviewer.restapi";
+  static final String GENOMEVIEWER_URL = "genomeviewer.url";
+  static final String GENOMEVIEWER_RESTAPI = "genomeviewer.restapi";
 
-  private static final String TMP_FOLDER = "tmp.folder";
-  private static final String ISA_CONFIG = "isa.config.folder";
-  private static final String BARCODE_SCRIPTS_FOLDER = "barcode.scripts";
-  private static final String BARCODE_PATH_VARIABLE = "path.variable";
-  private static final String BARCODE_RESULTS = "barcode.results";
+  static final String TMP_FOLDER = "tmp.folder";
+  static final String ISA_CONFIG = "isa.config.folder";
+  static final String BARCODE_SCRIPTS_FOLDER = "barcode.scripts";
+  static final String BARCODE_PATH_VARIABLE = "path.variable";
+  static final String BARCODE_RESULTS = "barcode.results";
 
-  private static final String PATH_TO_GUSE_WORKFLOWS = "path_to_guse_workflows";
-  private static final String PATH_TO_GUSE_CERTIFICATE = "path_to_certificate";
-  private static final String PATH_TO_WF_CONFIG = "path_to_wf_config";
+  static final String PATH_TO_GUSE_WORKFLOWS = "path_to_guse_workflows";
+  static final String PATH_TO_GUSE_CERTIFICATE = "path_to_certificate";
+  static final String PATH_TO_WF_CONFIG = "path_to_wf_config";
 
-  private static final String PATH_TO_REFERENCE_CONFIG = "path_to_reference_config";
+  static final String PATH_TO_REFERENCE_CONFIG = "path_to_reference_config";
 
-  private static final String PATH_TO_DROPBOXES = "path_to_dropboxes";
+  static final String PATH_TO_DROPBOXES = "path_to_dropboxes";
 
-  private static final String GUSE_REMOTE_API_URL = "guse_remoteapi_url";
-  private static final String GUSE_REMOTE_API_PASS = "guse_remoteapi_password";
+  static final String GUSE_REMOTE_API_URL = "guse_remoteapi_url";
+  static final String GUSE_REMOTE_API_PASS = "guse_remoteapi_password";
 
-  private static final String ATTACHMENT_URI = "attachment.uri";
-  private static final String ATTACHMENT_USER = "attachment.user";
-  private static final String ATTACHMENT_PASS = "attachment.password";
-  private static final String ATTACHMENT_MAX_SIZE = "max.attachment.size";
+  static final String ATTACHMENT_URI = "attachment.uri";
+  static final String ATTACHMENT_USER = "attachment.user";
+  static final String ATTACHMENT_PASS = "attachment.password";
+  static final String ATTACHMENT_MAX_SIZE = "max.attachment.size";
 
-  private static final String MSQL_HOST = "mysql.host";
-  private static final String MSQL_DB = "mysql.db";
-  private static final String MSQL_USER = "mysql.user";
-  private static final String MSQL_PORT = "mysql.port";
-  private static final String MSQL_PASS = "mysql.pass";
+  static final String MSQL_HOST = "mysql.host";
+  static final String MSQL_DB = "mysql.db";
+  static final String MSQL_USER = "mysql.user";
+  static final String MSQL_PORT = "mysql.port";
+  static final String MSQL_PASS = "mysql.pass";
 
-  private static final String DB_INPUT_USER_GROUPS = "mysql.input.usergrp";
-  private static final String DB_INPUT_ADMIN_GROUPS = "mysql.input.admingrp";
+  static final String DB_INPUT_USER_GROUPS = "mysql.input.usergrp";
+  static final String DB_INPUT_ADMIN_GROUPS = "mysql.input.admingrp";
 
-  private static final String MSQL_NCCT_DB = "mysql.ncct.db";
+  static final String MSQL_NCCT_DB = "mysql.ncct.db";
 
-  private static final String METADATA_OVERWRITE_GROUP = "metadata.write.group";
-  private static final String DELETION_GROUP = "UNUSEDDELETION";
+  static final String METADATA_OVERWRITE_GROUP = "metadata.write.group";
+  static final String DELETION_GROUP = "UNUSEDDELETION";
 
-  private static final String LABELING_METHODS = "vocabulary.ms.labeling";
+  static final String LABELING_METHODS = "vocabulary.ms.labeling";
 
-  private static final String EPITOPE_PREDICTION_VM_HOST = "vm.epitope.host";
-  private static final String EPITOPE_PREDICTION_VM_USER = "vm.samplesize.user";
+  static final String EPITOPE_PREDICTION_VM_HOST = "vm.epitope.host";
+  static final String EPITOPE_PREDICTION_VM_USER = "vm.samplesize.user";
 
-  private static final String RNASEQ_SAMPLESIZE_CONTAINER = "vm.container.samplesize.name";
+  static final String RNASEQ_SAMPLESIZE_CONTAINER = "vm.container.samplesize.name";
 
-  private static final String RSERVE_HOST = "rserve.host";
-  private static final String RSERVE_USER = "rserve.user";
-  private static final String RSERVE_PORT = "rserve.port";
-  private static final String RSERVE_PASS = "rserve.password";
+  static final String RSERVE_HOST = "rserve.host";
+  static final String RSERVE_USER = "rserve.user";
+  static final String RSERVE_PORT = "rserve.port";
+  static final String RSERVE_PASS = "rserve.password";
 
   // in the properties file we expect properties defined as follows:
   //   access.unauthenticated.foo = false
   //   access.unauthenticated.bar = true
   // where foo/bar are content identifiers
-  private static final String ALLOW_UNAUTHENTICATED_ACCESS_PREFIX = "access.unauthenticated.";
+  static final String ALLOW_UNAUTHENTICATED_ACCESS_PREFIX = "access.unauthenticated.";
 
   // member variables
   private String dataSource;
@@ -143,7 +143,7 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
   /**
    * @param properties A {@link Properties} object that contains the properties for this instance.
    */
-  public PropertiesBasedConfigurationManager(final Properties properties) {
+  PropertiesBasedConfigurationManager(final Properties properties) {
     Validate.notNull(properties, "properties is required and cannot be null");
     dataSource = properties.getProperty(DATASOURCE_KEY, "openBIS");
     dataSourceUser = properties.getProperty(DATASOURCE_USER);
@@ -211,14 +211,15 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
       // store only properties that:
       //   1. start with our prefix AND
       //   2. are set to true
-      if (propertyName.startsWith(ALLOW_UNAUTHENTICATED_ACCESS_PREFIX) && Boolean.parseBoolean(properties.getProperty(propertyName))) {
+      if (propertyName.startsWith(ALLOW_UNAUTHENTICATED_ACCESS_PREFIX) && Boolean.parseBoolean(properties.getProperty(propertyName, "").trim())) {
         // we don't need to store the prefix
         final String contentId = propertyName.substring(ALLOW_UNAUTHENTICATED_ACCESS_PREFIX.length());
         if (StringUtils.isNotBlank(contentId)) {
           authorizedUnauthenticatedContentIds.add(contentId);
         } else {
-          LOG.warn("Invalid property id {} found in configuration. The format of this property name is: {}<contentId>=[true|false], " +
-              "where <contentId> identifies some content", propertyName, ALLOW_UNAUTHENTICATED_ACCESS_PREFIX);
+          // property is empty
+          LOG.warn("Invalid property id found in configuration. The format of this property name is: access.unauthenticated.<contentId>=[true|false], " +
+              "where <contentId> identifies some content");
         }
       }
     }
