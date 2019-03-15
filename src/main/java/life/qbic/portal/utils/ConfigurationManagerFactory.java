@@ -46,15 +46,17 @@ public class ConfigurationManagerFactory {
       } else {
         // load from a properties file that is in the classpath
         LOG.info("It seems that this is not a Liferay instance, reading local configuration file");
-        try (final InputStream inputStream = ConfigurationManagerFactory.class.getClassLoader().getResourceAsStream(QBiCPortletUI.PORTLET_PROPERTIES_FILE_PATH)) {
-          if (inputStream == null) {
-            throw new FileNotFoundException("Resource " + QBiCPortletUI.PORTLET_PROPERTIES_FILE_PATH + " was not found in the classpath.");
+        properties = new Properties();
+          try (final InputStream inputStream = ConfigurationManagerFactory.class.getClassLoader()
+              .getResourceAsStream(QBiCPortletUI.DEVELOPER_PROPERTIES_FILE_PATH)) {
+            if (inputStream == null) {
+              LOG.warn("Your local configuration file was not found in the classpath. This might not be a problem. Perhaps you forgot to add {} in the classpath?", QBiCPortletUI.DEVELOPER_PROPERTIES_FILE_PATH);
+            } else {
+              properties.load(inputStream);
+            }
+          } catch (IOException e) {
+            throw new RuntimeException("Could not load local configuration file " + QBiCPortletUI.DEVELOPER_PROPERTIES_FILE_PATH, e);
           }
-          properties = new Properties();
-          properties.load(inputStream);
-        } catch (IOException e) {
-          throw new RuntimeException("Could not load properties from a local configuration file. Make sure that this file is found on the classpath.", e);
-        }
       }
       PROXY_INSTANCE = new PropertiesBasedConfigurationManager(properties);
     }
