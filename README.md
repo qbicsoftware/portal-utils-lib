@@ -21,6 +21,7 @@ You can read a configuration setting in your code by using `ConfigurationManager
 ### How to add a new configuration setting
 1. Add a *getter* method to the `life.qbic.portal.utils.ConfigurationManager` interface. This method will return the value of the new configuration setting you are adding, so make sure to name it accordingly.
 1. Modify the `life.qbic.portal.utils.PropertiesBasedConfigurationManager` class by adding your new configuration setting(s). Take a look at how other settings are loaded and try to be consistent with the code (i.e., add a constant with a property name, add a member variable to hold the property value and add a *getter* method).
+1. Modify `src/main/resources/developer.properties.example` and document your new configuration setting.
 1. If you want to do it by the book, add a test. Yes, it's just a simple *getter* method, but we have seen configuration settings that were never read from a properties file. There's no limit to how bad a project can turn into if no one writes tests. You can use the provided test files located in `src/test/resources/` to use them in your test cases.
 1. When you test locally, make sure to add the file `src/main/resources/developer.properties`, as explained above and add all needed configuration settings.
 1. When you deploy your portlet on a Liferay portal, make sure to modify the `<liferay-folder>/qbic-ext.properties` file to add your new configuration settings.
@@ -54,7 +55,7 @@ You then open `life.qbic.portal.utils.PropertiesBasedConfigurationManager` and a
    }
  ```
  
- Your test would look like:
+Your test would look like:
  
 ```
  @Test
@@ -67,14 +68,9 @@ You then open `life.qbic.portal.utils.PropertiesBasedConfigurationManager` and a
  }
 ```
 
-Entries on the several mentioned properties files would looke like:
+Entries on the several mentioned properties files would look like:
 ```
 # because only legends comment config files
 # number format pattern for the secret-project-portlet used to display all numeric values on the secret dynamic grids
 secret.number.format.pattern=#,###,###,##0.00
 ```
-
-
-
-
-
