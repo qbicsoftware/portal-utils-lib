@@ -56,7 +56,7 @@ public class QBiCPortletUITest {
     // inject mock logger
     Whitebox.setInternalState(QBiCPortletUI.class, "LOG", mockLogger);
     // make sure that there's no portlet.properties in the classpath
-    TestUtils.deleteConfigFile();
+    TestUtils.deletePropertiesFile();
   }
 
   @Test
@@ -104,7 +104,7 @@ public class QBiCPortletUITest {
   @Test
   public void testMissingPortletProperties() throws IOException, URISyntaxException {
     // we expect a clean init, but some warning/error should be logged with an exception (for the stacktrace)
-    TestUtils.deleteConfigFile();
+    TestUtils.deletePropertiesFile();
 
     final UI mockUI = new MockUI();
     mockUI.doInit(mockRequest, 1, "test");

@@ -12,12 +12,16 @@ import java.util.Arrays;
 import java.util.Properties;
 
 import life.qbic.portal.TestUtils;
+import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentMatchers;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 import org.powermock.api.mockito.PowerMockito;
@@ -39,21 +43,22 @@ public class ConfigurationManagerFactoryTest {
 
   private Properties mockPortalProperties;
 
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
+  @Mock
+  private Logger mockLogger;
 
   @Before
   public void setUp() throws IOException, URISyntaxException {
     mockPortalProperties = new Properties();
     // force ConfigurationManagerFactory to be uninitialized before every test is executed
     Whitebox.setInternalState(ConfigurationManagerFactory.class, "PROXY_INSTANCE", (ConfigurationManager)null);
-    // make sure there's no portlet.properties in the path
-    TestUtils.deleteConfigFile();
+    Whitebox.setInternalState(ConfigurationManagerFactory.class, "LOG", mockLogger);
+    // make sure there's no dveloper.properties in the path
+    TestUtils.deleteDeveloperPropertiesFile();
   }
 
   @After
-  public void cleanUp() throws IOException, URISyntaxException {
-    TestUtils.deleteConfigFile();
+  public void cleanUp()  {
+    TestUtils.deleteDeveloperPropertiesFile();
   }
 
   @Test
@@ -71,7 +76,7 @@ public class ConfigurationManagerFactoryTest {
 
   @Test
   public void testLocalEnvironment() throws Exception {
-    TestUtils.copyPropertiesFrom("portlet.properties_good");
+    TestUtils.copyDeveloperPropertiesFrom("developer.properties_good");
     PowerMockito.mockStatic(PortalUtils.class);
     when(PortalUtils.isLiferayPortlet()).thenReturn(false);
 
@@ -82,10 +87,9 @@ public class ConfigurationManagerFactoryTest {
   public void testLocalConfigFileNotFound() throws Exception {
     PowerMockito.mockStatic(PortalUtils.class);
     when(PortalUtils.isLiferayPortlet()).thenReturn(false);
-    thrown.expect(RuntimeException.class);
-    thrown.expectMessage(stringContainsInOrder(Arrays.asList("Could not load properties from a local configuration file")));
-    thrown.expectCause(instanceOf(IOException.class));
 
     ConfigurationManagerFactory.getInstance();
+
+    Mockito.verify(mockLogger).warn(ArgumentMatchers.contains("local configuration file was not found in the classpath"), ArgumentMatchers.anyString());
   }
 }

@@ -14,29 +14,55 @@ import life.qbic.portal.portlet.QBiCPortletUI;
  * Utility methods for unit tests.
  */
 public class TestUtils {
-
   /**
-   * Finds a file in the classpath using the given {@code propertiesFilePath} and copies its contents a file named {@link QBiCPortletUI#PORTLET_PROPERTIES_FILE_PATH},
-   * also located in the classpath.
-   * @param propertiesFilePath the destination.
-   * @throws URISyntaxException
-   * @throws IOException
+   * Copies the contents of the given resource (a file in the classpath) to {@link QBiCPortletUI#DEVELOPER_PROPERTIES_FILE_PATH}.
+   * @param resourcePath the path (relative to classpath) where the source file is located.
    */
-  public static void copyPropertiesFrom(final String propertiesFilePath)
-      throws URISyntaxException, IOException {
-    final ClassLoader classLoader = TestUtils.class.getClassLoader();
-    final Path source = Paths.get(classLoader.getResource(propertiesFilePath).toURI());
-    final Path target = Paths.get(source.getParent().toString(), File.separator, QBiCPortletUI.PORTLET_PROPERTIES_FILE_PATH);
-    Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
+  public static void copyDeveloperPropertiesFrom(final String resourcePath) {
+    copyResourceContents(resourcePath, QBiCPortletUI.DEVELOPER_PROPERTIES_FILE_PATH);
   }
 
   /**
-   * Deletes the file {@link QBiCPortletUI#PORTLET_PROPERTIES_FILE_PATH} from the classpath, if it exists.
+   * Copies the cotnents of the given resource (a file in the classpath) to {@link QBiCPortletUI#PORTLET_PROPERTIES_FILE_PATH}.
+   * @param resourcePath the path (relative to classpath) where the source file is located.
    */
-  public static void deleteConfigFile() throws URISyntaxException, IOException {
-    final URL configFileAsResource = TestUtils.class.getClassLoader().getResource(QBiCPortletUI.PORTLET_PROPERTIES_FILE_PATH);
-    if (configFileAsResource != null) {
-      Files.deleteIfExists(Paths.get(configFileAsResource.toURI()));
+  public static void copyPropertiesFrom(final String resourcePath) {
+    copyResourceContents(resourcePath, QBiCPortletUI.PORTLET_PROPERTIES_FILE_PATH);
+  }
+
+  private static void copyResourceContents(final String origin, final String destination) {
+    try {
+      final ClassLoader classLoader = TestUtils.class.getClassLoader();
+      final Path source = Paths.get(classLoader.getResource(origin).toURI());
+      final Path target = Paths.get(source.getParent().toString(), File.separator, destination);
+      Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
+    } catch (URISyntaxException | IOException e) {
+      throw new RuntimeException("Could not copy properties", e);
+    }
+  }
+
+  /**
+   * Deletes the file {@link QBiCPortletUI#DEVELOPER_PROPERTIES_FILE_PATH} from the classpath, if it exists.
+   */
+  public static void deleteDeveloperPropertiesFile() {
+    deleteResource(QBiCPortletUI.DEVELOPER_PROPERTIES_FILE_PATH);
+  }
+
+  /**
+   * Deletes the file {@link QBiCPortletUI#DEVELOPER_PROPERTIES_FILE_PATH} from the classpath, if it exists.
+   */
+  public static void deletePropertiesFile() {
+    deleteResource(QBiCPortletUI.PORTLET_PROPERTIES_FILE_PATH);
+  }
+
+  private static void deleteResource(final String resourcePath) {
+    try {
+      final URL configFileAsResource = TestUtils.class.getClassLoader().getResource(resourcePath);
+      if (configFileAsResource != null) {
+        Files.deleteIfExists(Paths.get(configFileAsResource.toURI()));
+      }
+    } catch (URISyntaxException | IOException e) {
+      throw new RuntimeException("Could not delete resource " + resourcePath, e);
     }
   }
 
