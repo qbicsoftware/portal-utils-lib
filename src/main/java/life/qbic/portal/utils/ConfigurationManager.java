@@ -130,4 +130,10 @@ public interface ConfigurationManager {
    * @return {@code true} if the content identified by the given {@code contentId} can be displayed for unauthenticated users.
    */
   boolean isAllowUnauthenticatedAccess(final String contentId);
+
+  /**
+   * Path of the file containing statistics for {@link statistics-portlet}. This is is typically the output of the {@code statistics-cli} tool.
+   * @return the path where the statistics file is located.
+   */
+  String getStatisticsFilePath();
 }
