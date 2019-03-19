@@ -78,6 +78,8 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
   static final String RSERVE_PORT = "rserve.port";
   static final String RSERVE_PASS = "rserve.password";
 
+  static final String STATISTICS_FILE_PATH ="statistics.file.path";
+
   // in the properties file we expect properties defined as follows:
   //   access.unauthenticated.foo = false
   //   access.unauthenticated.bar = true
@@ -137,6 +139,9 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
   private String rserveUser;
   private String rservePort;
   private String rservePass;
+
+  private String statisticsFilePath;
+
   // stores all properties that start with <ALLOW_UNAUTHENTICATED_ACCESS_PREFIX> whose value has been set to true
   private Set<String> authorizedUnauthenticatedContentIds;
 
@@ -203,6 +208,8 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
     rservePort = properties.getProperty(RSERVE_PORT);
     rserveUser = properties.getProperty(RSERVE_USER);
     rservePass = properties.getProperty(RSERVE_PASS);
+
+    statisticsFilePath = properties.getProperty(STATISTICS_FILE_PATH);
 
     // go through all properties that start with <ALLOW_UNAUTHENTICATED_ACCESS_PREFIX> and process them
     // in the end, this map will contain the ids of the content that can be displayed for unauthenticated users
@@ -469,4 +476,11 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
   public boolean isAllowUnauthenticatedAccess(final String contentId) {
     return authorizedUnauthenticatedContentIds.contains(contentId);
   }
+
+  @Override
+  public String getStatisticsFilePath() {
+    return statisticsFilePath;
+  }
+
+
 }
