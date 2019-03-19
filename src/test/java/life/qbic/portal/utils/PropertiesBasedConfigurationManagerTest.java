@@ -1,5 +1,7 @@
 package life.qbic.portal.utils;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
@@ -86,5 +88,20 @@ public class PropertiesBasedConfigurationManagerTest {
 
     assertTrue(configurationManager.isAllowUnauthenticatedAccess("foo"));
     Mockito.verify(mockLogger).warn(ArgumentMatchers.contains("Invalid property id"));
+  }
+
+  @Test
+  public void testStatisticsFilePathMissing() {
+    final ConfigurationManager configurationManager = new PropertiesBasedConfigurationManager(properties);
+
+    assertNull(configurationManager.getStatisticsFilePath());
+  }
+
+  @Test
+  public void testStatisticsFilePath() {
+    properties.setProperty(PropertiesBasedConfigurationManager.STATISTICS_FILE_PATH, "/bar/foo/test.yaml");
+    final ConfigurationManager configurationManager = new PropertiesBasedConfigurationManager(properties);
+
+    assertEquals("/bar/foo/test.yaml", configurationManager.getStatisticsFilePath());
   }
 }
