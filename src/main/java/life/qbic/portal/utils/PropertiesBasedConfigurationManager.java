@@ -13,8 +13,8 @@ import org.apache.logging.log4j.Logger;
 
 
 /**
- * Implementation of the {@link ConfigurationManager} based on {@link java.util.Properties}. See {@link ConfigurationManagerFactory} for an explanation on why
- * this is not a singleton.
+ * Implementation of the {@link ConfigurationManager} based on {@link java.util.Properties}. See
+ * {@link ConfigurationManagerFactory} for an explanation on why this is not a singleton.
  */
 public class PropertiesBasedConfigurationManager implements ConfigurationManager {
 
@@ -26,6 +26,11 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
   static final String DATASOURCE_PASS = "datasource.password";
   static final String DATASOURCE_URL = "datasource.url";
   static final String DATASOURCE_API_URL = "datasource.api.url";
+
+  static final String OMERO_HOST = "omero.host";
+  static final String OMERO_PORT = "omero.port";
+  static final String OMERO_USER = "omero.user";
+  static final String OMERO_PASS = "omero.password";
 
   static final String GENOMEVIEWER_URL = "genomeviewer.url";
   static final String GENOMEVIEWER_RESTAPI = "genomeviewer.restapi";
@@ -78,11 +83,11 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
   static final String RSERVE_PORT = "rserve.port";
   static final String RSERVE_PASS = "rserve.password";
 
-  static final String STATISTICS_FILE_PATH ="statistics.file.path";
+  static final String STATISTICS_FILE_PATH = "statistics.file.path";
 
   // in the properties file we expect properties defined as follows:
-  //   access.unauthenticated.foo = false
-  //   access.unauthenticated.bar = true
+  // access.unauthenticated.foo = false
+  // access.unauthenticated.bar = true
   // where foo/bar are content identifiers
   static final String ALLOW_UNAUTHENTICATED_ACCESS_PREFIX = "access.unauthenticated.";
 
@@ -92,6 +97,11 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
   private String dataSourcePass;
   private String dataSourceUrl;
   private String dataSourceApiUrl;
+
+  private String omeroHost;
+  private String omeroPort;
+  private String omeroUser;
+  private String omeroPass;
 
   private String genomeViewerUrl;
   private String genomeViewerRestApi;
@@ -142,7 +152,8 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
 
   private String statisticsFilePath;
 
-  // stores all properties that start with <ALLOW_UNAUTHENTICATED_ACCESS_PREFIX> whose value has been set to true
+  // stores all properties that start with <ALLOW_UNAUTHENTICATED_ACCESS_PREFIX> whose value has
+  // been set to true
   private Set<String> authorizedUnauthenticatedContentIds;
 
   /**
@@ -155,6 +166,11 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
     dataSourcePass = properties.getProperty(DATASOURCE_PASS);
     dataSourceUrl = properties.getProperty(DATASOURCE_URL);
     dataSourceApiUrl = properties.getProperty(DATASOURCE_API_URL);
+
+    omeroHost = properties.getProperty(OMERO_HOST);
+    omeroPort = properties.getProperty(OMERO_PORT);
+    omeroUser = properties.getProperty(OMERO_USER);
+    omeroPass = properties.getProperty(OMERO_PASS);
 
     genomeViewerUrl = properties.getProperty(GENOMEVIEWER_URL);
     genomeViewerRestApi = properties.getProperty(GENOMEVIEWER_RESTAPI);
@@ -187,8 +203,8 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
     msqlPort = properties.getProperty(MSQL_PORT);
     msqlPass = properties.getProperty(MSQL_PASS);
 
-    dbInputUserGrps = new ArrayList<>(
-        Arrays.asList(properties.getProperty(DB_INPUT_USER_GROUPS, "").split(",")));
+    dbInputUserGrps =
+        new ArrayList<>(Arrays.asList(properties.getProperty(DB_INPUT_USER_GROUPS, "").split(",")));
     for (int i = 0; i < dbInputUserGrps.size(); i++)
       dbInputUserGrps.set(i, dbInputUserGrps.get(i).trim());
     dbInputAdminGrps = new ArrayList<>(
@@ -211,22 +227,27 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
 
     statisticsFilePath = properties.getProperty(STATISTICS_FILE_PATH);
 
-    // go through all properties that start with <ALLOW_UNAUTHENTICATED_ACCESS_PREFIX> and process them
-    // in the end, this map will contain the ids of the content that can be displayed for unauthenticated users
+    // go through all properties that start with <ALLOW_UNAUTHENTICATED_ACCESS_PREFIX> and process
+    // them
+    // in the end, this map will contain the ids of the content that can be displayed for
+    // unauthenticated users
     authorizedUnauthenticatedContentIds = new TreeSet<>();
     for (final String propertyName : properties.stringPropertyNames()) {
       // store only properties that:
-      //   1. start with our prefix AND
-      //   2. are set to true
-      if (propertyName.startsWith(ALLOW_UNAUTHENTICATED_ACCESS_PREFIX) && Boolean.parseBoolean(properties.getProperty(propertyName, "").trim())) {
+      // 1. start with our prefix AND
+      // 2. are set to true
+      if (propertyName.startsWith(ALLOW_UNAUTHENTICATED_ACCESS_PREFIX)
+          && Boolean.parseBoolean(properties.getProperty(propertyName, "").trim())) {
         // we don't need to store the prefix
-        final String contentId = propertyName.substring(ALLOW_UNAUTHENTICATED_ACCESS_PREFIX.length());
+        final String contentId =
+            propertyName.substring(ALLOW_UNAUTHENTICATED_ACCESS_PREFIX.length());
         if (StringUtils.isNotBlank(contentId)) {
           authorizedUnauthenticatedContentIds.add(contentId);
         } else {
           // property is empty
-          LOG.warn("Invalid property id found in configuration. The format of this property name is: access.unauthenticated.<contentId>=[true|false], " +
-              "where <contentId> identifies some content");
+          LOG.warn(
+              "Invalid property id found in configuration. The format of this property name is: access.unauthenticated.<contentId>=[true|false], "
+                  + "where <contentId> identifies some content");
         }
       }
     }
@@ -234,8 +255,9 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
 
   @Override
   public String getConfigurationFileName() {
-    // TODO: in the previous implementations (LiferayConfigurationManager, LiferayIndependentConfigurationManager) this method always returned null because
-    //       the member variable holding the configuration value was never set
+    // TODO: in the previous implementations (LiferayConfigurationManager,
+    // LiferayIndependentConfigurationManager) this method always returned null because
+    // the member variable holding the configuration value was never set
     return null;
   }
 
@@ -482,5 +504,24 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
     return statisticsFilePath;
   }
 
+  @Override
+  public String getOmeroHostname() {
+    return omeroHost;
+  }
+
+  @Override
+  public String getOmeroPort() {
+    return omeroPort;
+  }
+
+  @Override
+  public String getOmeroUser() {
+    return omeroUser;
+  }
+
+  @Override
+  public String getOmeroPassword() {
+    return omeroPass;
+  }
 
 }

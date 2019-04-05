@@ -24,6 +24,13 @@ public interface ConfigurationManager {
 
   String getDataSourcePassword();
 
+  String getOmeroHostname();
+  
+  String getOmeroPort();
+  
+  String getOmeroUser();
+  
+  String getOmeroPassword();
   /**
    * @return the openBIS URL to be used by a client (e.g., openBIS client).
    */

@@ -1,7 +1,6 @@
 package life.qbic.portal.utils;
 
 import com.liferay.util.portlet.PortletProps;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
