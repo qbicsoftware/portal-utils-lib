@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>QBiCPortletUI.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Portal utilities library</a> &gt; <a href="index.source.html" class="el_package">life.qbic.portal.portlet</a> &gt; <span class="el_source">QBiCPortletUI.java</span></div><h1>QBiCPortletUI.java</h1><pre class="source lang-java linenums">package life.qbic.portal.portlet;
+
+import java.io.InputStream;
+import java.util.Properties;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import com.vaadin.annotations.Theme;
+import com.vaadin.annotations.Widgetset;
+import com.vaadin.server.VaadinRequest;
+import com.vaadin.shared.ui.label.ContentMode;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.Layout;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.VerticalLayout;
+
+/**
+ * This is the class from which all other QBiC portlets derive.
+ */
+@Theme(&quot;mytheme&quot;)
+@SuppressWarnings(&quot;serial&quot;)
+@Widgetset(&quot;life.qbic.portlet.AppWidgetSet&quot;)
+public abstract class QBiCPortletUI extends UI {
+
+  /**
+   * Location of the properties file where maven stores version/repository url.
+   */
+  public static final String PORTLET_PROPERTIES_FILE_PATH = &quot;portlet.properties&quot;;
+
+  /**
+   * Location of the local configuration. This is useful when testing portlets loocally using {@code mvn jetty:run}.
+   */
+  public static final String DEVELOPER_PROPERTIES_FILE_PATH = &quot;developer.properties&quot;;
+
+  static final String INFO_LABEL_CLASS = &quot;portlet-footer&quot;;
+  static final String INFO_LABEL_ID = &quot;qbic-portlet-info-label&quot;;
+  static final String DEFAULT_REPO = &quot;http://github.com/qbicsoftware&quot;;
+  static final String DEFAULT_VERSION = &quot;0.0.1-alpha&quot;;
+
+
+<span class="fc" id="L42">  private static final Logger LOG = LogManager.getLogger(QBiCPortletUI.class);</span>
+
+  private final String portletVersion;
+  private final String portletRepoURL;
+
+  /**
+   * Default constructor.
+   */
+<span class="fc" id="L50">  public QBiCPortletUI() {</span>
+    // load url/version from portlet.properties
+<span class="fc" id="L52">    LOG.info(&quot;Initializing QBiCPortletUI&quot;);</span>
+<span class="fc" id="L53">    final Properties portletProperties = new Properties();</span>
+<span class="fc" id="L54">    try (final InputStream propertiesFileStream =</span>
+<span class="fc" id="L55">        QBiCPortletUI.class.getClassLoader().getResourceAsStream(PORTLET_PROPERTIES_FILE_PATH)) {</span>
+<span class="fc" id="L56">      portletProperties.load(propertiesFileStream);</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">      if (!portletProperties.containsKey(&quot;version&quot;)</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">          || !portletProperties.containsKey(&quot;repository.url&quot;)) {</span>
+<span class="fc" id="L59">        LOG.error(&quot;Missing version and/or repository url properties in portlet.properties file. &quot;</span>
+            + &quot;The file should contain the 'version' and 'repository.url' properties. &quot;
+            + &quot;Using default version and/or repository url.&quot;);
+      }
+<span class="fc" id="L63">    } catch (final Exception e) {</span>
+<span class="fc" id="L64">      LOG.error(&quot;Error loading portlet.properties. Portlet will display bogus version/url values. &quot;</span>
+          + &quot;Check that portlet.properties is found under the /WEB-INF/classes folder (this file &quot;
+          + &quot;is copied from src/main/resources/portlet.properties during the build).&quot;, e);
+<span class="fc" id="L67">    }</span>
+
+<span class="fc" id="L69">    portletVersion =</span>
+<span class="fc" id="L70">        StringUtils.trimToEmpty(portletProperties.getProperty(&quot;version&quot;, DEFAULT_VERSION));</span>
+<span class="fc" id="L71">    portletRepoURL =</span>
+<span class="fc" id="L72">        StringUtils.trimToEmpty(portletProperties.getProperty(&quot;repository.url&quot;, DEFAULT_REPO));</span>
+<span class="fc" id="L73">  }</span>
+
+  @Override
+  protected final void init(final VaadinRequest request) {
+<span class="fc" id="L77">    LOG.info(&quot;Version &quot; + portletVersion);</span>
+<span class="fc" id="L78">    final VerticalLayout layout = new VerticalLayout();</span>
+<span class="fc" id="L79">    layout.setMargin(false);</span>
+    // add the portlet
+<span class="fc" id="L81">    layout.addComponent(getPortletContent(request));</span>
+
+<span class="fc" id="L83">    addPortletInfo(layout);</span>
+<span class="fc" id="L84">    setContent(layout);</span>
+<span class="fc" id="L85">  }</span>
+
+  @Override
+  public final void setContent(final Component content) {
+<span class="fc" id="L89">    super.setContent(content);</span>
+<span class="fc" id="L90">  }</span>
+
+  // adds version and repository information to the passed layout
+  private void addPortletInfo(final Layout layout) {
+<span class="fc" id="L94">    final Label portletInfoLabel = new Label(&quot;version &quot; + portletVersion + &quot; (&lt;a href=\&quot;&quot;</span>
+        + portletRepoURL + &quot;\&quot;&gt;&quot; + portletRepoURL + &quot;&lt;/a&gt;)&quot;, ContentMode.HTML);
+<span class="fc" id="L96">    portletInfoLabel.addStyleName(INFO_LABEL_CLASS);</span>
+<span class="fc" id="L97">    portletInfoLabel.setId(INFO_LABEL_ID);</span>
+<span class="fc" id="L98">    layout.addComponent(portletInfoLabel);</span>
+<span class="fc" id="L99">  }</span>
+
+  /**
+   * Provide the content that will be displayed.
+   */
+  protected abstract Layout getPortletContent(final VaadinRequest request);
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
