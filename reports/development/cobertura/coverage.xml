@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
 
-<coverage line-rate="0.2375601926163724" branch-rate="0.6056338028169014" lines-covered="148" lines-valid="623" branches-covered="43" branches-valid="71" complexity="1.120879120879121" version="2.1.1" timestamp="1557501489527">
+<coverage line-rate="0.2375601926163724" branch-rate="0.6056338028169014" lines-covered="148" lines-valid="623" branches-covered="43" branches-valid="71" complexity="1.120879120879121" version="2.1.1" timestamp="1557502129963">
 	<sources>
 		<source>/home/travis/build/qbicsoftware/portal-utils-lib/target/generated-sources/annotations</source>
 		<source>/home/travis/build/qbicsoftware/portal-utils-lib/src/main/java</source>
