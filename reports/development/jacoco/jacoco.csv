@@ -6,6 +6,7 @@ Portal utilities library,life.qbic.portal.components,StandardTextField,21,0,0,0,
 Portal utilities library,life.qbic.portal.components,AOpenbisInfoComponent,50,0,0,0,18,0,8,0,8,0
 Portal utilities library,life.qbic.portal.components,CustomVisibilityComponent,130,0,12,0,38,0,19,0,13,0
 Portal utilities library,life.qbic.portal.components,OpenbisInfoTextField,57,0,0,0,15,0,6,0,6,0
+Portal utilities library,life.qbic.portal.components,Uploader,99,0,0,0,24,0,9,0,9,0
 Portal utilities library,life.qbic.portal.utils.user,UserRelated,20,0,0,0,10,0,2,0,2,0
 Portal utilities library,life.qbic.portal.utils.user,LiferayUserDummy,328,0,0,0,189,0,188,0,188,0
 Portal utilities library,life.qbic.portal.portlet,QBiCPortletUI,0,125,0,4,0,32,0,7,0,5
