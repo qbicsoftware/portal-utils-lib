@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CustomVisibilityComponent.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Portal utilities library</a> &gt; <a href="index.source.html" class="el_package">life.qbic.portal.components</a> &gt; <span class="el_source">CustomVisibilityComponent.java</span></div><h1>CustomVisibilityComponent.java</h1><pre class="source lang-java linenums">/*******************************************************************************
+ * QBiC Project Wizard enables users to create hierarchical experiments including different study conditions using factorial design.
+ * Copyright (C) &quot;2016&quot;  Andreas Friedrich
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+ *******************************************************************************/
+package life.qbic.portal.components;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.vaadin.ui.AbstractComponent;
+import com.vaadin.ui.AbstractField;
+import com.vaadin.ui.AbstractSelect;
+import com.vaadin.ui.OptionGroup;
+
+import life.qbic.portal.controllers.VisibilityChangeListener;
+
+public class CustomVisibilityComponent extends AbstractComponent {
+
+  private static final long serialVersionUID = 7001531700669823055L;
+
+<span class="nc" id="L34">private List&lt;VisibilityChangeListener&gt; listeners = new ArrayList&lt;VisibilityChangeListener&gt;();</span>
+
+  protected AbstractComponent inner;
+
+<span class="nc" id="L38">  public CustomVisibilityComponent(String caption, AbstractComponent comp) {</span>
+<span class="nc" id="L39">    this.setCaption(caption);</span>
+<span class="nc" id="L40">    this.inner = comp;</span>
+<span class="nc" id="L41">  }</span>
+
+  public CustomVisibilityComponent(String caption, AbstractComponent comp, String width) {
+<span class="nc" id="L44">    this(caption, comp);</span>
+<span class="nc" id="L45">    comp.setWidth(width);</span>
+<span class="nc" id="L46">  }</span>
+
+<span class="nc" id="L48">  public CustomVisibilityComponent(AbstractComponent comp) {</span>
+<span class="nc" id="L49">    this.inner = comp;</span>
+<span class="nc" id="L50">  }</span>
+
+//  public Class&lt;String&gt; getType() {
+//    return String.class;
+//  }
+
+  public AbstractComponent getInnerComponent() {
+<span class="nc" id="L57">    return inner;</span>
+  }
+
+  public void setEnabled(boolean b) {
+<span class="nc" id="L61">    inner.setEnabled(b);</span>
+<span class="nc" id="L62">  }</span>
+
+  public void setSize(String width, String height) {
+<span class="nc" id="L65">    inner.setHeight(height);</span>
+<span class="nc" id="L66">    inner.setWidth(width);</span>
+<span class="nc" id="L67">  }</span>
+
+  public String getValue() {
+<span class="nc bnc" id="L70" title="All 2 branches missed.">    if (inner instanceof AbstractField)</span>
+<span class="nc" id="L71">      return (String) ((AbstractField) inner).getValue();</span>
+    else
+<span class="nc" id="L73">      return null;</span>
+  }
+
+
+  public void addListener(VisibilityChangeListener toAdd) {
+<span class="nc" id="L78">    listeners.add(toAdd);</span>
+<span class="nc" id="L79">  }</span>
+
+  @Override
+  public void setVisible(boolean b) {
+<span class="nc" id="L83">    inner.setVisible(b);</span>
+    // Notify everybody that may be interested.
+<span class="nc bnc" id="L85" title="All 2 branches missed.">    for (VisibilityChangeListener hl : listeners)</span>
+<span class="nc" id="L86">      hl.setVisible(b);</span>
+<span class="nc" id="L87">  }</span>
+
+  public void setNullSelectionAllowed(boolean b) {
+<span class="nc bnc" id="L90" title="All 2 branches missed.">    if (inner instanceof AbstractSelect)</span>
+<span class="nc" id="L91">      ((AbstractSelect) inner).setNullSelectionAllowed(b);</span>
+<span class="nc" id="L92">  }</span>
+
+  public void setItemEnabled(String string, boolean b) {
+<span class="nc bnc" id="L95" title="All 2 branches missed.">    if (inner instanceof OptionGroup)</span>
+<span class="nc" id="L96">      ((OptionGroup) inner).setItemEnabled(string, b);</span>
+<span class="nc" id="L97">  }</span>
+
+  public Object getNullSelectionItemId() {
+<span class="nc bnc" id="L100" title="All 2 branches missed.">    if (inner instanceof AbstractSelect)</span>
+<span class="nc" id="L101">      return ((AbstractSelect) inner).getNullSelectionItemId();</span>
+<span class="nc" id="L102">    return null;</span>
+  }
+
+  public void select(Object item) {
+<span class="nc bnc" id="L106" title="All 2 branches missed.">    if (inner instanceof AbstractSelect)</span>
+<span class="nc" id="L107">      ((AbstractSelect) inner).select(item);</span>
+<span class="nc" id="L108">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

@@ -1,0 +1,2996 @@
+<?xml version="1.0"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+
+<coverage line-rate="0.2375601926163724" branch-rate="0.6056338028169014" lines-covered="148" lines-valid="623" branches-covered="43" branches-valid="71" complexity="1.120879120879121" version="2.1.1" timestamp="1557607828062">
+	<sources>
+		<source>/home/travis/build/qbicsoftware/portal-utils-lib/target/generated-sources/annotations</source>
+		<source>/home/travis/build/qbicsoftware/portal-utils-lib/src/main/java</source>
+		<source>--source</source>
+	</sources>
+	<packages>
+		<package name="life.qbic.portal" line-rate="0.0" branch-rate="0.0" complexity="1.3333333333333333">
+			<classes>
+				<class name="life.qbic.portal.Styles" filename="life/qbic/portal/Styles.java" line-rate="0.0" branch-rate="0.0" complexity="1.3333333333333333">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="49" hits="0" branch="false"/>
+								<line number="50" hits="0" branch="false"/>
+								<line number="51" hits="0" branch="false"/>
+								<line number="52" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="21" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPopupViewContaining" signature="(Lcom/vaadin/ui/Component;)Lcom/vaadin/ui/PopupView;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="62" hits="0" branch="false"/>
+								<line number="76" hits="0" branch="false"/>
+								<line number="77" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="iconButton" signature="(Lcom/vaadin/ui/Button;Lcom/vaadin/server/Resource;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="55" hits="0" branch="false"/>
+								<line number="56" hits="0" branch="false"/>
+								<line number="57" hits="0" branch="false"/>
+								<line number="58" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="notification" signature="(Ljava/lang/String;Ljava/lang/String;Llife/qbic/portal/Styles$NotificationType;)V" line-rate="0.0" branch-rate="0.0" complexity="0">
+							<lines>
+								<line number="27" hits="0" branch="false"/>
+								<line number="28" hits="0" branch="false"/>
+								<line number="29" hits="0" branch="true" condition-coverage="0% (0/3)">
+									<conditions>
+										<condition number="0" type="switch" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="31" hits="0" branch="false"/>
+								<line number="32" hits="0" branch="false"/>
+								<line number="33" hits="0" branch="false"/>
+								<line number="34" hits="0" branch="false"/>
+								<line number="36" hits="0" branch="false"/>
+								<line number="37" hits="0" branch="false"/>
+								<line number="38" hits="0" branch="false"/>
+								<line number="39" hits="0" branch="false"/>
+								<line number="41" hits="0" branch="false"/>
+								<line number="42" hits="0" branch="false"/>
+								<line number="43" hits="0" branch="false"/>
+								<line number="46" hits="0" branch="false"/>
+								<line number="47" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="questionize" signature="(Lcom/vaadin/ui/Component;Ljava/lang/String;Ljava/lang/String;)Lcom/vaadin/ui/HorizontalLayout;" line-rate="0.0" branch-rate="0.0" complexity="0">
+							<lines>
+								<line number="81" hits="0" branch="false"/>
+								<line number="82" hits="0" branch="false"/>
+								<line number="83" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="84" hits="0" branch="false"/>
+								<line number="85" hits="0" branch="false"/>
+								<line number="86" hits="0" branch="false"/>
+								<line number="95" hits="0" branch="false"/>
+								<line number="96" hits="0" branch="false"/>
+								<line number="97" hits="0" branch="false"/>
+								<line number="98" hits="0" branch="false"/>
+								<line number="100" hits="0" branch="false"/>
+								<line number="117" hits="0" branch="false"/>
+								<line number="119" hits="0" branch="false"/>
+								<line number="121" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="21" hits="0" branch="false"/>
+						<line number="27" hits="0" branch="false"/>
+						<line number="28" hits="0" branch="false"/>
+						<line number="29" hits="0" branch="true" condition-coverage="0% (0/3)">
+							<conditions>
+								<condition number="0" type="switch" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="31" hits="0" branch="false"/>
+						<line number="32" hits="0" branch="false"/>
+						<line number="33" hits="0" branch="false"/>
+						<line number="34" hits="0" branch="false"/>
+						<line number="36" hits="0" branch="false"/>
+						<line number="37" hits="0" branch="false"/>
+						<line number="38" hits="0" branch="false"/>
+						<line number="39" hits="0" branch="false"/>
+						<line number="41" hits="0" branch="false"/>
+						<line number="42" hits="0" branch="false"/>
+						<line number="43" hits="0" branch="false"/>
+						<line number="46" hits="0" branch="false"/>
+						<line number="47" hits="0" branch="false"/>
+						<line number="49" hits="0" branch="false"/>
+						<line number="50" hits="0" branch="false"/>
+						<line number="51" hits="0" branch="false"/>
+						<line number="52" hits="0" branch="false"/>
+						<line number="55" hits="0" branch="false"/>
+						<line number="56" hits="0" branch="false"/>
+						<line number="57" hits="0" branch="false"/>
+						<line number="58" hits="0" branch="false"/>
+						<line number="62" hits="0" branch="false"/>
+						<line number="76" hits="0" branch="false"/>
+						<line number="77" hits="0" branch="false"/>
+						<line number="81" hits="0" branch="false"/>
+						<line number="82" hits="0" branch="false"/>
+						<line number="83" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="84" hits="0" branch="false"/>
+						<line number="85" hits="0" branch="false"/>
+						<line number="86" hits="0" branch="false"/>
+						<line number="95" hits="0" branch="false"/>
+						<line number="96" hits="0" branch="false"/>
+						<line number="97" hits="0" branch="false"/>
+						<line number="98" hits="0" branch="false"/>
+						<line number="100" hits="0" branch="false"/>
+						<line number="117" hits="0" branch="false"/>
+						<line number="119" hits="0" branch="false"/>
+						<line number="121" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="life.qbic.portal.Styles$1" filename="life/qbic/portal/Styles.java" line-rate="0.0" branch-rate="1.0" complexity="1.3333333333333333">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lcom/vaadin/ui/Component;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="62" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMinimizedValueAsHTML" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="73" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPopupComponent" signature="()Lcom/vaadin/ui/Component;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="66" hits="0" branch="false"/>
+								<line number="67" hits="0" branch="false"/>
+								<line number="68" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="62" hits="0" branch="false"/>
+						<line number="66" hits="0" branch="false"/>
+						<line number="67" hits="0" branch="false"/>
+						<line number="68" hits="0" branch="false"/>
+						<line number="73" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="life.qbic.portal.Styles$2" filename="life/qbic/portal/Styles.java" line-rate="0.0" branch-rate="1.0" complexity="1.3333333333333333">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lcom/vaadin/ui/HorizontalLayout;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="86" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setVisible" signature="(Z)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="90" hits="0" branch="false"/>
+								<line number="91" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="86" hits="0" branch="false"/>
+						<line number="90" hits="0" branch="false"/>
+						<line number="91" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="life.qbic.portal.Styles$3" filename="life/qbic/portal/Styles.java" line-rate="0.0" branch-rate="1.0" complexity="1.3333333333333333">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="100" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMinimizedValueAsHTML" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="114" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPopupComponent" signature="()Lcom/vaadin/ui/Component;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="104" hits="0" branch="false"/>
+								<line number="105" hits="0" branch="false"/>
+								<line number="106" hits="0" branch="false"/>
+								<line number="107" hits="0" branch="false"/>
+								<line number="108" hits="0" branch="false"/>
+								<line number="109" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="100" hits="0" branch="false"/>
+						<line number="104" hits="0" branch="false"/>
+						<line number="105" hits="0" branch="false"/>
+						<line number="106" hits="0" branch="false"/>
+						<line number="107" hits="0" branch="false"/>
+						<line number="108" hits="0" branch="false"/>
+						<line number="109" hits="0" branch="false"/>
+						<line number="114" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="life.qbic.portal.Styles$4" filename="life/qbic/portal/Styles.java" line-rate="0.0" branch-rate="1.0" complexity="1.3333333333333333">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="29" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="29" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="life.qbic.portal.Styles$NotificationType" filename="life/qbic/portal/Styles.java" line-rate="0.0" branch-rate="1.0" complexity="1.3333333333333333">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="22" hits="0" branch="false"/>
+								<line number="23" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;I)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+							</lines>
+						</method>
+						<method name="valueOf" signature="(Ljava/lang/String;)Llife/qbic/portal/Styles$NotificationType;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+							</lines>
+						</method>
+						<method name="values" signature="()[Llife/qbic/portal/Styles$NotificationType;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="22" hits="0" branch="false"/>
+						<line number="23" hits="0" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="life.qbic.portal.components" line-rate="0.0" branch-rate="0.0" complexity="1.263157894736842">
+			<classes>
+				<class name="life.qbic.portal.components.AOpenbisInfoComponent" filename="life/qbic/portal/components/AOpenbisInfoComponent.java" line-rate="0.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;Lcom/vaadin/ui/AbstractField;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="33" hits="0" branch="false"/>
+								<line number="34" hits="0" branch="false"/>
+								<line number="35" hits="0" branch="false"/>
+								<line number="36" hits="0" branch="false"/>
+								<line number="37" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;Lcom/vaadin/ui/AbstractField;Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="40" hits="0" branch="false"/>
+								<line number="41" hits="0" branch="false"/>
+								<line number="42" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getInnerComponent" signature="()Lcom/vaadin/ui/AbstractField;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="50" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getType" signature="()Ljava/lang/Class;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="46" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getValue" signature="()Ljava/lang/Object;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="28" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getValue" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="67" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setEnabled" signature="(Z)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="58" hits="0" branch="false"/>
+								<line number="59" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setSize" signature="(Ljava/lang/String;Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="62" hits="0" branch="false"/>
+								<line number="63" hits="0" branch="false"/>
+								<line number="64" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setVisible" signature="(Z)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="54" hits="0" branch="false"/>
+								<line number="55" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="28" hits="0" branch="false"/>
+						<line number="33" hits="0" branch="false"/>
+						<line number="34" hits="0" branch="false"/>
+						<line number="35" hits="0" branch="false"/>
+						<line number="36" hits="0" branch="false"/>
+						<line number="37" hits="0" branch="false"/>
+						<line number="40" hits="0" branch="false"/>
+						<line number="41" hits="0" branch="false"/>
+						<line number="42" hits="0" branch="false"/>
+						<line number="46" hits="0" branch="false"/>
+						<line number="50" hits="0" branch="false"/>
+						<line number="54" hits="0" branch="false"/>
+						<line number="55" hits="0" branch="false"/>
+						<line number="58" hits="0" branch="false"/>
+						<line number="59" hits="0" branch="false"/>
+						<line number="62" hits="0" branch="false"/>
+						<line number="63" hits="0" branch="false"/>
+						<line number="64" hits="0" branch="false"/>
+						<line number="67" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="life.qbic.portal.components.CustomVisibilityComponent" filename="life/qbic/portal/components/CustomVisibilityComponent.java" line-rate="0.0" branch-rate="0.0" complexity="1.6153846153846154">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Lcom/vaadin/ui/AbstractComponent;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="34" hits="0" branch="false"/>
+								<line number="48" hits="0" branch="false"/>
+								<line number="49" hits="0" branch="false"/>
+								<line number="50" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;Lcom/vaadin/ui/AbstractComponent;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="38" hits="0" branch="false"/>
+								<line number="39" hits="0" branch="false"/>
+								<line number="40" hits="0" branch="false"/>
+								<line number="41" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;Lcom/vaadin/ui/AbstractComponent;Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="44" hits="0" branch="false"/>
+								<line number="45" hits="0" branch="false"/>
+								<line number="46" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="addListener" signature="(Llife/qbic/portal/controllers/VisibilityChangeListener;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="78" hits="0" branch="false"/>
+								<line number="79" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getInnerComponent" signature="()Lcom/vaadin/ui/AbstractComponent;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="57" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getNullSelectionItemId" signature="()Ljava/lang/Object;" line-rate="0.0" branch-rate="0.0" complexity="0">
+							<lines>
+								<line number="100" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="101" hits="0" branch="false"/>
+								<line number="102" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getValue" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="0.0" complexity="0">
+							<lines>
+								<line number="70" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="71" hits="0" branch="false"/>
+								<line number="73" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="select" signature="(Ljava/lang/Object;)V" line-rate="0.0" branch-rate="0.0" complexity="0">
+							<lines>
+								<line number="106" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="107" hits="0" branch="false"/>
+								<line number="108" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setEnabled" signature="(Z)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="61" hits="0" branch="false"/>
+								<line number="62" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setItemEnabled" signature="(Ljava/lang/String;Z)V" line-rate="0.0" branch-rate="0.0" complexity="0">
+							<lines>
+								<line number="95" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="96" hits="0" branch="false"/>
+								<line number="97" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setNullSelectionAllowed" signature="(Z)V" line-rate="0.0" branch-rate="0.0" complexity="0">
+							<lines>
+								<line number="90" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="91" hits="0" branch="false"/>
+								<line number="92" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setSize" signature="(Ljava/lang/String;Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="65" hits="0" branch="false"/>
+								<line number="66" hits="0" branch="false"/>
+								<line number="67" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setVisible" signature="(Z)V" line-rate="0.0" branch-rate="0.0" complexity="0">
+							<lines>
+								<line number="83" hits="0" branch="false"/>
+								<line number="85" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="86" hits="0" branch="false"/>
+								<line number="87" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="34" hits="0" branch="false"/>
+						<line number="38" hits="0" branch="false"/>
+						<line number="39" hits="0" branch="false"/>
+						<line number="40" hits="0" branch="false"/>
+						<line number="41" hits="0" branch="false"/>
+						<line number="44" hits="0" branch="false"/>
+						<line number="45" hits="0" branch="false"/>
+						<line number="46" hits="0" branch="false"/>
+						<line number="48" hits="0" branch="false"/>
+						<line number="49" hits="0" branch="false"/>
+						<line number="50" hits="0" branch="false"/>
+						<line number="57" hits="0" branch="false"/>
+						<line number="61" hits="0" branch="false"/>
+						<line number="62" hits="0" branch="false"/>
+						<line number="65" hits="0" branch="false"/>
+						<line number="66" hits="0" branch="false"/>
+						<line number="67" hits="0" branch="false"/>
+						<line number="70" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="71" hits="0" branch="false"/>
+						<line number="73" hits="0" branch="false"/>
+						<line number="78" hits="0" branch="false"/>
+						<line number="79" hits="0" branch="false"/>
+						<line number="83" hits="0" branch="false"/>
+						<line number="85" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="86" hits="0" branch="false"/>
+						<line number="87" hits="0" branch="false"/>
+						<line number="90" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="91" hits="0" branch="false"/>
+						<line number="92" hits="0" branch="false"/>
+						<line number="95" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="96" hits="0" branch="false"/>
+						<line number="97" hits="0" branch="false"/>
+						<line number="100" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="101" hits="0" branch="false"/>
+						<line number="102" hits="0" branch="false"/>
+						<line number="106" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="107" hits="0" branch="false"/>
+						<line number="108" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="life.qbic.portal.components.OpenbisInfoTextField" filename="life/qbic/portal/components/OpenbisInfoTextField.java" line-rate="0.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="36" hits="0" branch="false"/>
+								<line number="37" hits="0" branch="false"/>
+								<line number="39" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="42" hits="0" branch="false"/>
+								<line number="43" hits="0" branch="false"/>
+								<line number="44" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="47" hits="0" branch="false"/>
+								<line number="48" hits="0" branch="false"/>
+								<line number="49" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setInputPrompt" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="60" hits="0" branch="false"/>
+								<line number="61" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setMaxLength" signature="(I)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="56" hits="0" branch="false"/>
+								<line number="57" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setValue" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="52" hits="0" branch="false"/>
+								<line number="53" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="36" hits="0" branch="false"/>
+						<line number="37" hits="0" branch="false"/>
+						<line number="39" hits="0" branch="false"/>
+						<line number="42" hits="0" branch="false"/>
+						<line number="43" hits="0" branch="false"/>
+						<line number="44" hits="0" branch="false"/>
+						<line number="47" hits="0" branch="false"/>
+						<line number="48" hits="0" branch="false"/>
+						<line number="49" hits="0" branch="false"/>
+						<line number="52" hits="0" branch="false"/>
+						<line number="53" hits="0" branch="false"/>
+						<line number="56" hits="0" branch="false"/>
+						<line number="57" hits="0" branch="false"/>
+						<line number="60" hits="0" branch="false"/>
+						<line number="61" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="life.qbic.portal.components.StandardTextField" filename="life/qbic/portal/components/StandardTextField.java" line-rate="0.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="40" hits="0" branch="false"/>
+								<line number="41" hits="0" branch="false"/>
+								<line number="42" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="30" hits="0" branch="false"/>
+								<line number="31" hits="0" branch="false"/>
+								<line number="32" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="35" hits="0" branch="false"/>
+								<line number="36" hits="0" branch="false"/>
+								<line number="37" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="30" hits="0" branch="false"/>
+						<line number="31" hits="0" branch="false"/>
+						<line number="32" hits="0" branch="false"/>
+						<line number="35" hits="0" branch="false"/>
+						<line number="36" hits="0" branch="false"/>
+						<line number="37" hits="0" branch="false"/>
+						<line number="40" hits="0" branch="false"/>
+						<line number="41" hits="0" branch="false"/>
+						<line number="42" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="life.qbic.portal.components.Uploader" filename="life/qbic/portal/components/Uploader.java" line-rate="0.0" branch-rate="1.0" complexity="1.25">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="41" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="45" hits="0" branch="false"/>
+								<line number="46" hits="0" branch="false"/>
+								<line number="47" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getBaseFileName" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="78" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getError" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="74" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getFile" signature="()Ljava/io/File;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="86" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getFileNameWithoutExtension" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="82" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="receiveUpload" signature="(Ljava/lang/String;Ljava/lang/String;)Ljava/io/OutputStream;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="53" hits="0" branch="false"/>
+								<line number="54" hits="0" branch="false"/>
+								<line number="55" hits="0" branch="false"/>
+								<line number="56" hits="0" branch="false"/>
+								<line number="64" hits="0" branch="false"/>
+								<line number="65" hits="0" branch="false"/>
+								<line number="67" hits="0" branch="false"/>
+								<line number="68" hits="0" branch="false"/>
+								<line number="69" hits="0" branch="false"/>
+								<line number="70" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="uploadFailed" signature="(Lcom/vaadin/ui/Upload$FailedEvent;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="103" hits="0" branch="false"/>
+								<line number="104" hits="0" branch="false"/>
+								<line number="105" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="uploadSucceeded" signature="(Lcom/vaadin/ui/Upload$SucceededEvent;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="94" hits="0" branch="false"/>
+								<line number="95" hits="0" branch="false"/>
+								<line number="96" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="41" hits="0" branch="false"/>
+						<line number="45" hits="0" branch="false"/>
+						<line number="46" hits="0" branch="false"/>
+						<line number="47" hits="0" branch="false"/>
+						<line number="53" hits="0" branch="false"/>
+						<line number="54" hits="0" branch="false"/>
+						<line number="55" hits="0" branch="false"/>
+						<line number="56" hits="0" branch="false"/>
+						<line number="64" hits="0" branch="false"/>
+						<line number="65" hits="0" branch="false"/>
+						<line number="67" hits="0" branch="false"/>
+						<line number="68" hits="0" branch="false"/>
+						<line number="69" hits="0" branch="false"/>
+						<line number="70" hits="0" branch="false"/>
+						<line number="74" hits="0" branch="false"/>
+						<line number="78" hits="0" branch="false"/>
+						<line number="82" hits="0" branch="false"/>
+						<line number="86" hits="0" branch="false"/>
+						<line number="94" hits="0" branch="false"/>
+						<line number="95" hits="0" branch="false"/>
+						<line number="96" hits="0" branch="false"/>
+						<line number="103" hits="0" branch="false"/>
+						<line number="104" hits="0" branch="false"/>
+						<line number="105" hits="0" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="life.qbic.portal.controllers" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+			<classes>
+				<class name="life.qbic.portal.controllers.VisibilityChangeListener" filename="life/qbic/portal/controllers/VisibilityChangeListener.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="life.qbic.portal.portlet" line-rate="1.0" branch-rate="0.75" complexity="1.6">
+			<classes>
+				<class name="life.qbic.portal.portlet.QBiCPortletUI" filename="life/qbic/portal/portlet/QBiCPortletUI.java" line-rate="1.0" branch-rate="0.75" complexity="1.6">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="42" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="0.75" complexity="0">
+							<lines>
+								<line number="50" hits="8" branch="false"/>
+								<line number="52" hits="8" branch="false"/>
+								<line number="53" hits="8" branch="false"/>
+								<line number="54" hits="17" branch="false"/>
+								<line number="55" hits="8" branch="false"/>
+								<line number="56" hits="8" branch="false"/>
+								<line number="57" hits="7" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="58" hits="5" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="59" hits="3" branch="false"/>
+								<line number="63" hits="9" branch="true" condition-coverage="50% (2/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+										<condition number="1" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="64" hits="1" branch="false"/>
+								<line number="67" hits="7" branch="false"/>
+								<line number="69" hits="8" branch="false"/>
+								<line number="70" hits="8" branch="false"/>
+								<line number="71" hits="8" branch="false"/>
+								<line number="72" hits="8" branch="false"/>
+								<line number="73" hits="8" branch="false"/>
+							</lines>
+						</method>
+						<method name="addPortletInfo" signature="(Lcom/vaadin/ui/Layout;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="94" hits="7" branch="false"/>
+								<line number="96" hits="7" branch="false"/>
+								<line number="97" hits="7" branch="false"/>
+								<line number="98" hits="7" branch="false"/>
+								<line number="99" hits="7" branch="false"/>
+							</lines>
+						</method>
+						<method name="init" signature="(Lcom/vaadin/server/VaadinRequest;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="77" hits="8" branch="false"/>
+								<line number="78" hits="8" branch="false"/>
+								<line number="79" hits="8" branch="false"/>
+								<line number="81" hits="8" branch="false"/>
+								<line number="83" hits="7" branch="false"/>
+								<line number="84" hits="7" branch="false"/>
+								<line number="85" hits="7" branch="false"/>
+							</lines>
+						</method>
+						<method name="setContent" signature="(Lcom/vaadin/ui/Component;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="89" hits="15" branch="false"/>
+								<line number="90" hits="15" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="42" hits="1" branch="false"/>
+						<line number="50" hits="8" branch="false"/>
+						<line number="52" hits="8" branch="false"/>
+						<line number="53" hits="8" branch="false"/>
+						<line number="54" hits="17" branch="false"/>
+						<line number="55" hits="8" branch="false"/>
+						<line number="56" hits="8" branch="false"/>
+						<line number="57" hits="7" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="58" hits="5" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="59" hits="3" branch="false"/>
+						<line number="63" hits="9" branch="true" condition-coverage="50% (2/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="64" hits="1" branch="false"/>
+						<line number="67" hits="7" branch="false"/>
+						<line number="69" hits="8" branch="false"/>
+						<line number="70" hits="8" branch="false"/>
+						<line number="71" hits="8" branch="false"/>
+						<line number="72" hits="8" branch="false"/>
+						<line number="73" hits="8" branch="false"/>
+						<line number="77" hits="8" branch="false"/>
+						<line number="78" hits="8" branch="false"/>
+						<line number="79" hits="8" branch="false"/>
+						<line number="81" hits="8" branch="false"/>
+						<line number="83" hits="7" branch="false"/>
+						<line number="84" hits="7" branch="false"/>
+						<line number="85" hits="7" branch="false"/>
+						<line number="89" hits="15" branch="false"/>
+						<line number="90" hits="15" branch="false"/>
+						<line number="94" hits="7" branch="false"/>
+						<line number="96" hits="7" branch="false"/>
+						<line number="97" hits="7" branch="false"/>
+						<line number="98" hits="7" branch="false"/>
+						<line number="99" hits="7" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="life.qbic.portal.utils" line-rate="0.5296803652968036" branch-rate="0.8043478260869565" complexity="1.2016806722689075">
+			<classes>
+				<class name="life.qbic.portal.utils.ConfigurationManager" filename="life/qbic/portal/utils/ConfigurationManager.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+					</methods>
+					<lines>
+					</lines>
+				</class>
+				<class name="life.qbic.portal.utils.ConfigurationManagerFactory" filename="life/qbic/portal/utils/ConfigurationManagerFactory.java" line-rate="0.8888888888888888" branch-rate="0.8" complexity="6.0">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="28" hits="1" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="26" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getInstance" signature="()Llife/qbic/portal/utils/ConfigurationManager;" line-rate="0.9375" branch-rate="0.8" complexity="0">
+							<lines>
+								<line number="38" hits="3" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="41" hits="3" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="42" hits="1" branch="false"/>
+								<line number="44" hits="1" branch="false"/>
+								<line number="47" hits="2" branch="false"/>
+								<line number="48" hits="2" branch="false"/>
+								<line number="49" hits="4" branch="false"/>
+								<line number="50" hits="2" branch="false"/>
+								<line number="51" hits="2" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="52" hits="1" branch="false"/>
+								<line number="54" hits="1" branch="false"/>
+								<line number="56" hits="2" branch="true" condition-coverage="75% (3/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+										<condition number="1" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="57" hits="0" branch="false"/>
+								<line number="58" hits="2" branch="false"/>
+								<line number="60" hits="3" branch="false"/>
+								<line number="62" hits="3" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="26" hits="0" branch="false"/>
+						<line number="28" hits="1" branch="false"/>
+						<line number="38" hits="3" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="41" hits="3" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="42" hits="1" branch="false"/>
+						<line number="44" hits="1" branch="false"/>
+						<line number="47" hits="2" branch="false"/>
+						<line number="48" hits="2" branch="false"/>
+						<line number="49" hits="4" branch="false"/>
+						<line number="50" hits="2" branch="false"/>
+						<line number="51" hits="2" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="52" hits="1" branch="false"/>
+						<line number="54" hits="1" branch="false"/>
+						<line number="56" hits="2" branch="true" condition-coverage="75% (3/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="57" hits="0" branch="false"/>
+						<line number="58" hits="2" branch="false"/>
+						<line number="60" hits="3" branch="false"/>
+						<line number="62" hits="3" branch="false"/>
+					</lines>
+				</class>
+				<class name="life.qbic.portal.utils.PortalUtils" filename="life/qbic/portal/utils/PortalUtils.java" line-rate="0.4266666666666667" branch-rate="0.7083333333333334" complexity="2.4444444444444446">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="41" hits="3" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="39" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="buildImagePath" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="167" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="buildImagePath" signature="(Ljava/lang/String;)Ljava/lang/String;" line-rate="0.8333333333333334" branch-rate="0.75" complexity="0">
+							<lines>
+								<line number="123" hits="2" branch="false"/>
+								<line number="125" hits="2" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="126" hits="1" branch="false"/>
+								<line number="127" hits="1" branch="false"/>
+								<line number="128" hits="1" branch="false"/>
+								<line number="130" hits="1" branch="false"/>
+								<line number="131" hits="1" branch="false"/>
+								<line number="132" hits="0" branch="false"/>
+								<line number="133" hits="0" branch="false"/>
+								<line number="134" hits="1" branch="false"/>
+								<line number="135" hits="1" branch="false"/>
+								<line number="139" hits="1" branch="false"/>
+								<line number="141" hits="1" branch="false"/>
+								<line number="142" hits="1" branch="false"/>
+								<line number="144" hits="1" branch="false"/>
+								<line number="146" hits="1" branch="false"/>
+								<line number="147" hits="1" branch="true" condition-coverage="50% (1/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="50%"/>
+									</conditions>
+								</line>
+								<line number="148" hits="0" branch="false"/>
+								<line number="149" hits="0" branch="false"/>
+								<line number="152" hits="1" branch="false"/>
+								<line number="153" hits="1" branch="false"/>
+								<line number="157" hits="2" branch="false"/>
+								<line number="158" hits="2" branch="false"/>
+								<line number="159" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="buildNotLoggedInLayout" signature="()Lcom/vaadin/ui/Layout;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="179" hits="0" branch="false"/>
+								<line number="180" hits="0" branch="false"/>
+								<line number="181" hits="0" branch="false"/>
+								<line number="185" hits="0" branch="false"/>
+								<line number="188" hits="0" branch="false"/>
+								<line number="189" hits="0" branch="false"/>
+								<line number="192" hits="0" branch="false"/>
+								<line number="193" hits="0" branch="false"/>
+								<line number="195" hits="0" branch="false"/>
+								<line number="196" hits="0" branch="false"/>
+								<line number="198" hits="0" branch="false"/>
+								<line number="199" hits="0" branch="false"/>
+								<line number="201" hits="0" branch="false"/>
+								<line number="202" hits="0" branch="false"/>
+								<line number="205" hits="0" branch="false"/>
+								<line number="206" hits="0" branch="false"/>
+								<line number="207" hits="0" branch="false"/>
+								<line number="208" hits="0" branch="false"/>
+								<line number="209" hits="0" branch="false"/>
+								<line number="211" hits="0" branch="false"/>
+								<line number="212" hits="0" branch="false"/>
+								<line number="213" hits="0" branch="false"/>
+								<line number="215" hits="0" branch="false"/>
+								<line number="217" hits="0" branch="false"/>
+								<line number="218" hits="0" branch="false"/>
+								<line number="220" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getCurrentBasePath" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="49" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getNonNullScreenName" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="77" hits="2" branch="false"/>
+								<line number="78" hits="2" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+						<method name="getScreenName" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="68" hits="4" branch="false"/>
+								<line number="69" hits="4" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+						<method name="getUser" signature="()Lcom/liferay/portal/model/User;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="59" hits="6" branch="false"/>
+								<line number="60" hits="6" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+						<method name="humanReadableByteCount" signature="(JZ)Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="109" hits="9" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="110" hits="9" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="111" hits="5" branch="false"/>
+								<line number="112" hits="5" branch="true" condition-coverage="100% (4/4)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+										<condition number="1" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="113" hits="5" branch="false"/>
+							</lines>
+						</method>
+						<method name="isLiferayPortlet" signature="()Z" line-rate="0.0" branch-rate="0.0" complexity="0">
+							<lines>
+								<line number="87" hits="0" branch="false"/>
+								<line number="89" hits="0" branch="false"/>
+								<line number="91" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="92" hits="0" branch="false"/>
+								<line number="93" hits="0" branch="false"/>
+								<line number="94" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+								<line number="95" hits="0" branch="false"/>
+								<line number="96" hits="0" branch="false"/>
+								<line number="97" hits="0" branch="false"/>
+								<line number="99" hits="0" branch="true" condition-coverage="0% (0/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="0%"/>
+									</conditions>
+								</line>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="39" hits="0" branch="false"/>
+						<line number="41" hits="3" branch="false"/>
+						<line number="49" hits="0" branch="false"/>
+						<line number="59" hits="6" branch="false"/>
+						<line number="60" hits="6" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="68" hits="4" branch="false"/>
+						<line number="69" hits="4" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="77" hits="2" branch="false"/>
+						<line number="78" hits="2" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="87" hits="0" branch="false"/>
+						<line number="89" hits="0" branch="false"/>
+						<line number="91" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="92" hits="0" branch="false"/>
+						<line number="93" hits="0" branch="false"/>
+						<line number="94" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="95" hits="0" branch="false"/>
+						<line number="96" hits="0" branch="false"/>
+						<line number="97" hits="0" branch="false"/>
+						<line number="99" hits="0" branch="true" condition-coverage="0% (0/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="0%"/>
+							</conditions>
+						</line>
+						<line number="109" hits="9" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="110" hits="9" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="111" hits="5" branch="false"/>
+						<line number="112" hits="5" branch="true" condition-coverage="100% (4/4)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+								<condition number="1" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="113" hits="5" branch="false"/>
+						<line number="123" hits="2" branch="false"/>
+						<line number="125" hits="2" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="126" hits="1" branch="false"/>
+						<line number="127" hits="1" branch="false"/>
+						<line number="128" hits="1" branch="false"/>
+						<line number="130" hits="1" branch="false"/>
+						<line number="131" hits="1" branch="false"/>
+						<line number="132" hits="0" branch="false"/>
+						<line number="133" hits="0" branch="false"/>
+						<line number="134" hits="1" branch="false"/>
+						<line number="135" hits="1" branch="false"/>
+						<line number="139" hits="1" branch="false"/>
+						<line number="141" hits="1" branch="false"/>
+						<line number="142" hits="1" branch="false"/>
+						<line number="144" hits="1" branch="false"/>
+						<line number="146" hits="1" branch="false"/>
+						<line number="147" hits="1" branch="true" condition-coverage="50% (1/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="50%"/>
+							</conditions>
+						</line>
+						<line number="148" hits="0" branch="false"/>
+						<line number="149" hits="0" branch="false"/>
+						<line number="152" hits="1" branch="false"/>
+						<line number="153" hits="1" branch="false"/>
+						<line number="157" hits="2" branch="false"/>
+						<line number="158" hits="2" branch="false"/>
+						<line number="159" hits="2" branch="false"/>
+						<line number="167" hits="0" branch="false"/>
+						<line number="179" hits="0" branch="false"/>
+						<line number="180" hits="0" branch="false"/>
+						<line number="181" hits="0" branch="false"/>
+						<line number="185" hits="0" branch="false"/>
+						<line number="188" hits="0" branch="false"/>
+						<line number="189" hits="0" branch="false"/>
+						<line number="192" hits="0" branch="false"/>
+						<line number="193" hits="0" branch="false"/>
+						<line number="195" hits="0" branch="false"/>
+						<line number="196" hits="0" branch="false"/>
+						<line number="198" hits="0" branch="false"/>
+						<line number="199" hits="0" branch="false"/>
+						<line number="201" hits="0" branch="false"/>
+						<line number="202" hits="0" branch="false"/>
+						<line number="205" hits="0" branch="false"/>
+						<line number="206" hits="0" branch="false"/>
+						<line number="207" hits="0" branch="false"/>
+						<line number="208" hits="0" branch="false"/>
+						<line number="209" hits="0" branch="false"/>
+						<line number="211" hits="0" branch="false"/>
+						<line number="212" hits="0" branch="false"/>
+						<line number="213" hits="0" branch="false"/>
+						<line number="215" hits="0" branch="false"/>
+						<line number="217" hits="0" branch="false"/>
+						<line number="218" hits="0" branch="false"/>
+						<line number="220" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="life.qbic.portal.utils.PropertiesBasedConfigurationManager" filename="life/qbic/portal/utils/PropertiesBasedConfigurationManager.java" line-rate="0.5396825396825397" branch-rate="1.0" complexity="1.1090909090909091">
+					<methods>
+						<method name="&lt;clinit&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="21" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="&lt;init&gt;" signature="(Ljava/util/Properties;)V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="162" hits="9" branch="false"/>
+								<line number="163" hits="9" branch="false"/>
+								<line number="164" hits="9" branch="false"/>
+								<line number="165" hits="9" branch="false"/>
+								<line number="166" hits="9" branch="false"/>
+								<line number="167" hits="9" branch="false"/>
+								<line number="168" hits="9" branch="false"/>
+								<line number="170" hits="9" branch="false"/>
+								<line number="171" hits="9" branch="false"/>
+								<line number="172" hits="9" branch="false"/>
+								<line number="173" hits="9" branch="false"/>
+								<line number="175" hits="9" branch="false"/>
+								<line number="176" hits="9" branch="false"/>
+								<line number="178" hits="9" branch="false"/>
+								<line number="179" hits="9" branch="false"/>
+								<line number="180" hits="9" branch="false"/>
+								<line number="181" hits="9" branch="false"/>
+								<line number="182" hits="9" branch="false"/>
+								<line number="184" hits="9" branch="false"/>
+								<line number="185" hits="9" branch="false"/>
+								<line number="186" hits="9" branch="false"/>
+								<line number="188" hits="9" branch="false"/>
+								<line number="190" hits="9" branch="false"/>
+								<line number="192" hits="9" branch="false"/>
+								<line number="193" hits="9" branch="false"/>
+								<line number="195" hits="9" branch="false"/>
+								<line number="196" hits="9" branch="false"/>
+								<line number="197" hits="9" branch="false"/>
+								<line number="198" hits="9" branch="false"/>
+								<line number="200" hits="9" branch="false"/>
+								<line number="201" hits="9" branch="false"/>
+								<line number="202" hits="9" branch="false"/>
+								<line number="203" hits="9" branch="false"/>
+								<line number="204" hits="9" branch="false"/>
+								<line number="206" hits="9" branch="false"/>
+								<line number="207" hits="9" branch="false"/>
+								<line number="208" hits="18" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="209" hits="9" branch="false"/>
+								<line number="210" hits="9" branch="false"/>
+								<line number="211" hits="9" branch="false"/>
+								<line number="212" hits="18" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="213" hits="9" branch="false"/>
+								<line number="215" hits="9" branch="false"/>
+								<line number="217" hits="9" branch="false"/>
+								<line number="218" hits="9" branch="false"/>
+								<line number="220" hits="9" branch="false"/>
+								<line number="221" hits="9" branch="false"/>
+								<line number="222" hits="9" branch="false"/>
+								<line number="223" hits="9" branch="false"/>
+								<line number="224" hits="9" branch="false"/>
+								<line number="225" hits="9" branch="false"/>
+								<line number="226" hits="9" branch="false"/>
+								<line number="228" hits="9" branch="false"/>
+								<line number="234" hits="9" branch="false"/>
+								<line number="235" hits="9" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="239" hits="13" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="240" hits="10" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="242" hits="8" branch="false"/>
+								<line number="243" hits="8" branch="false"/>
+								<line number="244" hits="8" branch="true" condition-coverage="100% (2/2)">
+									<conditions>
+										<condition number="0" type="jump" coverage="100%"/>
+									</conditions>
+								</line>
+								<line number="245" hits="7" branch="false"/>
+								<line number="248" hits="1" branch="false"/>
+								<line number="253" hits="13" branch="false"/>
+								<line number="254" hits="9" branch="false"/>
+							</lines>
+						</method>
+						<method name="getAttachmenPassword" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="386" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getAttachmentMaxSize" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="391" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getAttachmentURI" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="376" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getAttachmentUser" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="381" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getBarcodePathVariable" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="311" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getBarcodeResultsFolder" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="434" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getBarcodeScriptsFolder" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="301" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getConfigurationFileName" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="261" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDataSource" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="266" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDataSourceApiUrl" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="286" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDataSourcePassword" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="276" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDataSourceUrl" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="281" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDataSourceUser" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="271" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getEpitopeAndSampleSizeVMHost" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="449" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getGenomeViewerRestApiUrl" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="296" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getGenomeViewerUrl" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="291" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getGuseRemoteApiPass" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="366" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getGuseRemoteApiUrl" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="356" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getISAConfigPath" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="444" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMetadataWriteGrp" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="439" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMysqlDB" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="406" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMysqlHost" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="396" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMysqlPass" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="416" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMysqlPort" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="401" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMysqlUser" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="411" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getNCCTMysqlDB" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="484" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getOmeroHostname" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="509" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getOmeroPassword" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="524" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getOmeroPort" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="514" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getOmeroUser" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="519" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPathToDropboxes" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="346" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPathToGuseCertificate" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="326" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPathToGuseWorkflows" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="316" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPathToReferenceConfig" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="420" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPathToWFConfig" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="336" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getRNASeqSampleSizeContainerName" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="464" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getRServeHost" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="469" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getRServePassword" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="479" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getRServePort" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="459" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getRServeUser" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="474" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getSampleSizeVMUser" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="454" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getStatisticsFilePath" signature="()Ljava/lang/String;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="504" hits="2" branch="false"/>
+							</lines>
+						</method>
+						<method name="getTmpFolder" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="306" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getUserDBInputAdminGrps" signature="()Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="494" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getUserDBInputUserGrps" signature="()Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="489" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getVocabularyMSLabeling" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="429" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isAllowUnauthenticatedAccess" signature="(Ljava/lang/String;)Z" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="499" hits="9" branch="false"/>
+							</lines>
+						</method>
+						<method name="setGuseRemoteApiPass" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="371" hits="0" branch="false"/>
+								<line number="372" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setGuseRemoteApiUrl" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="361" hits="0" branch="false"/>
+								<line number="362" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setPathToDropboxes" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="351" hits="0" branch="false"/>
+								<line number="352" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setPathToGuseCertificate" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="331" hits="0" branch="false"/>
+								<line number="332" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setPathToGuseWorkflows" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="321" hits="0" branch="false"/>
+								<line number="322" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setPathToReferenceConfig" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="424" hits="0" branch="false"/>
+								<line number="425" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setPathToWFConfig" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="341" hits="0" branch="false"/>
+								<line number="342" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="21" hits="2" branch="false"/>
+						<line number="162" hits="9" branch="false"/>
+						<line number="163" hits="9" branch="false"/>
+						<line number="164" hits="9" branch="false"/>
+						<line number="165" hits="9" branch="false"/>
+						<line number="166" hits="9" branch="false"/>
+						<line number="167" hits="9" branch="false"/>
+						<line number="168" hits="9" branch="false"/>
+						<line number="170" hits="9" branch="false"/>
+						<line number="171" hits="9" branch="false"/>
+						<line number="172" hits="9" branch="false"/>
+						<line number="173" hits="9" branch="false"/>
+						<line number="175" hits="9" branch="false"/>
+						<line number="176" hits="9" branch="false"/>
+						<line number="178" hits="9" branch="false"/>
+						<line number="179" hits="9" branch="false"/>
+						<line number="180" hits="9" branch="false"/>
+						<line number="181" hits="9" branch="false"/>
+						<line number="182" hits="9" branch="false"/>
+						<line number="184" hits="9" branch="false"/>
+						<line number="185" hits="9" branch="false"/>
+						<line number="186" hits="9" branch="false"/>
+						<line number="188" hits="9" branch="false"/>
+						<line number="190" hits="9" branch="false"/>
+						<line number="192" hits="9" branch="false"/>
+						<line number="193" hits="9" branch="false"/>
+						<line number="195" hits="9" branch="false"/>
+						<line number="196" hits="9" branch="false"/>
+						<line number="197" hits="9" branch="false"/>
+						<line number="198" hits="9" branch="false"/>
+						<line number="200" hits="9" branch="false"/>
+						<line number="201" hits="9" branch="false"/>
+						<line number="202" hits="9" branch="false"/>
+						<line number="203" hits="9" branch="false"/>
+						<line number="204" hits="9" branch="false"/>
+						<line number="206" hits="9" branch="false"/>
+						<line number="207" hits="9" branch="false"/>
+						<line number="208" hits="18" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="209" hits="9" branch="false"/>
+						<line number="210" hits="9" branch="false"/>
+						<line number="211" hits="9" branch="false"/>
+						<line number="212" hits="18" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="213" hits="9" branch="false"/>
+						<line number="215" hits="9" branch="false"/>
+						<line number="217" hits="9" branch="false"/>
+						<line number="218" hits="9" branch="false"/>
+						<line number="220" hits="9" branch="false"/>
+						<line number="221" hits="9" branch="false"/>
+						<line number="222" hits="9" branch="false"/>
+						<line number="223" hits="9" branch="false"/>
+						<line number="224" hits="9" branch="false"/>
+						<line number="225" hits="9" branch="false"/>
+						<line number="226" hits="9" branch="false"/>
+						<line number="228" hits="9" branch="false"/>
+						<line number="234" hits="9" branch="false"/>
+						<line number="235" hits="9" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="239" hits="13" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="240" hits="10" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="242" hits="8" branch="false"/>
+						<line number="243" hits="8" branch="false"/>
+						<line number="244" hits="8" branch="true" condition-coverage="100% (2/2)">
+							<conditions>
+								<condition number="0" type="jump" coverage="100%"/>
+							</conditions>
+						</line>
+						<line number="245" hits="7" branch="false"/>
+						<line number="248" hits="1" branch="false"/>
+						<line number="253" hits="13" branch="false"/>
+						<line number="254" hits="9" branch="false"/>
+						<line number="261" hits="0" branch="false"/>
+						<line number="266" hits="0" branch="false"/>
+						<line number="271" hits="0" branch="false"/>
+						<line number="276" hits="0" branch="false"/>
+						<line number="281" hits="0" branch="false"/>
+						<line number="286" hits="0" branch="false"/>
+						<line number="291" hits="0" branch="false"/>
+						<line number="296" hits="0" branch="false"/>
+						<line number="301" hits="0" branch="false"/>
+						<line number="306" hits="0" branch="false"/>
+						<line number="311" hits="0" branch="false"/>
+						<line number="316" hits="0" branch="false"/>
+						<line number="321" hits="0" branch="false"/>
+						<line number="322" hits="0" branch="false"/>
+						<line number="326" hits="0" branch="false"/>
+						<line number="331" hits="0" branch="false"/>
+						<line number="332" hits="0" branch="false"/>
+						<line number="336" hits="0" branch="false"/>
+						<line number="341" hits="0" branch="false"/>
+						<line number="342" hits="0" branch="false"/>
+						<line number="346" hits="0" branch="false"/>
+						<line number="351" hits="0" branch="false"/>
+						<line number="352" hits="0" branch="false"/>
+						<line number="356" hits="0" branch="false"/>
+						<line number="361" hits="0" branch="false"/>
+						<line number="362" hits="0" branch="false"/>
+						<line number="366" hits="0" branch="false"/>
+						<line number="371" hits="0" branch="false"/>
+						<line number="372" hits="0" branch="false"/>
+						<line number="376" hits="0" branch="false"/>
+						<line number="381" hits="0" branch="false"/>
+						<line number="386" hits="0" branch="false"/>
+						<line number="391" hits="0" branch="false"/>
+						<line number="396" hits="0" branch="false"/>
+						<line number="401" hits="0" branch="false"/>
+						<line number="406" hits="0" branch="false"/>
+						<line number="411" hits="2" branch="false"/>
+						<line number="416" hits="0" branch="false"/>
+						<line number="420" hits="0" branch="false"/>
+						<line number="424" hits="0" branch="false"/>
+						<line number="425" hits="0" branch="false"/>
+						<line number="429" hits="0" branch="false"/>
+						<line number="434" hits="0" branch="false"/>
+						<line number="439" hits="0" branch="false"/>
+						<line number="444" hits="0" branch="false"/>
+						<line number="449" hits="0" branch="false"/>
+						<line number="454" hits="0" branch="false"/>
+						<line number="459" hits="0" branch="false"/>
+						<line number="464" hits="0" branch="false"/>
+						<line number="469" hits="0" branch="false"/>
+						<line number="474" hits="0" branch="false"/>
+						<line number="479" hits="0" branch="false"/>
+						<line number="484" hits="0" branch="false"/>
+						<line number="489" hits="0" branch="false"/>
+						<line number="494" hits="0" branch="false"/>
+						<line number="499" hits="9" branch="false"/>
+						<line number="504" hits="2" branch="false"/>
+						<line number="509" hits="0" branch="false"/>
+						<line number="514" hits="0" branch="false"/>
+						<line number="519" hits="0" branch="false"/>
+						<line number="524" hits="0" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="life.qbic.portal.utils.sessions" line-rate="0.0" branch-rate="1.0" complexity="1.0">
+			<classes>
+				<class name="life.qbic.portal.utils.sessions.VaadinSessions" filename="life/qbic/portal/utils/sessions/VaadinSessions.java" line-rate="0.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="17" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getAttribute" signature="(Ljava/lang/String;)Ljava/util/Map;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="39" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getCurrentBasePath" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="47" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="init" signature="()V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="21" hits="0" branch="false"/>
+								<line number="22" hits="0" branch="false"/>
+								<line number="23" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isPortalSession" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="30" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="17" hits="0" branch="false"/>
+						<line number="21" hits="0" branch="false"/>
+						<line number="22" hits="0" branch="false"/>
+						<line number="23" hits="0" branch="false"/>
+						<line number="30" hits="0" branch="false"/>
+						<line number="39" hits="0" branch="false"/>
+						<line number="47" hits="0" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+		<package name="life.qbic.portal.utils.user" line-rate="0.0" branch-rate="1.0" complexity="1.0212765957446808">
+			<classes>
+				<class name="life.qbic.portal.utils.user.LiferayUserDummy" filename="life/qbic/portal/utils/user/LiferayUserDummy.java" line-rate="0.0" branch-rate="1.0" complexity="1.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+							</lines>
+						</method>
+						<method name="addRemotePreference" signature="(Lcom/liferay/portal/kernel/util/RemotePreference;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="724" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="clone" signature="()Ljava/lang/Object;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="46" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="compareTo" signature="(Lcom/liferay/portal/model/User;)I" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="41" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="compareTo" signature="(Ljava/lang/Object;)I" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="28" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getAddresses" signature="()Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="729" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getAgreedToTermsOfUse" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="53" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getBirthday" signature="()Ljava/util/Date;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="735" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getComments" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="61" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getCompanyId" signature="()J" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="69" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getCompanyMx" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="741" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getContact" signature="()Lcom/liferay/portal/model/Contact;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="747" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getContactId" signature="()J" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="77" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getCreateDate" signature="()Ljava/util/Date;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="85" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDefaultUser" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="93" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDigest" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="753" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDigest" signature="(Ljava/lang/String;)Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="759" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDisplayEmailAddress" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="765" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDisplayURL" signature="(Lcom/liferay/portal/theme/ThemeDisplay;)Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="772" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDisplayURL" signature="(Lcom/liferay/portal/theme/ThemeDisplay;Z)Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="777" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDisplayURL" signature="(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="789" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getDisplayURL" signature="(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="794" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getEmailAddress" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="101" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getEmailAddressVerified" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="109" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getEmailAddresses" signature="()Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="782" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getExpandoBridge" signature="()Lcom/liferay/portlet/expando/model/ExpandoBridge;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="117" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getFacebookId" signature="()J" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="140" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getFailedLoginAttempts" signature="()I" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="148" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getFemale" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="800" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getFirstName" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="155" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getFullName" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="806" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getGraceLoginCount" signature="()I" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="162" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getGreeting" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="169" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getGroup" signature="()Lcom/liferay/portal/model/Group;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="812" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getGroupId" signature="()J" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="818" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getGroupIds" signature="()[J" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="824" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getGroups" signature="()Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="830" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getJobTitle" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="176" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getLanguageId" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="183" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getLastFailedLoginDate" signature="()Ljava/util/Date;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="190" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getLastLoginDate" signature="()Ljava/util/Date;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="196" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getLastLoginIP" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="202" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getLastName" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="208" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getLdapServerId" signature="()J" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="481" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getLocale" signature="()Ljava/util/Locale;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="836" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getLockout" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="214" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getLockoutDate" signature="()Ljava/util/Date;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="220" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getLogin" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="842" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getLoginDate" signature="()Ljava/util/Date;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="226" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getLoginIP" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="232" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMale" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="848" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMiddleName" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="238" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getModelAttributes" signature="()Ljava/util/Map;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="122" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getModelClass" signature="()Ljava/lang/Class;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="707" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getModelClassName" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="713" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getModifiedDate" signature="()Ljava/util/Date;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="244" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMySiteGroups" signature="()Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="853" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMySiteGroups" signature="(I)Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="863" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMySiteGroups" signature="(ZI)Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="858" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMySiteGroups" signature="([Ljava/lang/String;I)Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="873" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMySiteGroups" signature="([Ljava/lang/String;ZI)Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="868" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMySites" signature="()Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="879" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMySites" signature="(I)Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="886" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMySites" signature="(ZI)Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="893" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMySites" signature="([Ljava/lang/String;I)Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="900" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getMySites" signature="([Ljava/lang/String;ZI)Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="907" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getOpenId" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="255" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getOrganizationIds" signature="()[J" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="913" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getOrganizationIds" signature="(Z)[J" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="918" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getOrganizations" signature="()Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="925" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getOrganizations" signature="(Z)Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="930" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPassword" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="261" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPasswordEncrypted" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="267" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPasswordModified" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="936" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPasswordModifiedDate" signature="()Ljava/util/Date;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="273" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPasswordPolicy" signature="()Lcom/liferay/portal/model/PasswordPolicy;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="943" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPasswordReset" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="279" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPasswordUnencrypted" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="949" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPhones" signature="()Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="955" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPortraitId" signature="()J" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="285" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPortraitURL" signature="(Lcom/liferay/portal/theme/ThemeDisplay;)Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="962" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPrimaryKey" signature="()J" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="291" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPrimaryKeyObj" signature="()Ljava/io/Serializable;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="297" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPrivateLayoutsPageCount" signature="()I" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="969" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getPublicLayoutsPageCount" signature="()I" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="976" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getReminderQueryAnswer" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="303" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getReminderQueryQuestion" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="309" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getReminderQueryQuestions" signature="()Ljava/util/Set;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="983" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getRemotePreference" signature="(Ljava/lang/String;)Lcom/liferay/portal/kernel/util/RemotePreference;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="988" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getRemotePreferences" signature="()Ljava/lang/Iterable;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="993" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getRoleIds" signature="()[J" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="999" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getRoles" signature="()Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1005" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getScreenName" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="315" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getSiteGroups" signature="()Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1010" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getSiteGroups" signature="(Z)Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1015" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getStagedModelType" signature="()Lcom/liferay/portal/kernel/lar/StagedModelType;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="249" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getStatus" signature="()I" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="321" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getTeamIds" signature="()[J" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1021" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getTeams" signature="()Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1027" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getTimeZone" signature="()Ljava/util/TimeZone;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1033" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getTimeZoneId" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="327" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getUserGroupIds" signature="()[J" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1039" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getUserGroups" signature="()Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1045" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getUserId" signature="()J" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="333" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getUserUuid" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="339" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getUuid" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="345" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getWebsites" signature="()Ljava/util/List;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1051" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="hasCompanyMx" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1057" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="hasCompanyMx" signature="(Ljava/lang/String;)Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1064" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="hasMySites" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1070" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="hasOrganization" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1076" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="hasPrivateLayouts" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1082" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="hasPublicLayouts" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1088" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="hasReminderQuery" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1094" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isActive" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1100" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isAgreedToTermsOfUse" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="351" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isCachedModel" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="357" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isDefaultUser" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="363" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isEmailAddressComplete" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1105" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isEmailAddressVerificationComplete" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1110" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isEmailAddressVerified" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="369" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isEscapedModel" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="375" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isFemale" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1116" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isLockout" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="381" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isMale" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1122" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isNew" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="387" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isPasswordEncrypted" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="393" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isPasswordModified" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1128" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isPasswordReset" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="399" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isReminderQueryComplete" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1133" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isSetupComplete" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1138" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="isTermsOfUseComplete" signature="()Z" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1143" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="persist" signature="()V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="720" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="resetOriginalValues" signature="()V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="702" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setAgreedToTermsOfUse" signature="(Z)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="406" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setCachedModel" signature="(Z)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="412" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setComments" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="418" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setCompanyId" signature="(J)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="424" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setContactId" signature="(J)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="430" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setCreateDate" signature="(Ljava/util/Date;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="436" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setDefaultUser" signature="(Z)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="442" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setDigest" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="448" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setEmailAddress" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="454" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setEmailAddressVerified" signature="(Z)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="460" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setExpandoBridgeAttributes" signature="(Lcom/liferay/portal/model/BaseModel;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="128" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setExpandoBridgeAttributes" signature="(Lcom/liferay/portal/service/ServiceContext;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="466" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setExpandoBridgeAttributes" signature="(Lcom/liferay/portlet/expando/model/ExpandoBridge;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="133" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setFacebookId" signature="(J)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="477" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setFailedLoginAttempts" signature="(I)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="493" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setFirstName" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="499" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setGraceLoginCount" signature="(I)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="505" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setGreeting" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="511" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setJobTitle" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="517" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setLanguageId" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1150" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setLastFailedLoginDate" signature="(Ljava/util/Date;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="523" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setLastLoginDate" signature="(Ljava/util/Date;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="529" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setLastLoginIP" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="535" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setLastName" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="541" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setLdapServerId" signature="(J)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="487" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setLockout" signature="(Z)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="547" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setLockoutDate" signature="(Ljava/util/Date;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="553" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setLoginDate" signature="(Ljava/util/Date;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="559" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setLoginIP" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="565" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setMiddleName" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="571" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setModelAttributes" signature="(Ljava/util/Map;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="471" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setModifiedDate" signature="(Ljava/util/Date;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="577" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setNew" signature="(Z)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="583" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setOpenId" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="589" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setPassword" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="595" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setPasswordEncrypted" signature="(Z)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="601" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setPasswordModified" signature="(Z)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1156" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setPasswordModifiedDate" signature="(Ljava/util/Date;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="607" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setPasswordReset" signature="(Z)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="613" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setPasswordUnencrypted" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1162" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setPortraitId" signature="(J)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="619" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setPrimaryKey" signature="(J)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="625" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setPrimaryKeyObj" signature="(Ljava/io/Serializable;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="631" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setReminderQueryAnswer" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="637" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setReminderQueryQuestion" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="643" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setScreenName" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="648" hits="0" branch="false"/>
+								<line number="649" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setStatus" signature="(I)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="655" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setTimeZoneId" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="1168" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setUserId" signature="(J)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="661" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setUserUuid" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="667" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="setUuid" signature="(Ljava/lang/String;)V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="673" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="toCacheModel" signature="()Lcom/liferay/portal/model/CacheModel;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="678" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="toEscapedModel" signature="()Lcom/liferay/portal/model/User;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="684" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="toEscapedModel" signature="()Ljava/lang/Object;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+							</lines>
+						</method>
+						<method name="toUnescapedModel" signature="()Lcom/liferay/portal/model/User;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="689" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="toUnescapedModel" signature="()Ljava/lang/Object;" line-rate="1.0" branch-rate="1.0" complexity="0">
+							<lines>
+							</lines>
+						</method>
+						<method name="toXmlString" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="695" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="28" hits="0" branch="false"/>
+						<line number="41" hits="0" branch="false"/>
+						<line number="46" hits="0" branch="false"/>
+						<line number="53" hits="0" branch="false"/>
+						<line number="61" hits="0" branch="false"/>
+						<line number="69" hits="0" branch="false"/>
+						<line number="77" hits="0" branch="false"/>
+						<line number="85" hits="0" branch="false"/>
+						<line number="93" hits="0" branch="false"/>
+						<line number="101" hits="0" branch="false"/>
+						<line number="109" hits="0" branch="false"/>
+						<line number="117" hits="0" branch="false"/>
+						<line number="122" hits="0" branch="false"/>
+						<line number="128" hits="0" branch="false"/>
+						<line number="133" hits="0" branch="false"/>
+						<line number="140" hits="0" branch="false"/>
+						<line number="148" hits="0" branch="false"/>
+						<line number="155" hits="0" branch="false"/>
+						<line number="162" hits="0" branch="false"/>
+						<line number="169" hits="0" branch="false"/>
+						<line number="176" hits="0" branch="false"/>
+						<line number="183" hits="0" branch="false"/>
+						<line number="190" hits="0" branch="false"/>
+						<line number="196" hits="0" branch="false"/>
+						<line number="202" hits="0" branch="false"/>
+						<line number="208" hits="0" branch="false"/>
+						<line number="214" hits="0" branch="false"/>
+						<line number="220" hits="0" branch="false"/>
+						<line number="226" hits="0" branch="false"/>
+						<line number="232" hits="0" branch="false"/>
+						<line number="238" hits="0" branch="false"/>
+						<line number="244" hits="0" branch="false"/>
+						<line number="249" hits="0" branch="false"/>
+						<line number="255" hits="0" branch="false"/>
+						<line number="261" hits="0" branch="false"/>
+						<line number="267" hits="0" branch="false"/>
+						<line number="273" hits="0" branch="false"/>
+						<line number="279" hits="0" branch="false"/>
+						<line number="285" hits="0" branch="false"/>
+						<line number="291" hits="0" branch="false"/>
+						<line number="297" hits="0" branch="false"/>
+						<line number="303" hits="0" branch="false"/>
+						<line number="309" hits="0" branch="false"/>
+						<line number="315" hits="0" branch="false"/>
+						<line number="321" hits="0" branch="false"/>
+						<line number="327" hits="0" branch="false"/>
+						<line number="333" hits="0" branch="false"/>
+						<line number="339" hits="0" branch="false"/>
+						<line number="345" hits="0" branch="false"/>
+						<line number="351" hits="0" branch="false"/>
+						<line number="357" hits="0" branch="false"/>
+						<line number="363" hits="0" branch="false"/>
+						<line number="369" hits="0" branch="false"/>
+						<line number="375" hits="0" branch="false"/>
+						<line number="381" hits="0" branch="false"/>
+						<line number="387" hits="0" branch="false"/>
+						<line number="393" hits="0" branch="false"/>
+						<line number="399" hits="0" branch="false"/>
+						<line number="406" hits="0" branch="false"/>
+						<line number="412" hits="0" branch="false"/>
+						<line number="418" hits="0" branch="false"/>
+						<line number="424" hits="0" branch="false"/>
+						<line number="430" hits="0" branch="false"/>
+						<line number="436" hits="0" branch="false"/>
+						<line number="442" hits="0" branch="false"/>
+						<line number="448" hits="0" branch="false"/>
+						<line number="454" hits="0" branch="false"/>
+						<line number="460" hits="0" branch="false"/>
+						<line number="466" hits="0" branch="false"/>
+						<line number="471" hits="0" branch="false"/>
+						<line number="477" hits="0" branch="false"/>
+						<line number="481" hits="0" branch="false"/>
+						<line number="487" hits="0" branch="false"/>
+						<line number="493" hits="0" branch="false"/>
+						<line number="499" hits="0" branch="false"/>
+						<line number="505" hits="0" branch="false"/>
+						<line number="511" hits="0" branch="false"/>
+						<line number="517" hits="0" branch="false"/>
+						<line number="523" hits="0" branch="false"/>
+						<line number="529" hits="0" branch="false"/>
+						<line number="535" hits="0" branch="false"/>
+						<line number="541" hits="0" branch="false"/>
+						<line number="547" hits="0" branch="false"/>
+						<line number="553" hits="0" branch="false"/>
+						<line number="559" hits="0" branch="false"/>
+						<line number="565" hits="0" branch="false"/>
+						<line number="571" hits="0" branch="false"/>
+						<line number="577" hits="0" branch="false"/>
+						<line number="583" hits="0" branch="false"/>
+						<line number="589" hits="0" branch="false"/>
+						<line number="595" hits="0" branch="false"/>
+						<line number="601" hits="0" branch="false"/>
+						<line number="607" hits="0" branch="false"/>
+						<line number="613" hits="0" branch="false"/>
+						<line number="619" hits="0" branch="false"/>
+						<line number="625" hits="0" branch="false"/>
+						<line number="631" hits="0" branch="false"/>
+						<line number="637" hits="0" branch="false"/>
+						<line number="643" hits="0" branch="false"/>
+						<line number="648" hits="0" branch="false"/>
+						<line number="649" hits="0" branch="false"/>
+						<line number="655" hits="0" branch="false"/>
+						<line number="661" hits="0" branch="false"/>
+						<line number="667" hits="0" branch="false"/>
+						<line number="673" hits="0" branch="false"/>
+						<line number="678" hits="0" branch="false"/>
+						<line number="684" hits="0" branch="false"/>
+						<line number="689" hits="0" branch="false"/>
+						<line number="695" hits="0" branch="false"/>
+						<line number="702" hits="0" branch="false"/>
+						<line number="707" hits="0" branch="false"/>
+						<line number="713" hits="0" branch="false"/>
+						<line number="720" hits="0" branch="false"/>
+						<line number="724" hits="0" branch="false"/>
+						<line number="729" hits="0" branch="false"/>
+						<line number="735" hits="0" branch="false"/>
+						<line number="741" hits="0" branch="false"/>
+						<line number="747" hits="0" branch="false"/>
+						<line number="753" hits="0" branch="false"/>
+						<line number="759" hits="0" branch="false"/>
+						<line number="765" hits="0" branch="false"/>
+						<line number="772" hits="0" branch="false"/>
+						<line number="777" hits="0" branch="false"/>
+						<line number="782" hits="0" branch="false"/>
+						<line number="789" hits="0" branch="false"/>
+						<line number="794" hits="0" branch="false"/>
+						<line number="800" hits="0" branch="false"/>
+						<line number="806" hits="0" branch="false"/>
+						<line number="812" hits="0" branch="false"/>
+						<line number="818" hits="0" branch="false"/>
+						<line number="824" hits="0" branch="false"/>
+						<line number="830" hits="0" branch="false"/>
+						<line number="836" hits="0" branch="false"/>
+						<line number="842" hits="0" branch="false"/>
+						<line number="848" hits="0" branch="false"/>
+						<line number="853" hits="0" branch="false"/>
+						<line number="858" hits="0" branch="false"/>
+						<line number="863" hits="0" branch="false"/>
+						<line number="868" hits="0" branch="false"/>
+						<line number="873" hits="0" branch="false"/>
+						<line number="879" hits="0" branch="false"/>
+						<line number="886" hits="0" branch="false"/>
+						<line number="893" hits="0" branch="false"/>
+						<line number="900" hits="0" branch="false"/>
+						<line number="907" hits="0" branch="false"/>
+						<line number="913" hits="0" branch="false"/>
+						<line number="918" hits="0" branch="false"/>
+						<line number="925" hits="0" branch="false"/>
+						<line number="930" hits="0" branch="false"/>
+						<line number="936" hits="0" branch="false"/>
+						<line number="943" hits="0" branch="false"/>
+						<line number="949" hits="0" branch="false"/>
+						<line number="955" hits="0" branch="false"/>
+						<line number="962" hits="0" branch="false"/>
+						<line number="969" hits="0" branch="false"/>
+						<line number="976" hits="0" branch="false"/>
+						<line number="983" hits="0" branch="false"/>
+						<line number="988" hits="0" branch="false"/>
+						<line number="993" hits="0" branch="false"/>
+						<line number="999" hits="0" branch="false"/>
+						<line number="1005" hits="0" branch="false"/>
+						<line number="1010" hits="0" branch="false"/>
+						<line number="1015" hits="0" branch="false"/>
+						<line number="1021" hits="0" branch="false"/>
+						<line number="1027" hits="0" branch="false"/>
+						<line number="1033" hits="0" branch="false"/>
+						<line number="1039" hits="0" branch="false"/>
+						<line number="1045" hits="0" branch="false"/>
+						<line number="1051" hits="0" branch="false"/>
+						<line number="1057" hits="0" branch="false"/>
+						<line number="1064" hits="0" branch="false"/>
+						<line number="1070" hits="0" branch="false"/>
+						<line number="1076" hits="0" branch="false"/>
+						<line number="1082" hits="0" branch="false"/>
+						<line number="1088" hits="0" branch="false"/>
+						<line number="1094" hits="0" branch="false"/>
+						<line number="1100" hits="0" branch="false"/>
+						<line number="1105" hits="0" branch="false"/>
+						<line number="1110" hits="0" branch="false"/>
+						<line number="1116" hits="0" branch="false"/>
+						<line number="1122" hits="0" branch="false"/>
+						<line number="1128" hits="0" branch="false"/>
+						<line number="1133" hits="0" branch="false"/>
+						<line number="1138" hits="0" branch="false"/>
+						<line number="1143" hits="0" branch="false"/>
+						<line number="1150" hits="0" branch="false"/>
+						<line number="1156" hits="0" branch="false"/>
+						<line number="1162" hits="0" branch="false"/>
+						<line number="1168" hits="0" branch="false"/>
+					</lines>
+				</class>
+				<class name="life.qbic.portal.utils.user.UserRelated" filename="life/qbic/portal/utils/user/UserRelated.java" line-rate="0.0" branch-rate="1.0" complexity="5.0">
+					<methods>
+						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="13" hits="0" branch="false"/>
+							</lines>
+						</method>
+						<method name="getLiferayUser" signature="(Ljava/lang/String;)Lcom/liferay/portal/model/User;" line-rate="0.0" branch-rate="1.0" complexity="0">
+							<lines>
+								<line number="27" hits="0" branch="false"/>
+								<line number="31" hits="0" branch="false"/>
+								<line number="34" hits="0" branch="false"/>
+								<line number="35" hits="0" branch="false"/>
+								<line number="37" hits="0" branch="false"/>
+								<line number="38" hits="0" branch="false"/>
+								<line number="40" hits="0" branch="false"/>
+								<line number="41" hits="0" branch="false"/>
+								<line number="42" hits="0" branch="false"/>
+							</lines>
+						</method>
+					</methods>
+					<lines>
+						<line number="13" hits="0" branch="false"/>
+						<line number="27" hits="0" branch="false"/>
+						<line number="31" hits="0" branch="false"/>
+						<line number="34" hits="0" branch="false"/>
+						<line number="35" hits="0" branch="false"/>
+						<line number="37" hits="0" branch="false"/>
+						<line number="38" hits="0" branch="false"/>
+						<line number="40" hits="0" branch="false"/>
+						<line number="41" hits="0" branch="false"/>
+						<line number="42" hits="0" branch="false"/>
+					</lines>
+				</class>
+			</classes>
+		</package>
+	</packages>
+</coverage>

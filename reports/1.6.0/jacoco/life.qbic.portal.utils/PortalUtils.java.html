@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PortalUtils.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Portal utilities library</a> &gt; <a href="index.source.html" class="el_package">life.qbic.portal.utils</a> &gt; <span class="el_source">PortalUtils.java</span></div><h1>PortalUtils.java</h1><pre class="source lang-java linenums">package life.qbic.portal.utils;
+
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portal.theme.ThemeDisplay;
+import com.vaadin.client.ui.FontIcon;
+import com.vaadin.client.ui.Icon;
+import com.vaadin.server.ExternalResource;
+import com.vaadin.server.FontAwesome;
+import com.vaadin.server.ThemeResource;
+import com.vaadin.server.VaadinService;
+import com.vaadin.server.VaadinSession;
+
+import com.vaadin.shared.ui.label.ContentMode;
+import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.Layout;
+import com.vaadin.ui.Link;
+import com.vaadin.ui.VerticalLayout;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
+import java.util.Enumeration;
+import java.util.Properties;
+
+import com.vaadin.ui.UI;
+import life.qbic.portal.utils.sessions.VaadinSessions;
+import life.qbic.portal.utils.user.UserRelated;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+
+/**
+ * This is the main class of this library. It implements most of the needed
+ * functionality.
+ * 
+ * @author wojnar
+ * 
+ */
+<span class="nc" id="L39">public class PortalUtils {</span>
+  private static final String LiferaySpecificAttribute = &quot;PORTLET_ID&quot;;
+<span class="fc" id="L41">  private static final Logger LOG = LogManager.getLogger(PortalUtils.class);</span>
+  
+  /**
+   * returns the current Base path
+   * 
+   * @return base path of the runnnig portlet as string
+   */
+  public static String getCurrentBasePath() {
+<span class="nc" id="L49">    return VaadinSessions.getCurrentBasePath();</span>
+  }
+
+  /**
+   * if run in an Liferay environment the current user is returned. If run independendly e.g. as a
+   * servlet null is returned
+   * 
+   * @return current Liferay user or null if no user exists.
+   */
+  public static com.liferay.portal.model.User getUser() {
+<span class="nc" id="L59">    final String remoteUser = VaadinService.getCurrentRequest().getRemoteUser();</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">    return remoteUser == null ? null : UserRelated.getLiferayUser(remoteUser);</span>
+  }
+
+  /**
+   * Obtains the screen name of the currently logged user. If no user is logged-in, then {@code null} is returned.
+   * @return the screen name of the currently logged user or {@code null} if there's no authenticated user.
+   */
+  public static String getScreenName() {
+<span class="nc" id="L68">    final com.liferay.portal.model.User user = getUser();</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">    return user == null ? null : user.getScreenName();</span>
+  }
+
+  /**
+   * Obtains the screen name of the currently logged user. If no user is logged-in, then the string {@code Anonymous} is returned.
+   * @return the screen name of the currently logged user or {@code Anonymous} if there's no authenticated user.
+   */
+  public static String getNonNullScreenName() {
+<span class="nc" id="L77">    final String screenName = getScreenName();</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">    return screenName == null ? &quot;Anonymous&quot; : screenName;</span>
+  }
+
+  /**
+   * Checks whether it is run in a Liferay Portal environment, regardless of user authentication status.
+   * 
+   * @return true, if run in a Liferay Portal environement, regardless of user authentication status.
+   */
+  public static boolean isLiferayPortlet() {
+<span class="nc" id="L87">    VaadinSession.getCurrent().getService();</span>
+    Object PORTLET_ID =
+<span class="nc" id="L89">        VaadinService.getCurrentRequest().getAttribute(</span>
+            PortalUtils.LiferaySpecificAttribute);
+<span class="nc bnc" id="L91" title="All 2 branches missed.">    if (LOG.isInfoEnabled()) {</span>
+<span class="nc" id="L92">      LOG.info(&quot;PORTLET_ID = {}&quot;, PORTLET_ID);</span>
+<span class="nc" id="L93">      final Enumeration&lt;String&gt; attributeNames = VaadinService.getCurrentRequest().getAttributeNames();</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">      while (attributeNames.hasMoreElements()) {</span>
+<span class="nc" id="L95">        final String attributeName = attributeNames.nextElement();</span>
+<span class="nc" id="L96">        LOG.info(&quot;  {} = {}&quot;, attributeName, VaadinService.getCurrentRequest().getAttribute(attributeName));</span>
+<span class="nc" id="L97">      }</span>
+    }
+<span class="nc bnc" id="L99" title="All 2 branches missed.">    return PORTLET_ID != null;</span>
+  }
+
+  /**
+	 * Transforms bytes into human readable byte count eg.  110592:   110.6 kB (si = true)  108.0 KiB (si =false)
+	 * @param bytes
+	 * @param si
+	 * @return bytes in readable count and unit
+	 */
+	public static String humanReadableByteCount(long bytes, boolean si) {
+<span class="fc bfc" id="L109" title="All 2 branches covered.">	    int unit = si ? 1000 : 1024;</span>
+<span class="fc bfc" id="L110" title="All 2 branches covered.">	    if (bytes &lt; unit) return bytes + &quot; B&quot;;</span>
+<span class="fc" id="L111">	    int exp = (int) (Math.log(bytes) / Math.log(unit));</span>
+<span class="fc bfc" id="L112" title="All 4 branches covered.">	    String pre = (si ? &quot;kMGTPE&quot; : &quot;KMGTPE&quot;).charAt(exp-1) + (si ? &quot;&quot; : &quot;i&quot;);</span>
+<span class="fc" id="L113">	    return String.format(&quot;%.1f %sB&quot;, bytes / Math.pow(unit, exp), pre);</span>
+	}
+
+
+    /**
+     * Generates path to image path e.g. https://portal-testing.qbic.uni-tuebingen.de/slideshow-portlet/VAADIN/
+     * @param subfolder needs to be a folder placed in VAADIN folder
+     * @return path to the pictures folder of a portlet
+     */
+    public static String buildImagePath(String subfolder) {
+<span class="nc" id="L123">        StringBuilder pathBuilder = new StringBuilder();</span>
+
+<span class="nc bnc" id="L125" title="All 2 branches missed.">        if (isLiferayPortlet()) {</span>
+<span class="nc" id="L126">            Properties prop = new Properties();</span>
+<span class="nc" id="L127">            InputStream in = PortalUtils.class.getClassLoader()</span>
+<span class="nc" id="L128">                    .getResourceAsStream(&quot;WEB-INF/liferay-plugin-package.properties&quot;);</span>
+            try {
+<span class="nc" id="L130">                prop.load(in);</span>
+<span class="nc" id="L131">                in.close();</span>
+<span class="nc" id="L132">            } catch (IOException e1) {</span>
+<span class="nc" id="L133">                e1.printStackTrace();</span>
+<span class="nc" id="L134">            }</span>
+<span class="nc" id="L135">            String portletName = prop.getProperty(&quot;name&quot;);</span>
+
+
+            //pathBuilder.append(&quot;https://&quot;);
+<span class="nc" id="L139">            URI location = UI.getCurrent().getPage().getLocation();</span>
+            // http
+<span class="nc" id="L141">            pathBuilder.append(location.getScheme());</span>
+<span class="nc" id="L142">            pathBuilder.append(&quot;://&quot;);</span>
+            // host+port
+<span class="nc" id="L144">            pathBuilder.append(location.getAuthority());</span>
+
+<span class="nc" id="L146">            String port = (Integer.toString(location.getPort()));</span>
+<span class="nc bnc" id="L147" title="All 2 branches missed.">            if (location.toString().contains(port)) {</span>
+<span class="nc" id="L148">                pathBuilder.append(&quot;:&quot;);</span>
+<span class="nc" id="L149">                pathBuilder.append(port);</span>
+            }
+            // pathBuilder.append(&quot;portal-testing.qbic.uni-tuebingen.de&quot;);
+<span class="nc" id="L152">            pathBuilder.append(&quot;/&quot;);</span>
+<span class="nc" id="L153">            pathBuilder.append(portletName);</span>
+        }
+
+        //path to images folder
+<span class="nc" id="L157">        pathBuilder.append(&quot;/VAADIN/&quot;+subfolder);</span>
+<span class="nc" id="L158">        LOG.info(pathBuilder.toString());</span>
+<span class="nc" id="L159">        return pathBuilder.toString();</span>
+    }
+
+    /**
+     *
+     * @return Path to image folder with default image path {@code images}
+     */
+    public static String buildImagePath() {
+<span class="nc" id="L167">        return buildImagePath(&quot;images&quot;);</span>
+    }
+
+  /**
+   * Builds and returns a {@link com.vaadin.ui.Layout} displaying a &quot;please log in&quot; message. Portlets using this method must include the mail9.png and
+   * lock12.png image resources (both sized 64x64 pixels) from the {@code src/main/resources/img} folder in this project to the corresponding folder in the
+   * portlet project (usually {@code src/main/webapp/VAADIN/themes/mytheme}).
+   *
+   * @return a {@link com.vaadin.ui.Layout} informing users to log in.
+   */
+  public static Layout buildNotLoggedInLayout() {
+    // Mail to qbic
+<span class="nc" id="L179">    ExternalResource resource = new ExternalResource(&quot;mailto:support@qbic.zendesk.com&quot;);</span>
+<span class="nc" id="L180">    Link mailToQbicLink = new Link(&quot;&quot;, resource);</span>
+<span class="nc" id="L181">    mailToQbicLink.setIcon(new ThemeResource(&quot;mail9.png&quot;));</span>
+
+
+    ThemeDisplay themedisplay =
+<span class="nc" id="L185">        (ThemeDisplay) VaadinService.getCurrentRequest().getAttribute(WebKeys.THEME_DISPLAY);</span>
+
+    // redirect to liferay login page
+<span class="nc" id="L188">    Link loginPortalLink = new Link(&quot;&quot;, new ExternalResource(themedisplay.getURLSignIn()));</span>
+<span class="nc" id="L189">    loginPortalLink.setIcon(new ThemeResource(&quot;lock12.png&quot;));</span>
+
+    // left part of the page
+<span class="nc" id="L192">    VerticalLayout signIn = new VerticalLayout();</span>
+<span class="nc" id="L193">    signIn.addComponent(new Label(&quot;&lt;h3&gt;Sign in to manage your projects and access your data:&lt;/h3&gt;&quot;,</span>
+        ContentMode.HTML));
+<span class="nc" id="L195">    signIn.addComponent(loginPortalLink);</span>
+<span class="nc" id="L196">    signIn.setStyleName(&quot;no-user-login&quot;);</span>
+    // right part of the page
+<span class="nc" id="L198">    VerticalLayout contact = new VerticalLayout();</span>
+<span class="nc" id="L199">    contact.addComponent(new Label(</span>
+        &quot;&lt;h3&gt;If you are interested in doing projects get in contact:&lt;/h3&gt;&quot;, ContentMode.HTML));
+<span class="nc" id="L201">    contact.addComponent(mailToQbicLink);</span>
+<span class="nc" id="L202">    contact.setStyleName(&quot;no-user-login&quot;);</span>
+
+    // build final layout, with some gaps between
+<span class="nc" id="L205">    HorizontalLayout notSignedInLayout = new HorizontalLayout();</span>
+<span class="nc" id="L206">    Label expandingGap1 = new Label();</span>
+<span class="nc" id="L207">    expandingGap1.setWidth(&quot;100%&quot;);</span>
+<span class="nc" id="L208">    notSignedInLayout.addComponent(expandingGap1);</span>
+<span class="nc" id="L209">    notSignedInLayout.addComponent(signIn);</span>
+
+<span class="nc" id="L211">    notSignedInLayout.addComponent(contact);</span>
+<span class="nc" id="L212">    notSignedInLayout.setExpandRatio(expandingGap1, 0.16f);</span>
+<span class="nc" id="L213">    notSignedInLayout.setExpandRatio(signIn, 0.36f);</span>
+
+<span class="nc" id="L215">    notSignedInLayout.setExpandRatio(contact, 0.36f);</span>
+
+<span class="nc" id="L217">    notSignedInLayout.setWidth(&quot;100%&quot;);</span>
+<span class="nc" id="L218">    notSignedInLayout.setSpacing(true);</span>
+
+<span class="nc" id="L220">    return notSignedInLayout;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

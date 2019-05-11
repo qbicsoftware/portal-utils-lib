@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConfigurationManagerFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Portal utilities library</a> &gt; <a href="index.source.html" class="el_package">life.qbic.portal.utils</a> &gt; <span class="el_source">ConfigurationManagerFactory.java</span></div><h1>ConfigurationManagerFactory.java</h1><pre class="source lang-java linenums">package life.qbic.portal.utils;
+
+import com.liferay.util.portlet.PortletProps;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+import life.qbic.portal.portlet.QBiCPortletUI;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+/**
+ * The ConfigurationManager Factory has only the {@link #getInstance()} method. This class maintains a static reference to an implementation of the
+ * {@link ConfigurationManager}, as a sort of &quot;proxy singleton&quot; (developer's quotes). Please note that the term &quot;proxy singleton&quot; does not probably exist, but
+ * it is not easy to describe this pattern.
+ *
+ * This odd design choice (having a factory that acts as a singleton) was chosen due to the fact that there are hard references to this class all over our
+ * portlets, so changing the signature of the methods required to get an instance of a {@link ConfigurationManager}, would mean that no portlet would compile
+ * if pure singletons (without a factory) are used. Such is life, I guess.
+ *
+ * Depending on whether the portlet runs on its own or in a Portal environment a different configuration file will be used to initialize the instance of
+ * {@llink ConfigurationManager}.
+ * 
+ * @author wojnar, chahuistle
+ * 
+ */
+<span class="nc" id="L26">public class ConfigurationManagerFactory {</span>
+
+<span class="fc" id="L28">  private static final Logger LOG = LogManager.getLogger(ConfigurationManagerFactory.class);</span>
+
+  // this is a &quot;proxy singleton&quot; (developer's quotes, I actually don't know how to name this &quot;pattern&quot;, again, my quotes)
+  private static ConfigurationManager PROXY_INSTANCE;
+  /**
+   * Returns the (singleton) instance of a {@link ConfigurationManager} that has been configured with the right configuration file.
+   * 
+   * @return Instance of {@link ConfigurationManager}.
+   */
+  public static synchronized ConfigurationManager getInstance() {
+<span class="pc bpc" id="L38" title="1 of 2 branches missed.">    if (PROXY_INSTANCE == null) {</span>
+      final Properties properties;
+      // find out how we will populate the Properties object, that is, whether from a Liferay config file or from a file in the classpath
+<span class="fc bfc" id="L41" title="All 2 branches covered.">      if (PortalUtils.isLiferayPortlet()) {</span>
+<span class="fc" id="L42">        LOG.info(&quot;Running on a Liferay portal&quot;);</span>
+        // this baby is running on a portal, how exciting!
+<span class="fc" id="L44">        properties = PortletProps.getProperties();</span>
+      } else {
+        // load from a properties file that is in the classpath
+<span class="fc" id="L47">        LOG.info(&quot;It seems that this is not a Liferay instance, reading local configuration file&quot;);</span>
+<span class="fc" id="L48">        properties = new Properties();</span>
+<span class="fc" id="L49">          try (final InputStream inputStream = ConfigurationManagerFactory.class.getClassLoader()</span>
+<span class="fc" id="L50">              .getResourceAsStream(QBiCPortletUI.DEVELOPER_PROPERTIES_FILE_PATH)) {</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">            if (inputStream == null) {</span>
+<span class="fc" id="L52">              LOG.warn(&quot;Your local configuration file was not found in the classpath. This might not be a problem. Perhaps you forgot to add {} in the classpath?&quot;, QBiCPortletUI.DEVELOPER_PROPERTIES_FILE_PATH);</span>
+            } else {
+<span class="fc" id="L54">              properties.load(inputStream);</span>
+            }
+<span class="nc" id="L56">          } catch (IOException e) {</span>
+<span class="nc" id="L57">            throw new RuntimeException(&quot;Could not load local configuration file &quot; + QBiCPortletUI.DEVELOPER_PROPERTIES_FILE_PATH, e);</span>
+<span class="fc" id="L58">          }</span>
+      }
+<span class="fc" id="L60">      PROXY_INSTANCE = new PropertiesBasedConfigurationManager(properties);</span>
+    }
+<span class="fc" id="L62">    return PROXY_INSTANCE;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
