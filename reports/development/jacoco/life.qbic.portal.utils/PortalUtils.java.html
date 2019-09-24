@@ -2,10 +2,8 @@
 
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.theme.ThemeDisplay;
-import com.vaadin.client.ui.FontIcon;
-import com.vaadin.client.ui.Icon;
 import com.vaadin.server.ExternalResource;
-import com.vaadin.server.FontAwesome;
+import com.vaadin.server.StreamResource;
 import com.vaadin.server.ThemeResource;
 import com.vaadin.server.VaadinService;
 import com.vaadin.server.VaadinSession;
@@ -16,6 +14,7 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.Link;
 import com.vaadin.ui.VerticalLayout;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
@@ -36,9 +35,9 @@ import org.apache.logging.log4j.Logger;
  * @author wojnar
  * 
  */
-<span class="nc" id="L39">public class PortalUtils {</span>
+<span class="nc" id="L38">public class PortalUtils {</span>
   private static final String LiferaySpecificAttribute = &quot;PORTLET_ID&quot;;
-<span class="fc" id="L41">  private static final Logger LOG = LogManager.getLogger(PortalUtils.class);</span>
+<span class="fc" id="L40">  private static final Logger LOG = LogManager.getLogger(PortalUtils.class);</span>
   
   /**
    * returns the current Base path
@@ -46,7 +45,30 @@ import org.apache.logging.log4j.Logger;
    * @return base path of the runnnig portlet as string
    */
   public static String getCurrentBasePath() {
-<span class="nc" id="L49">    return VaadinSessions.getCurrentBasePath();</span>
+<span class="nc" id="L48">    return VaadinSessions.getCurrentBasePath();</span>
+  }
+  
+  /**
+   * Returns a file stream given a content String and information about file name and extension
+   * @param content file content
+   * @param name file name without extension
+   * @param extension file extension
+   * @return
+   */
+  public static StreamResource getFileStream(final String content, String name, String extension) {
+<span class="nc" id="L59">    StreamResource resource = new StreamResource(new StreamResource.StreamSource() {</span>
+      @Override
+      public InputStream getStream() {
+        try {
+<span class="nc" id="L63">          InputStream is = new ByteArrayInputStream(content.getBytes());</span>
+<span class="nc" id="L64">          return is;</span>
+<span class="nc" id="L65">        } catch (Exception e) {</span>
+<span class="nc" id="L66">          e.printStackTrace();</span>
+<span class="nc" id="L67">          return null;</span>
+        }
+      }
+    }, name + &quot;.&quot; + extension);
+<span class="nc" id="L71">    return resource;</span>
   }
 
   /**
@@ -56,8 +78,8 @@ import org.apache.logging.log4j.Logger;
    * @return current Liferay user or null if no user exists.
    */
   public static com.liferay.portal.model.User getUser() {
-<span class="nc" id="L59">    final String remoteUser = VaadinService.getCurrentRequest().getRemoteUser();</span>
-<span class="nc bnc" id="L60" title="All 2 branches missed.">    return remoteUser == null ? null : UserRelated.getLiferayUser(remoteUser);</span>
+<span class="nc" id="L81">    final String remoteUser = VaadinService.getCurrentRequest().getRemoteUser();</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">    return remoteUser == null ? null : UserRelated.getLiferayUser(remoteUser);</span>
   }
 
   /**
@@ -65,8 +87,8 @@ import org.apache.logging.log4j.Logger;
    * @return the screen name of the currently logged user or {@code null} if there's no authenticated user.
    */
   public static String getScreenName() {
-<span class="nc" id="L68">    final com.liferay.portal.model.User user = getUser();</span>
-<span class="nc bnc" id="L69" title="All 2 branches missed.">    return user == null ? null : user.getScreenName();</span>
+<span class="nc" id="L90">    final com.liferay.portal.model.User user = getUser();</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">    return user == null ? null : user.getScreenName();</span>
   }
 
   /**
@@ -74,8 +96,8 @@ import org.apache.logging.log4j.Logger;
    * @return the screen name of the currently logged user or {@code Anonymous} if there's no authenticated user.
    */
   public static String getNonNullScreenName() {
-<span class="nc" id="L77">    final String screenName = getScreenName();</span>
-<span class="nc bnc" id="L78" title="All 2 branches missed.">    return screenName == null ? &quot;Anonymous&quot; : screenName;</span>
+<span class="nc" id="L99">    final String screenName = getScreenName();</span>
+<span class="nc bnc" id="L100" title="All 2 branches missed.">    return screenName == null ? &quot;Anonymous&quot; : screenName;</span>
   }
 
   /**
@@ -84,19 +106,19 @@ import org.apache.logging.log4j.Logger;
    * @return true, if run in a Liferay Portal environement, regardless of user authentication status.
    */
   public static boolean isLiferayPortlet() {
-<span class="nc" id="L87">    VaadinSession.getCurrent().getService();</span>
+<span class="nc" id="L109">    VaadinSession.getCurrent().getService();</span>
     Object PORTLET_ID =
-<span class="nc" id="L89">        VaadinService.getCurrentRequest().getAttribute(</span>
+<span class="nc" id="L111">        VaadinService.getCurrentRequest().getAttribute(</span>
             PortalUtils.LiferaySpecificAttribute);
-<span class="nc bnc" id="L91" title="All 2 branches missed.">    if (LOG.isInfoEnabled()) {</span>
-<span class="nc" id="L92">      LOG.info(&quot;PORTLET_ID = {}&quot;, PORTLET_ID);</span>
-<span class="nc" id="L93">      final Enumeration&lt;String&gt; attributeNames = VaadinService.getCurrentRequest().getAttributeNames();</span>
-<span class="nc bnc" id="L94" title="All 2 branches missed.">      while (attributeNames.hasMoreElements()) {</span>
-<span class="nc" id="L95">        final String attributeName = attributeNames.nextElement();</span>
-<span class="nc" id="L96">        LOG.info(&quot;  {} = {}&quot;, attributeName, VaadinService.getCurrentRequest().getAttribute(attributeName));</span>
-<span class="nc" id="L97">      }</span>
+<span class="nc bnc" id="L113" title="All 2 branches missed.">    if (LOG.isInfoEnabled()) {</span>
+<span class="nc" id="L114">      LOG.info(&quot;PORTLET_ID = {}&quot;, PORTLET_ID);</span>
+<span class="nc" id="L115">      final Enumeration&lt;String&gt; attributeNames = VaadinService.getCurrentRequest().getAttributeNames();</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">      while (attributeNames.hasMoreElements()) {</span>
+<span class="nc" id="L117">        final String attributeName = attributeNames.nextElement();</span>
+<span class="nc" id="L118">        LOG.info(&quot;  {} = {}&quot;, attributeName, VaadinService.getCurrentRequest().getAttribute(attributeName));</span>
+<span class="nc" id="L119">      }</span>
     }
-<span class="nc bnc" id="L99" title="All 2 branches missed.">    return PORTLET_ID != null;</span>
+<span class="nc bnc" id="L121" title="All 2 branches missed.">    return PORTLET_ID != null;</span>
   }
 
   /**
@@ -106,11 +128,11 @@ import org.apache.logging.log4j.Logger;
 	 * @return bytes in readable count and unit
 	 */
 	public static String humanReadableByteCount(long bytes, boolean si) {
-<span class="fc bfc" id="L109" title="All 2 branches covered.">	    int unit = si ? 1000 : 1024;</span>
-<span class="fc bfc" id="L110" title="All 2 branches covered.">	    if (bytes &lt; unit) return bytes + &quot; B&quot;;</span>
-<span class="fc" id="L111">	    int exp = (int) (Math.log(bytes) / Math.log(unit));</span>
-<span class="fc bfc" id="L112" title="All 4 branches covered.">	    String pre = (si ? &quot;kMGTPE&quot; : &quot;KMGTPE&quot;).charAt(exp-1) + (si ? &quot;&quot; : &quot;i&quot;);</span>
-<span class="fc" id="L113">	    return String.format(&quot;%.1f %sB&quot;, bytes / Math.pow(unit, exp), pre);</span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">	    int unit = si ? 1000 : 1024;</span>
+<span class="fc bfc" id="L132" title="All 2 branches covered.">	    if (bytes &lt; unit) return bytes + &quot; B&quot;;</span>
+<span class="fc" id="L133">	    int exp = (int) (Math.log(bytes) / Math.log(unit));</span>
+<span class="fc bfc" id="L134" title="All 4 branches covered.">	    String pre = (si ? &quot;kMGTPE&quot; : &quot;KMGTPE&quot;).charAt(exp-1) + (si ? &quot;&quot; : &quot;i&quot;);</span>
+<span class="fc" id="L135">	    return String.format(&quot;%.1f %sB&quot;, bytes / Math.pow(unit, exp), pre);</span>
 	}
 
 
@@ -120,43 +142,43 @@ import org.apache.logging.log4j.Logger;
      * @return path to the pictures folder of a portlet
      */
     public static String buildImagePath(String subfolder) {
-<span class="nc" id="L123">        StringBuilder pathBuilder = new StringBuilder();</span>
+<span class="nc" id="L145">        StringBuilder pathBuilder = new StringBuilder();</span>
 
-<span class="nc bnc" id="L125" title="All 2 branches missed.">        if (isLiferayPortlet()) {</span>
-<span class="nc" id="L126">            Properties prop = new Properties();</span>
-<span class="nc" id="L127">            InputStream in = PortalUtils.class.getClassLoader()</span>
-<span class="nc" id="L128">                    .getResourceAsStream(&quot;WEB-INF/liferay-plugin-package.properties&quot;);</span>
+<span class="nc bnc" id="L147" title="All 2 branches missed.">        if (isLiferayPortlet()) {</span>
+<span class="nc" id="L148">            Properties prop = new Properties();</span>
+<span class="nc" id="L149">            InputStream in = PortalUtils.class.getClassLoader()</span>
+<span class="nc" id="L150">                    .getResourceAsStream(&quot;WEB-INF/liferay-plugin-package.properties&quot;);</span>
             try {
-<span class="nc" id="L130">                prop.load(in);</span>
-<span class="nc" id="L131">                in.close();</span>
-<span class="nc" id="L132">            } catch (IOException e1) {</span>
-<span class="nc" id="L133">                e1.printStackTrace();</span>
-<span class="nc" id="L134">            }</span>
-<span class="nc" id="L135">            String portletName = prop.getProperty(&quot;name&quot;);</span>
+<span class="nc" id="L152">                prop.load(in);</span>
+<span class="nc" id="L153">                in.close();</span>
+<span class="nc" id="L154">            } catch (IOException e1) {</span>
+<span class="nc" id="L155">                e1.printStackTrace();</span>
+<span class="nc" id="L156">            }</span>
+<span class="nc" id="L157">            String portletName = prop.getProperty(&quot;name&quot;);</span>
 
 
             //pathBuilder.append(&quot;https://&quot;);
-<span class="nc" id="L139">            URI location = UI.getCurrent().getPage().getLocation();</span>
+<span class="nc" id="L161">            URI location = UI.getCurrent().getPage().getLocation();</span>
             // http
-<span class="nc" id="L141">            pathBuilder.append(location.getScheme());</span>
-<span class="nc" id="L142">            pathBuilder.append(&quot;://&quot;);</span>
+<span class="nc" id="L163">            pathBuilder.append(location.getScheme());</span>
+<span class="nc" id="L164">            pathBuilder.append(&quot;://&quot;);</span>
             // host+port
-<span class="nc" id="L144">            pathBuilder.append(location.getAuthority());</span>
+<span class="nc" id="L166">            pathBuilder.append(location.getAuthority());</span>
 
-<span class="nc" id="L146">            String port = (Integer.toString(location.getPort()));</span>
-<span class="nc bnc" id="L147" title="All 2 branches missed.">            if (location.toString().contains(port)) {</span>
-<span class="nc" id="L148">                pathBuilder.append(&quot;:&quot;);</span>
-<span class="nc" id="L149">                pathBuilder.append(port);</span>
+<span class="nc" id="L168">            String port = (Integer.toString(location.getPort()));</span>
+<span class="nc bnc" id="L169" title="All 2 branches missed.">            if (location.toString().contains(port)) {</span>
+<span class="nc" id="L170">                pathBuilder.append(&quot;:&quot;);</span>
+<span class="nc" id="L171">                pathBuilder.append(port);</span>
             }
             // pathBuilder.append(&quot;portal-testing.qbic.uni-tuebingen.de&quot;);
-<span class="nc" id="L152">            pathBuilder.append(&quot;/&quot;);</span>
-<span class="nc" id="L153">            pathBuilder.append(portletName);</span>
+<span class="nc" id="L174">            pathBuilder.append(&quot;/&quot;);</span>
+<span class="nc" id="L175">            pathBuilder.append(portletName);</span>
         }
 
         //path to images folder
-<span class="nc" id="L157">        pathBuilder.append(&quot;/VAADIN/&quot;+subfolder);</span>
-<span class="nc" id="L158">        LOG.info(pathBuilder.toString());</span>
-<span class="nc" id="L159">        return pathBuilder.toString();</span>
+<span class="nc" id="L179">        pathBuilder.append(&quot;/VAADIN/&quot;+subfolder);</span>
+<span class="nc" id="L180">        LOG.info(pathBuilder.toString());</span>
+<span class="nc" id="L181">        return pathBuilder.toString();</span>
     }
 
     /**
@@ -164,7 +186,7 @@ import org.apache.logging.log4j.Logger;
      * @return Path to image folder with default image path {@code images}
      */
     public static String buildImagePath() {
-<span class="nc" id="L167">        return buildImagePath(&quot;images&quot;);</span>
+<span class="nc" id="L189">        return buildImagePath(&quot;images&quot;);</span>
     }
 
   /**
@@ -176,48 +198,48 @@ import org.apache.logging.log4j.Logger;
    */
   public static Layout buildNotLoggedInLayout() {
     // Mail to qbic
-<span class="nc" id="L179">    ExternalResource resource = new ExternalResource(&quot;mailto:support@qbic.zendesk.com&quot;);</span>
-<span class="nc" id="L180">    Link mailToQbicLink = new Link(&quot;&quot;, resource);</span>
-<span class="nc" id="L181">    mailToQbicLink.setIcon(new ThemeResource(&quot;mail9.png&quot;));</span>
+<span class="nc" id="L201">    ExternalResource resource = new ExternalResource(&quot;mailto:support@qbic.zendesk.com&quot;);</span>
+<span class="nc" id="L202">    Link mailToQbicLink = new Link(&quot;&quot;, resource);</span>
+<span class="nc" id="L203">    mailToQbicLink.setIcon(new ThemeResource(&quot;mail9.png&quot;));</span>
 
 
     ThemeDisplay themedisplay =
-<span class="nc" id="L185">        (ThemeDisplay) VaadinService.getCurrentRequest().getAttribute(WebKeys.THEME_DISPLAY);</span>
+<span class="nc" id="L207">        (ThemeDisplay) VaadinService.getCurrentRequest().getAttribute(WebKeys.THEME_DISPLAY);</span>
 
     // redirect to liferay login page
-<span class="nc" id="L188">    Link loginPortalLink = new Link(&quot;&quot;, new ExternalResource(themedisplay.getURLSignIn()));</span>
-<span class="nc" id="L189">    loginPortalLink.setIcon(new ThemeResource(&quot;lock12.png&quot;));</span>
+<span class="nc" id="L210">    Link loginPortalLink = new Link(&quot;&quot;, new ExternalResource(themedisplay.getURLSignIn()));</span>
+<span class="nc" id="L211">    loginPortalLink.setIcon(new ThemeResource(&quot;lock12.png&quot;));</span>
 
     // left part of the page
-<span class="nc" id="L192">    VerticalLayout signIn = new VerticalLayout();</span>
-<span class="nc" id="L193">    signIn.addComponent(new Label(&quot;&lt;h3&gt;Sign in to manage your projects and access your data:&lt;/h3&gt;&quot;,</span>
+<span class="nc" id="L214">    VerticalLayout signIn = new VerticalLayout();</span>
+<span class="nc" id="L215">    signIn.addComponent(new Label(&quot;&lt;h3&gt;Sign in to manage your projects and access your data:&lt;/h3&gt;&quot;,</span>
         ContentMode.HTML));
-<span class="nc" id="L195">    signIn.addComponent(loginPortalLink);</span>
-<span class="nc" id="L196">    signIn.setStyleName(&quot;no-user-login&quot;);</span>
+<span class="nc" id="L217">    signIn.addComponent(loginPortalLink);</span>
+<span class="nc" id="L218">    signIn.setStyleName(&quot;no-user-login&quot;);</span>
     // right part of the page
-<span class="nc" id="L198">    VerticalLayout contact = new VerticalLayout();</span>
-<span class="nc" id="L199">    contact.addComponent(new Label(</span>
+<span class="nc" id="L220">    VerticalLayout contact = new VerticalLayout();</span>
+<span class="nc" id="L221">    contact.addComponent(new Label(</span>
         &quot;&lt;h3&gt;If you are interested in doing projects get in contact:&lt;/h3&gt;&quot;, ContentMode.HTML));
-<span class="nc" id="L201">    contact.addComponent(mailToQbicLink);</span>
-<span class="nc" id="L202">    contact.setStyleName(&quot;no-user-login&quot;);</span>
+<span class="nc" id="L223">    contact.addComponent(mailToQbicLink);</span>
+<span class="nc" id="L224">    contact.setStyleName(&quot;no-user-login&quot;);</span>
 
     // build final layout, with some gaps between
-<span class="nc" id="L205">    HorizontalLayout notSignedInLayout = new HorizontalLayout();</span>
-<span class="nc" id="L206">    Label expandingGap1 = new Label();</span>
-<span class="nc" id="L207">    expandingGap1.setWidth(&quot;100%&quot;);</span>
-<span class="nc" id="L208">    notSignedInLayout.addComponent(expandingGap1);</span>
-<span class="nc" id="L209">    notSignedInLayout.addComponent(signIn);</span>
+<span class="nc" id="L227">    HorizontalLayout notSignedInLayout = new HorizontalLayout();</span>
+<span class="nc" id="L228">    Label expandingGap1 = new Label();</span>
+<span class="nc" id="L229">    expandingGap1.setWidth(&quot;100%&quot;);</span>
+<span class="nc" id="L230">    notSignedInLayout.addComponent(expandingGap1);</span>
+<span class="nc" id="L231">    notSignedInLayout.addComponent(signIn);</span>
 
-<span class="nc" id="L211">    notSignedInLayout.addComponent(contact);</span>
-<span class="nc" id="L212">    notSignedInLayout.setExpandRatio(expandingGap1, 0.16f);</span>
-<span class="nc" id="L213">    notSignedInLayout.setExpandRatio(signIn, 0.36f);</span>
+<span class="nc" id="L233">    notSignedInLayout.addComponent(contact);</span>
+<span class="nc" id="L234">    notSignedInLayout.setExpandRatio(expandingGap1, 0.16f);</span>
+<span class="nc" id="L235">    notSignedInLayout.setExpandRatio(signIn, 0.36f);</span>
 
-<span class="nc" id="L215">    notSignedInLayout.setExpandRatio(contact, 0.36f);</span>
+<span class="nc" id="L237">    notSignedInLayout.setExpandRatio(contact, 0.36f);</span>
 
-<span class="nc" id="L217">    notSignedInLayout.setWidth(&quot;100%&quot;);</span>
-<span class="nc" id="L218">    notSignedInLayout.setSpacing(true);</span>
+<span class="nc" id="L239">    notSignedInLayout.setWidth(&quot;100%&quot;);</span>
+<span class="nc" id="L240">    notSignedInLayout.setSpacing(true);</span>
 
-<span class="nc" id="L220">    return notSignedInLayout;</span>
+<span class="nc" id="L242">    return notSignedInLayout;</span>
   }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
