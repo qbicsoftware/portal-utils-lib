@@ -2,10 +2,8 @@ package life.qbic.portal.utils;
 
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.theme.ThemeDisplay;
-import com.vaadin.client.ui.FontIcon;
-import com.vaadin.client.ui.Icon;
 import com.vaadin.server.ExternalResource;
-import com.vaadin.server.FontAwesome;
+import com.vaadin.server.StreamResource;
 import com.vaadin.server.ThemeResource;
 import com.vaadin.server.VaadinService;
 import com.vaadin.server.VaadinSession;
@@ -16,6 +14,7 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.Link;
 import com.vaadin.ui.VerticalLayout;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
@@ -47,6 +46,29 @@ public class PortalUtils {
    */
   public static String getCurrentBasePath() {
     return VaadinSessions.getCurrentBasePath();
+  }
+  
+  /**
+   * Returns a file stream given a content String and information about file name and extension
+   * @param content file content
+   * @param name file name without extension
+   * @param extension file extension
+   * @return
+   */
+  public static StreamResource getFileStream(final String content, String name, String extension) {
+    StreamResource resource = new StreamResource(new StreamResource.StreamSource() {
+      @Override
+      public InputStream getStream() {
+        try {
+          InputStream is = new ByteArrayInputStream(content.getBytes());
+          return is;
+        } catch (Exception e) {
+          e.printStackTrace();
+          return null;
+        }
+      }
+    }, name + "." + extension);
+    return resource;
   }
 
   /**
