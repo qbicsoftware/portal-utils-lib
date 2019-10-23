@@ -42,6 +42,9 @@ public class Uploader implements Upload.SucceededListener, Upload.FailedListener
   private String fileName;
   private String tmpFolder;
 
+  /**
+   * @param tmpFolder temporary folder to place uploaded files in
+   */
   public Uploader(String tmpFolder) {
     this.tmpFolder = tmpFolder;
   }
