@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VaadinSessions.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Portal utilities library</a> &gt; <a href="index.source.html" class="el_package">life.qbic.portal.utils.sessions</a> &gt; <span class="el_source">VaadinSessions.java</span></div><h1>VaadinSessions.java</h1><pre class="source lang-java linenums">package life.qbic.portal.utils.sessions;
+
+import java.util.Map;
+
+import com.vaadin.server.VaadinPortletSession;
+import com.vaadin.server.VaadinRequest;
+import com.vaadin.server.VaadinService;
+import com.vaadin.server.VaadinSession;
+
+
+/**
+ * This class deals specifically with vaadin sessions
+ * and returns some useful information about the session.
+ * @author wojnar
+ *
+ */
+<span class="nc" id="L17">public class VaadinSessions {</span>
+
+	private static VaadinRequest request;
+	public static void init(){
+<span class="nc" id="L21">		VaadinSession.getCurrent().getService();</span>
+<span class="nc" id="L22">		VaadinSessions.request = VaadinService.getCurrentRequest();</span>
+<span class="nc" id="L23">	}</span>
+	
+	/**
+	 * Checks whether the current session is a Portal session or Portal independent
+	 * @return true if run in Portal environment
+	 */
+	public static boolean isPortalSession(){
+<span class="nc" id="L30">		return (VaadinSession.getCurrent() instanceof VaadinPortletSession);</span>
+	}
+	
+	/**
+	 * returns an attribute, if it exists
+	 * @param attribute
+	 * @return VaadinRequest attribute
+	 */
+	public static Map getAttribute(String attribute) {
+<span class="nc" id="L39">		return (Map) VaadinSessions.request.getAttribute(attribute);</span>
+	}
+	
+	/**
+	 * The absolute Path of the current base Path is returned.
+	 * @return the absolute path of the location of the portlet
+	 */
+	public static String getCurrentBasePath(){
+<span class="nc" id="L47">		return VaadinService.getCurrent().getBaseDirectory().getAbsolutePath();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

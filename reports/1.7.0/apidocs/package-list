@@ -1,0 +1,7 @@
+life.qbic.portal
+life.qbic.portal.components
+life.qbic.portal.controllers
+life.qbic.portal.portlet
+life.qbic.portal.utils
+life.qbic.portal.utils.sessions
+life.qbic.portal.utils.user

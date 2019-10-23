@@ -1,0 +1,1171 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LiferayUserDummy.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Portal utilities library</a> &gt; <a href="index.source.html" class="el_package">life.qbic.portal.utils.user</a> &gt; <span class="el_source">LiferayUserDummy.java</span></div><h1>LiferayUserDummy.java</h1><pre class="source lang-java linenums">package life.qbic.portal.utils.user;
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+import java.util.TimeZone;
+
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.lar.StagedModelType;
+import com.liferay.portal.kernel.util.RemotePreference;
+import com.liferay.portal.model.*;
+import com.liferay.portal.service.ServiceContext;
+import com.liferay.portal.theme.ThemeDisplay;
+import com.liferay.portlet.expando.model.ExpandoBridge;
+
+
+/**
+ * This class can be used for testing purposes, if a portlet is run in serlvet mode and not in the portal environment
+ * For method docuemntation see com.liferay.portal.model.User
+ * MOST OF THE FUNCTIONS ARE NOT IMPLEMENTED YET. THEY RETURN NULL OR 0 OR FALSE.
+ * @author wojnar
+ *
+ */
+<span class="nc" id="L28">public class LiferayUserDummy implements User {</span>
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String screenName;
+
+	/**
+	 * TODO
+	 */
+	@Override
+	public int compareTo(User arg0) {
+<span class="nc" id="L41">		return 0;</span>
+	}
+	/**
+	 * TODO
+	 */
+<span class="nc" id="L46">	public Object clone() { return null; }</span>
+	
+	/**
+	 * TODO
+	 */
+	@Override
+	public boolean getAgreedToTermsOfUse() {
+<span class="nc" id="L53">		return false;</span>
+	}
+
+	/**
+	 * TODO
+	 */
+	@Override
+	public String getComments() {
+<span class="nc" id="L61">		return null;</span>
+	}
+
+	/**
+	 * TODO
+	 */
+	@Override
+	public long getCompanyId() {
+<span class="nc" id="L69">		return 0;</span>
+	}
+
+	/**
+	 * TODO
+	 */
+	@Override
+	public long getContactId() {
+<span class="nc" id="L77">		return 0;</span>
+	}
+
+	/**
+	 * TODO
+	 */
+	@Override
+	public Date getCreateDate() {
+<span class="nc" id="L85">		return null;</span>
+	}
+
+	/**
+	 * TODO
+	 */
+	@Override
+	public boolean getDefaultUser() {
+<span class="nc" id="L93">		return false;</span>
+	}
+
+	/**
+	 * TODO
+	 */
+	@Override
+	public String getEmailAddress() {
+<span class="nc" id="L101">		return null;</span>
+		
+	}
+	/**
+	 * TODO
+	 */
+	@Override
+	public boolean getEmailAddressVerified() {
+<span class="nc" id="L109">		return false;</span>
+	}
+	
+	/**
+	 * TODO
+	 */
+	@Override
+	public ExpandoBridge getExpandoBridge() {
+<span class="nc" id="L117">		return null;</span>
+	}
+
+	@Override
+	public Map&lt;String, Object&gt; getModelAttributes() {
+<span class="nc" id="L122">		return null;</span>
+	}
+
+	@Override
+	public void setExpandoBridgeAttributes(BaseModel&lt;?&gt; baseModel) {
+
+<span class="nc" id="L128">	}</span>
+
+	@Override
+	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge) {
+
+<span class="nc" id="L133">	}</span>
+
+	/**
+	 * TODO
+	 */
+	@Override
+	public long getFacebookId() {
+<span class="nc" id="L140">		return 0;</span>
+	}
+	
+	/**
+	 * TODO
+	 */
+	@Override
+	public int getFailedLoginAttempts() {
+<span class="nc" id="L148">		return 0;</span>
+	}
+	/**
+	 * TODO
+	 */
+	@Override
+	public String getFirstName() {
+<span class="nc" id="L155">		return null;</span>
+	}
+	/**
+	 * TODO
+	 */
+	@Override
+	public int getGraceLoginCount() {
+<span class="nc" id="L162">		return 0;</span>
+	}
+	/**
+	 * TODO
+	 */
+	@Override
+	public String getGreeting() {
+<span class="nc" id="L169">		return null;</span>
+	}
+	/**
+	 * TODO
+	 */
+	@Override
+	public String getJobTitle() {
+<span class="nc" id="L176">		return null;</span>
+	}
+	/**
+	 * TODO
+	 */
+	@Override
+	public String getLanguageId() {
+<span class="nc" id="L183">		return null;</span>
+	}
+	/**
+	 * TODO
+	 */
+	@Override
+	public Date getLastFailedLoginDate() {
+<span class="nc" id="L190">		return null;</span>
+	}
+
+	@Override
+	public Date getLastLoginDate() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L196">		return null;</span>
+	}
+
+	@Override
+	public String getLastLoginIP() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L202">		return null;</span>
+	}
+
+	@Override
+	public String getLastName() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L208">		return null;</span>
+	}
+
+	@Override
+	public boolean getLockout() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L214">		return false;</span>
+	}
+
+	@Override
+	public Date getLockoutDate() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L220">		return null;</span>
+	}
+
+	@Override
+	public Date getLoginDate() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L226">		return null;</span>
+	}
+
+	@Override
+	public String getLoginIP() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L232">		return null;</span>
+	}
+
+	@Override
+	public String getMiddleName() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L238">		return null;</span>
+	}
+
+	@Override
+	public Date getModifiedDate() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L244">		return null;</span>
+	}
+
+	@Override
+	public StagedModelType getStagedModelType() {
+<span class="nc" id="L249">		return null;</span>
+	}
+
+	@Override
+	public String getOpenId() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L255">		return null;</span>
+	}
+
+	@Override
+	public String getPassword() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L261">		return null;</span>
+	}
+
+	@Override
+	public boolean getPasswordEncrypted() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L267">		return false;</span>
+	}
+
+	@Override
+	public Date getPasswordModifiedDate() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L273">		return null;</span>
+	}
+
+	@Override
+	public boolean getPasswordReset() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L279">		return false;</span>
+	}
+
+	@Override
+	public long getPortraitId() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L285">		return 0;</span>
+	}
+
+	@Override
+	public long getPrimaryKey() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L291">		return 0;</span>
+	}
+
+	@Override
+	public Serializable getPrimaryKeyObj() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L297">		return null;</span>
+	}
+
+	@Override
+	public String getReminderQueryAnswer() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L303">		return null;</span>
+	}
+
+	@Override
+	public String getReminderQueryQuestion() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L309">		return null;</span>
+	}
+
+	@Override
+	public String getScreenName() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L315">		return this.screenName;</span>
+	}
+
+	@Override
+	public int getStatus() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L321">		return 0;</span>
+	}
+
+	@Override
+	public String getTimeZoneId() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L327">		return null;</span>
+	}
+
+	@Override
+	public long getUserId() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L333">		return 0;</span>
+	}
+
+	@Override
+	public String getUserUuid() throws SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L339">		return null;</span>
+	}
+
+	@Override
+	public String getUuid() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L345">		return null;</span>
+	}
+
+	@Override
+	public boolean isAgreedToTermsOfUse() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L351">		return false;</span>
+	}
+
+	@Override
+	public boolean isCachedModel() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L357">		return false;</span>
+	}
+
+	@Override
+	public boolean isDefaultUser() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L363">		return false;</span>
+	}
+
+	@Override
+	public boolean isEmailAddressVerified() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L369">		return false;</span>
+	}
+
+	@Override
+	public boolean isEscapedModel() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L375">		return false;</span>
+	}
+
+	@Override
+	public boolean isLockout() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L381">		return false;</span>
+	}
+
+	@Override
+	public boolean isNew() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L387">		return false;</span>
+	}
+
+	@Override
+	public boolean isPasswordEncrypted() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L393">		return false;</span>
+	}
+
+	@Override
+	public boolean isPasswordReset() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L399">		return false;</span>
+	}
+
+	@Override
+	public void setAgreedToTermsOfUse(boolean arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L406">	}</span>
+
+	@Override
+	public void setCachedModel(boolean arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L412">	}</span>
+
+	@Override
+	public void setComments(String arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L418">	}</span>
+
+	@Override
+	public void setCompanyId(long arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L424">	}</span>
+
+	@Override
+	public void setContactId(long arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L430">	}</span>
+
+	@Override
+	public void setCreateDate(Date arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L436">	}</span>
+
+	@Override
+	public void setDefaultUser(boolean arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L442">	}</span>
+
+	@Override
+	public void setDigest(String arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L448">	}</span>
+
+	@Override
+	public void setEmailAddress(String arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L454">	}</span>
+
+	@Override
+	public void setEmailAddressVerified(boolean arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L460">	}</span>
+
+	@Override
+	public void setExpandoBridgeAttributes(ServiceContext arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L466">	}</span>
+
+	@Override
+	public void setModelAttributes(Map&lt;String, Object&gt; map) {
+
+<span class="nc" id="L471">	}</span>
+
+	@Override
+	public void setFacebookId(long arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L477">	}</span>
+
+	@Override
+	public long getLdapServerId() {
+<span class="nc" id="L481">		return 0;</span>
+	}
+
+	@Override
+	public void setLdapServerId(long l) {
+		// TODO Auto-generated method stub
+<span class="nc" id="L487">	}</span>
+
+	@Override
+	public void setFailedLoginAttempts(int arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L493">	}</span>
+
+	@Override
+	public void setFirstName(String arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L499">	}</span>
+
+	@Override
+	public void setGraceLoginCount(int arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L505">	}</span>
+
+	@Override
+	public void setGreeting(String arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L511">	}</span>
+
+	@Override
+	public void setJobTitle(String arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L517">	}</span>
+
+	@Override
+	public void setLastFailedLoginDate(Date arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L523">	}</span>
+
+	@Override
+	public void setLastLoginDate(Date arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L529">	}</span>
+
+	@Override
+	public void setLastLoginIP(String arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L535">	}</span>
+
+	@Override
+	public void setLastName(String arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L541">	}</span>
+
+	@Override
+	public void setLockout(boolean arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L547">	}</span>
+
+	@Override
+	public void setLockoutDate(Date arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L553">	}</span>
+
+	@Override
+	public void setLoginDate(Date arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L559">	}</span>
+
+	@Override
+	public void setLoginIP(String arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L565">	}</span>
+
+	@Override
+	public void setMiddleName(String arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L571">	}</span>
+
+	@Override
+	public void setModifiedDate(Date arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L577">	}</span>
+
+	@Override
+	public void setNew(boolean arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L583">	}</span>
+
+	@Override
+	public void setOpenId(String arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L589">	}</span>
+
+	@Override
+	public void setPassword(String arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L595">	}</span>
+
+	@Override
+	public void setPasswordEncrypted(boolean arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L601">	}</span>
+
+	@Override
+	public void setPasswordModifiedDate(Date arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L607">	}</span>
+
+	@Override
+	public void setPasswordReset(boolean arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L613">	}</span>
+
+	@Override
+	public void setPortraitId(long arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L619">	}</span>
+
+	@Override
+	public void setPrimaryKey(long arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L625">	}</span>
+
+	@Override
+	public void setPrimaryKeyObj(Serializable arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L631">	}</span>
+
+	@Override
+	public void setReminderQueryAnswer(String arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L637">	}</span>
+
+	@Override
+	public void setReminderQueryQuestion(String arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L643">	}</span>
+
+	@Override
+	public void setScreenName(String arg0) {
+		// TODO Auto-generated method stub
+<span class="nc" id="L648">		this.screenName = arg0;</span>
+<span class="nc" id="L649">	}</span>
+
+	@Override
+	public void setStatus(int arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L655">	}</span>
+
+	@Override
+	public void setUserId(long arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L661">	}</span>
+
+	@Override
+	public void setUserUuid(String arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L667">	}</span>
+
+	@Override
+	public void setUuid(String arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L673">	}</span>
+
+	@Override
+	public CacheModel&lt;User&gt; toCacheModel() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L678">		return null;</span>
+	}
+
+	@Override
+	public User toEscapedModel() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L684">		return null;</span>
+	}
+
+	@Override
+	public User toUnescapedModel() {
+<span class="nc" id="L689">		return null;</span>
+	}
+
+	@Override
+	public String toXmlString() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L695">		return null;</span>
+	}
+
+	@Override
+	public void resetOriginalValues() {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L702">	}</span>
+
+	@Override
+	public Class&lt;?&gt; getModelClass() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L707">		return null;</span>
+	}
+
+	@Override
+	public String getModelClassName() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L713">		return null;</span>
+	}
+
+	@Override
+	public void persist() throws SystemException {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L720">	}</span>
+
+	@Override
+	public void addRemotePreference(RemotePreference remotePreference) {
+<span class="nc" id="L724">	}</span>
+
+	@Override
+	public List&lt;Address&gt; getAddresses() throws SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L729">		return null;</span>
+	}
+
+	@Override
+	public Date getBirthday() throws PortalException, SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L735">		return null;</span>
+	}
+
+	@Override
+	public String getCompanyMx() throws PortalException, SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L741">		return null;</span>
+	}
+
+	@Override
+	public Contact getContact() throws PortalException, SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L747">		return null;</span>
+	}
+
+	@Override
+	public String getDigest() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L753">		return null;</span>
+	}
+
+	@Override
+	public String getDigest(String arg0) {
+		// TODO Auto-generated method stub
+<span class="nc" id="L759">		return null;</span>
+	}
+
+	@Override
+	public String getDisplayEmailAddress() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L765">		return null;</span>
+	}
+
+	@Override
+	public String getDisplayURL(ThemeDisplay arg0) throws PortalException,
+			SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L772">		return null;</span>
+	}
+
+	@Override
+	public String getDisplayURL(ThemeDisplay themeDisplay, boolean b) throws PortalException, SystemException {
+<span class="nc" id="L777">		return null;</span>
+	}
+
+	@Override
+	public List&lt;EmailAddress&gt; getEmailAddresses() throws SystemException {
+<span class="nc" id="L782">		return null;</span>
+	}
+
+	@Override
+	public String getDisplayURL(String arg0, String arg1)
+			throws PortalException, SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L789">		return null;</span>
+	}
+
+	@Override
+	public String getDisplayURL(String s, String s1, boolean b) throws PortalException, SystemException {
+<span class="nc" id="L794">		return null;</span>
+	}
+
+	@Override
+	public boolean getFemale() throws PortalException, SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L800">		return false;</span>
+	}
+
+	@Override
+	public String getFullName() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L806">		return null;</span>
+	}
+
+	@Override
+	public Group getGroup() throws PortalException, SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L812">		return null;</span>
+	}
+
+	@Override
+	public long getGroupId() throws PortalException, SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L818">		return 0;</span>
+	}
+
+	@Override
+	public long[] getGroupIds() throws SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L824">		return null;</span>
+	}
+
+	@Override
+	public List&lt;Group&gt; getGroups() throws SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L830">		return null;</span>
+	}
+
+	@Override
+	public Locale getLocale() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L836">		return null;</span>
+	}
+
+	@Override
+	public String getLogin() throws PortalException, SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L842">		return null;</span>
+	}
+
+	@Override
+	public boolean getMale() throws PortalException, SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L848">		return false;</span>
+	}
+
+	@Override
+	public List&lt;Group&gt; getMySiteGroups() throws PortalException, SystemException {
+<span class="nc" id="L853">		return null;</span>
+	}
+
+	@Override
+	public List&lt;Group&gt; getMySiteGroups(boolean b, int i) throws PortalException, SystemException {
+<span class="nc" id="L858">		return null;</span>
+	}
+
+	@Override
+	public List&lt;Group&gt; getMySiteGroups(int i) throws PortalException, SystemException {
+<span class="nc" id="L863">		return null;</span>
+	}
+
+	@Override
+	public List&lt;Group&gt; getMySiteGroups(String[] strings, boolean b, int i) throws PortalException, SystemException {
+<span class="nc" id="L868">		return null;</span>
+	}
+
+	@Override
+	public List&lt;Group&gt; getMySiteGroups(String[] strings, int i) throws PortalException, SystemException {
+<span class="nc" id="L873">		return null;</span>
+	}
+
+	@Override
+	public List&lt;Group&gt; getMySites() throws PortalException, SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L879">		return null;</span>
+	}
+
+	@Override
+	public List&lt;Group&gt; getMySites(int arg0) throws PortalException,
+			SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L886">		return null;</span>
+	}
+
+	@Override
+	public List&lt;Group&gt; getMySites(boolean arg0, int arg1)
+			throws PortalException, SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L893">		return null;</span>
+	}
+
+	@Override
+	public List&lt;Group&gt; getMySites(String[] arg0, int arg1)
+			throws PortalException, SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L900">		return null;</span>
+	}
+
+	@Override
+	public List&lt;Group&gt; getMySites(String[] arg0, boolean arg1, int arg2)
+			throws PortalException, SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L907">		return null;</span>
+	}
+
+	@Override
+	public long[] getOrganizationIds() throws PortalException, SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L913">		return null;</span>
+	}
+
+	@Override
+	public long[] getOrganizationIds(boolean b) throws PortalException, SystemException {
+<span class="nc" id="L918">		return new long[0];</span>
+	}
+
+	@Override
+	public List&lt;Organization&gt; getOrganizations() throws PortalException,
+			SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L925">		return null;</span>
+	}
+
+	@Override
+	public List&lt;Organization&gt; getOrganizations(boolean b) throws PortalException, SystemException {
+<span class="nc" id="L930">		return null;</span>
+	}
+
+	@Override
+	public boolean getPasswordModified() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L936">		return false;</span>
+	}
+
+	@Override
+	public PasswordPolicy getPasswordPolicy() throws PortalException,
+			SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L943">		return null;</span>
+	}
+
+	@Override
+	public String getPasswordUnencrypted() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L949">		return null;</span>
+	}
+
+	@Override
+	public List&lt;Phone&gt; getPhones() throws SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L955">		return null;</span>
+	}
+
+	@Override
+	public String getPortraitURL(ThemeDisplay arg0) throws PortalException,
+			SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L962">		return null;</span>
+	}
+
+	@Override
+	public int getPrivateLayoutsPageCount() throws PortalException,
+			SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L969">		return 0;</span>
+	}
+
+	@Override
+	public int getPublicLayoutsPageCount() throws PortalException,
+			SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L976">		return 0;</span>
+	}
+
+	@Override
+	public Set&lt;String&gt; getReminderQueryQuestions() throws PortalException,
+			SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L983">		return null;</span>
+	}
+
+	@Override
+	public RemotePreference getRemotePreference(String s) {
+<span class="nc" id="L988">		return null;</span>
+	}
+
+	@Override
+	public Iterable&lt;RemotePreference&gt; getRemotePreferences() {
+<span class="nc" id="L993">		return null;</span>
+	}
+
+	@Override
+	public long[] getRoleIds() throws SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L999">		return null;</span>
+	}
+
+	@Override
+	public List&lt;Role&gt; getRoles() throws SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L1005">		return null;</span>
+	}
+
+	@Override
+	public List&lt;Group&gt; getSiteGroups() throws PortalException, SystemException {
+<span class="nc" id="L1010">		return null;</span>
+	}
+
+	@Override
+	public List&lt;Group&gt; getSiteGroups(boolean b) throws PortalException, SystemException {
+<span class="nc" id="L1015">		return null;</span>
+	}
+
+	@Override
+	public long[] getTeamIds() throws SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L1021">		return null;</span>
+	}
+
+	@Override
+	public List&lt;Team&gt; getTeams() throws SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L1027">		return null;</span>
+	}
+
+	@Override
+	public TimeZone getTimeZone() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L1033">		return null;</span>
+	}
+
+	@Override
+	public long[] getUserGroupIds() throws SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L1039">		return null;</span>
+	}
+
+	@Override
+	public List&lt;UserGroup&gt; getUserGroups() throws SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L1045">		return null;</span>
+	}
+
+	@Override
+	public List&lt;Website&gt; getWebsites() throws SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L1051">		return null;</span>
+	}
+
+	@Override
+	public boolean hasCompanyMx() throws PortalException, SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L1057">		return false;</span>
+	}
+
+	@Override
+	public boolean hasCompanyMx(String arg0) throws PortalException,
+			SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L1064">		return false;</span>
+	}
+
+	@Override
+	public boolean hasMySites() throws PortalException, SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L1070">		return false;</span>
+	}
+
+	@Override
+	public boolean hasOrganization() throws PortalException, SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L1076">		return false;</span>
+	}
+
+	@Override
+	public boolean hasPrivateLayouts() throws PortalException, SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L1082">		return false;</span>
+	}
+
+	@Override
+	public boolean hasPublicLayouts() throws PortalException, SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L1088">		return false;</span>
+	}
+
+	@Override
+	public boolean hasReminderQuery() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L1094">		return false;</span>
+	}
+
+	@Override
+	public boolean isActive() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L1100">		return false;</span>
+	}
+
+	@Override
+	public boolean isEmailAddressComplete() {
+<span class="nc" id="L1105">		return false;</span>
+	}
+
+	@Override
+	public boolean isEmailAddressVerificationComplete() {
+<span class="nc" id="L1110">		return false;</span>
+	}
+
+	@Override
+	public boolean isFemale() throws PortalException, SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L1116">		return false;</span>
+	}
+
+	@Override
+	public boolean isMale() throws PortalException, SystemException {
+		// TODO Auto-generated method stub
+<span class="nc" id="L1122">		return false;</span>
+	}
+
+	@Override
+	public boolean isPasswordModified() {
+		// TODO Auto-generated method stub
+<span class="nc" id="L1128">		return false;</span>
+	}
+
+	@Override
+	public boolean isReminderQueryComplete() {
+<span class="nc" id="L1133">		return false;</span>
+	}
+
+	@Override
+	public boolean isSetupComplete() {
+<span class="nc" id="L1138">		return false;</span>
+	}
+
+	@Override
+	public boolean isTermsOfUseComplete() {
+<span class="nc" id="L1143">		return false;</span>
+	}
+
+	@Override
+	public void setLanguageId(String arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L1150">	}</span>
+
+	@Override
+	public void setPasswordModified(boolean arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L1156">	}</span>
+
+	@Override
+	public void setPasswordUnencrypted(String arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L1162">	}</span>
+
+	@Override
+	public void setTimeZoneId(String arg0) {
+		// TODO Auto-generated method stub
+
+<span class="nc" id="L1168">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Styles.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Portal utilities library</a> &gt; <a href="index.source.html" class="el_package">life.qbic.portal</a> &gt; <span class="el_source">Styles.java</span></div><h1>Styles.java</h1><pre class="source lang-java linenums">package life.qbic.portal;
+
+import com.vaadin.server.FontAwesome;
+import com.vaadin.server.Page;
+import com.vaadin.server.Resource;
+import com.vaadin.shared.Position;
+import com.vaadin.shared.ui.label.ContentMode;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.Notification;
+import com.vaadin.ui.PopupView;
+import com.vaadin.ui.PopupView.Content;
+import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.themes.ValoTheme;
+
+import life.qbic.portal.components.CustomVisibilityComponent;
+import life.qbic.portal.controllers.VisibilityChangeListener;
+
+<span class="nc" id="L21">public class Styles {</span>
+<span class="nc" id="L22">  public enum NotificationType {</span>
+<span class="nc" id="L23">    ERROR, SUCCESS, DEFAULT</span>
+  }
+
+  public static void notification(String title, String description, NotificationType type) {
+<span class="nc" id="L27">    Notification notify = new Notification(title, description);</span>
+<span class="nc" id="L28">    notify.setPosition(Position.TOP_CENTER);</span>
+<span class="nc bnc" id="L29" title="All 3 branches missed.">    switch (type) {</span>
+      case ERROR:
+<span class="nc" id="L31">        notify.setDelayMsec(16000);</span>
+<span class="nc" id="L32">        notify.setIcon(FontAwesome.FROWN_O);</span>
+<span class="nc" id="L33">        notify.setStyleName(ValoTheme.NOTIFICATION_ERROR + &quot; &quot; + ValoTheme.NOTIFICATION_CLOSABLE);</span>
+<span class="nc" id="L34">        break;</span>
+      case SUCCESS:
+<span class="nc" id="L36">        notify.setDelayMsec(8000);</span>
+<span class="nc" id="L37">        notify.setIcon(FontAwesome.SMILE_O);</span>
+<span class="nc" id="L38">        notify.setStyleName(ValoTheme.NOTIFICATION_SUCCESS + &quot; &quot; + ValoTheme.NOTIFICATION_CLOSABLE);</span>
+<span class="nc" id="L39">        break;</span>
+      default:
+<span class="nc" id="L41">        notify.setDelayMsec(8000);</span>
+<span class="nc" id="L42">        notify.setIcon(FontAwesome.COMMENT);</span>
+<span class="nc" id="L43">        notify.setStyleName(ValoTheme.NOTIFICATION_TRAY + &quot; &quot; + ValoTheme.NOTIFICATION_CLOSABLE);</span>
+        break;
+    }
+<span class="nc" id="L46">    notify.show(Page.getCurrent());</span>
+<span class="nc" id="L47">  }</span>
+
+<span class="nc" id="L49">  public static String boxTheme = ValoTheme.COMBOBOX_SMALL;</span>
+<span class="nc" id="L50">  public static String fieldTheme = ValoTheme.TEXTFIELD_SMALL;</span>
+<span class="nc" id="L51">  public static String areaTheme = ValoTheme.TEXTAREA_SMALL;</span>
+<span class="nc" id="L52">  public static String tableTheme = ValoTheme.TABLE_SMALL;</span>
+
+  public static void iconButton(Button b, Resource icon) {
+<span class="nc" id="L55">    b.setStyleName(ValoTheme.BUTTON_BORDERLESS);</span>
+<span class="nc" id="L56">    b.setIcon(icon);</span>
+<span class="nc" id="L57">    b.setWidth(&quot;10px&quot;);</span>
+<span class="nc" id="L58">  }</span>
+
+
+  public static PopupView getPopupViewContaining(Component c) {
+<span class="nc" id="L62">    PopupView pv = new PopupView(new Content() {</span>
+
+      @Override
+      public Component getPopupComponent() {
+<span class="nc" id="L66">        VerticalLayout v = new VerticalLayout(c);</span>
+<span class="nc" id="L67">        v.setMargin(true);</span>
+<span class="nc" id="L68">        return v;</span>
+      }
+
+      @Override
+      public String getMinimizedValueAsHTML() {
+<span class="nc" id="L73">        return &quot;[?]&quot;;</span>
+      }
+    });
+<span class="nc" id="L76">    pv.setHideOnMouseOut(false);</span>
+<span class="nc" id="L77">    return pv;</span>
+  }
+
+  public static HorizontalLayout questionize(Component c, final String info, final String header) {
+<span class="nc" id="L81">    final HorizontalLayout res = new HorizontalLayout();</span>
+<span class="nc" id="L82">    res.setSpacing(true);</span>
+<span class="nc bnc" id="L83" title="All 2 branches missed.">    if (c instanceof CustomVisibilityComponent) {</span>
+<span class="nc" id="L84">      CustomVisibilityComponent custom = (CustomVisibilityComponent) c;</span>
+<span class="nc" id="L85">      c = custom.getInnerComponent();</span>
+<span class="nc" id="L86">      custom.addListener(new VisibilityChangeListener() {</span>
+
+        @Override
+        public void setVisible(boolean b) {
+<span class="nc" id="L90">          res.setVisible(b);</span>
+<span class="nc" id="L91">        }</span>
+      });
+    }
+
+<span class="nc" id="L95">    res.setVisible(c.isVisible());</span>
+<span class="nc" id="L96">    res.setCaption(c.getCaption());</span>
+<span class="nc" id="L97">    c.setCaption(null);</span>
+<span class="nc" id="L98">    res.addComponent(c);</span>
+
+<span class="nc" id="L100">    PopupView pv = new PopupView(new Content() {</span>
+
+      @Override
+      public Component getPopupComponent() {
+<span class="nc" id="L104">        Label l = new Label(info, ContentMode.HTML);</span>
+<span class="nc" id="L105">        l.setCaption(header);</span>
+<span class="nc" id="L106">        l.setIcon(FontAwesome.INFO);</span>
+<span class="nc" id="L107">        l.setWidth(&quot;350px&quot;);</span>
+<span class="nc" id="L108">        l.addStyleName(&quot;info&quot;);</span>
+<span class="nc" id="L109">        return new VerticalLayout(l);</span>
+      }
+
+      @Override
+      public String getMinimizedValueAsHTML() {
+<span class="nc" id="L114">        return &quot;[?]&quot;;</span>
+      }
+    });
+<span class="nc" id="L117">    pv.setHideOnMouseOut(false);</span>
+
+<span class="nc" id="L119">    res.addComponent(pv);</span>
+
+<span class="nc" id="L121">    return res;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

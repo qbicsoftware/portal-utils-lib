@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<rss version="0.91">
+  <channel>
+    <title>Portal utilities library - Checkstyle report</title>
+    <link>${project.url}</link>
+    <description>Portal utilities library - Checkstyle report</description>
+    <language>en-us</language>
+    <copyright>&#169;2019</copyright>
+    <item>
+      <title>File: 15,
+             Errors: 0,
+             Warnings: 1809,
+             Infos: 0
+      </title>
+            <link>${project.url}/checkstyle.html</link>
+      <description>
+        <p>Click <a href="${project.url}/checkstyle.html">here</a> for the full Checkstyle report.</p>
+
+        <table summary="Files" boder="1">
+          <thead>
+            <tr>
+              <th>Files</th>
+              <th style="width:30px;"><abbr title="Info">I</abbr></th>
+              <th style="width:30px;"><abbr title="Warning">W</abbr></th>
+              <th style="width:30px;"><abbr title="Error">E</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#life.qbic.portal.components.StandardTextField.java">life/qbic/portal/components/StandardTextField.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#life.qbic.portal.utils.user.LiferayUserDummy.java">life/qbic/portal/utils/user/LiferayUserDummy.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1482
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#life.qbic.portal.components.AOpenbisInfoComponent.java">life/qbic/portal/components/AOpenbisInfoComponent.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  7
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#life.qbic.portal.utils.PropertiesBasedConfigurationManager.java">life/qbic/portal/utils/PropertiesBasedConfigurationManager.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  14
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#life.qbic.portal.components.OpenbisInfoTextField.java">life/qbic/portal/components/OpenbisInfoTextField.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  5
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#life.qbic.portal.utils.user.UserRelated.java">life/qbic/portal/utils/user/UserRelated.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  49
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#life.qbic.portal.components.CustomVisibilityComponent.java">life/qbic/portal/components/CustomVisibilityComponent.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  22
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#life.qbic.portal.components.Uploader.java">life/qbic/portal/components/Uploader.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#life.qbic.portal.portlet.QBiCPortletUI.java">life/qbic/portal/portlet/QBiCPortletUI.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  16
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#life.qbic.portal.Styles.java">life/qbic/portal/Styles.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  10
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#life.qbic.portal.utils.ConfigurationManager.java">life/qbic/portal/utils/ConfigurationManager.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  22
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#life.qbic.portal.utils.ConfigurationManagerFactory.java">life/qbic/portal/utils/ConfigurationManagerFactory.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  27
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#life.qbic.portal.utils.sessions.VaadinSessions.java">life/qbic/portal/utils/sessions/VaadinSessions.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  55
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#life.qbic.portal.utils.PortalUtils.java">life/qbic/portal/utils/PortalUtils.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  83
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#life.qbic.portal.controllers.VisibilityChangeListener.java">life/qbic/portal/controllers/VisibilityChangeListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                      </tbody>
+        </table>
+        
+      </description>
+    </item>
+  </channel>
+</rss>
+

@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PropertiesBasedConfigurationManager.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Portal utilities library</a> &gt; <a href="index.source.html" class="el_package">life.qbic.portal.utils</a> &gt; <span class="el_source">PropertiesBasedConfigurationManager.java</span></div><h1>PropertiesBasedConfigurationManager.java</h1><pre class="source lang-java linenums">package life.qbic.portal.utils;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Properties;
+import java.util.Set;
+import java.util.TreeSet;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Validate;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+
+/**
+ * Implementation of the {@link ConfigurationManager} based on {@link java.util.Properties}. See
+ * {@link ConfigurationManagerFactory} for an explanation on why this is not a singleton.
+ */
+public class PropertiesBasedConfigurationManager implements ConfigurationManager {
+
+<span class="fc" id="L21">  static final Logger LOG = LogManager.getLogger(PropertiesBasedConfigurationManager.class);</span>
+
+  // names of the properties (set with package access so the tests can see these constants
+  static final String DATASOURCE_KEY = &quot;datasource&quot;;
+  static final String DATASOURCE_USER = &quot;datasource.user&quot;;
+  static final String DATASOURCE_PASS = &quot;datasource.password&quot;;
+  static final String DATASOURCE_URL = &quot;datasource.url&quot;;
+  static final String DATASOURCE_API_URL = &quot;datasource.api.url&quot;;
+
+  static final String OMERO_HOST = &quot;omero.host&quot;;
+  static final String OMERO_PORT = &quot;omero.port&quot;;
+  static final String OMERO_USER = &quot;omero.user&quot;;
+  static final String OMERO_PASS = &quot;omero.password&quot;;
+
+  static final String GENOMEVIEWER_URL = &quot;genomeviewer.url&quot;;
+  static final String GENOMEVIEWER_RESTAPI = &quot;genomeviewer.restapi&quot;;
+
+  static final String TMP_FOLDER = &quot;tmp.folder&quot;;
+  static final String ISA_CONFIG = &quot;isa.config.folder&quot;;
+  static final String BARCODE_SCRIPTS_FOLDER = &quot;barcode.scripts&quot;;
+  static final String BARCODE_PATH_VARIABLE = &quot;path.variable&quot;;
+  static final String BARCODE_RESULTS = &quot;barcode.results&quot;;
+
+  static final String PATH_TO_GUSE_WORKFLOWS = &quot;path_to_guse_workflows&quot;;
+  static final String PATH_TO_GUSE_CERTIFICATE = &quot;path_to_certificate&quot;;
+  static final String PATH_TO_WF_CONFIG = &quot;path_to_wf_config&quot;;
+
+  static final String PATH_TO_REFERENCE_CONFIG = &quot;path_to_reference_config&quot;;
+
+  static final String PATH_TO_DROPBOXES = &quot;path_to_dropboxes&quot;;
+
+  static final String GUSE_REMOTE_API_URL = &quot;guse_remoteapi_url&quot;;
+  static final String GUSE_REMOTE_API_PASS = &quot;guse_remoteapi_password&quot;;
+
+  static final String ATTACHMENT_URI = &quot;attachment.uri&quot;;
+  static final String ATTACHMENT_USER = &quot;attachment.user&quot;;
+  static final String ATTACHMENT_PASS = &quot;attachment.password&quot;;
+  static final String ATTACHMENT_MAX_SIZE = &quot;max.attachment.size&quot;;
+
+  static final String MSQL_HOST = &quot;mysql.host&quot;;
+  static final String MSQL_DB = &quot;mysql.db&quot;;
+  static final String MSQL_USER = &quot;mysql.user&quot;;
+  static final String MSQL_PORT = &quot;mysql.port&quot;;
+  static final String MSQL_PASS = &quot;mysql.pass&quot;;
+
+  static final String DB_INPUT_USER_GROUPS = &quot;mysql.input.usergrp&quot;;
+  static final String DB_INPUT_ADMIN_GROUPS = &quot;mysql.input.admingrp&quot;;
+
+  static final String MSQL_NCCT_DB = &quot;mysql.ncct.db&quot;;
+
+  static final String METADATA_OVERWRITE_GROUP = &quot;metadata.write.group&quot;;
+  static final String DELETION_GROUP = &quot;UNUSEDDELETION&quot;;
+
+  static final String LABELING_METHODS = &quot;vocabulary.ms.labeling&quot;;
+
+  static final String EPITOPE_PREDICTION_VM_HOST = &quot;vm.epitope.host&quot;;
+  static final String EPITOPE_PREDICTION_VM_USER = &quot;vm.samplesize.user&quot;;
+
+  static final String RNASEQ_SAMPLESIZE_CONTAINER = &quot;vm.container.samplesize.name&quot;;
+
+  static final String RSERVE_HOST = &quot;rserve.host&quot;;
+  static final String RSERVE_USER = &quot;rserve.user&quot;;
+  static final String RSERVE_PORT = &quot;rserve.port&quot;;
+  static final String RSERVE_PASS = &quot;rserve.password&quot;;
+
+  static final String STATISTICS_FILE_PATH = &quot;statistics.file.path&quot;;
+
+  // in the properties file we expect properties defined as follows:
+  // access.unauthenticated.foo = false
+  // access.unauthenticated.bar = true
+  // where foo/bar are content identifiers
+  static final String ALLOW_UNAUTHENTICATED_ACCESS_PREFIX = &quot;access.unauthenticated.&quot;;
+
+  // member variables
+  private String dataSource;
+  private String dataSourceUser;
+  private String dataSourcePass;
+  private String dataSourceUrl;
+  private String dataSourceApiUrl;
+
+  private String omeroHost;
+  private String omeroPort;
+  private String omeroUser;
+  private String omeroPass;
+
+  private String genomeViewerUrl;
+  private String genomeViewerRestApi;
+
+  private String tmpFolder;
+  private String isaConfigFolder;
+  private String barcodeScriptsFolder;
+  private String barcodePathVariable;
+  private String barcodeResultsFolder;
+
+  private String pathToGuseWorkflows;
+  private String pathToGuseCertificate;
+  private String pathToWFConfig;
+
+  private String pathToReferenceConfig;
+
+  private String pathToDropboxes;
+
+  private String guseRemoteApiUrl;
+  private String guseRemoteApiPass;
+
+  private String attachmentURI;
+  private String attachmentUser;
+  private String attachmentPass;
+  private String attachmentMaxSize;
+
+  private String msqlHost;
+  private String msqlDB;
+  private String msqlUser;
+  private String msqlPort;
+  private String msqlPass;
+
+  private List&lt;String&gt; dbInputUserGrps;
+  private List&lt;String&gt; dbInputAdminGrps;
+
+  private String ncctMsqlDB;
+
+  private String metadataOverwriteGroup;
+  private String labelingMethods;
+
+  private String epitopePredictionVMHost;
+  private String epitopePredictionVMUser;
+  private String rnaseqSampleSizeContainerName;
+  private String rserveHost;
+  private String rserveUser;
+  private String rservePort;
+  private String rservePass;
+
+  private String statisticsFilePath;
+
+  // stores all properties that start with &lt;ALLOW_UNAUTHENTICATED_ACCESS_PREFIX&gt; whose value has
+  // been set to true
+  private Set&lt;String&gt; authorizedUnauthenticatedContentIds;
+
+  /**
+   * @param properties A {@link Properties} object that contains the properties for this instance.
+   */
+<span class="fc" id="L162">  PropertiesBasedConfigurationManager(final Properties properties) {</span>
+<span class="fc" id="L163">    Validate.notNull(properties, &quot;properties is required and cannot be null&quot;);</span>
+<span class="fc" id="L164">    dataSource = properties.getProperty(DATASOURCE_KEY, &quot;openBIS&quot;);</span>
+<span class="fc" id="L165">    dataSourceUser = properties.getProperty(DATASOURCE_USER);</span>
+<span class="fc" id="L166">    dataSourcePass = properties.getProperty(DATASOURCE_PASS);</span>
+<span class="fc" id="L167">    dataSourceUrl = properties.getProperty(DATASOURCE_URL);</span>
+<span class="fc" id="L168">    dataSourceApiUrl = properties.getProperty(DATASOURCE_API_URL);</span>
+
+<span class="fc" id="L170">    omeroHost = properties.getProperty(OMERO_HOST);</span>
+<span class="fc" id="L171">    omeroPort = properties.getProperty(OMERO_PORT);</span>
+<span class="fc" id="L172">    omeroUser = properties.getProperty(OMERO_USER);</span>
+<span class="fc" id="L173">    omeroPass = properties.getProperty(OMERO_PASS);</span>
+
+<span class="fc" id="L175">    genomeViewerUrl = properties.getProperty(GENOMEVIEWER_URL);</span>
+<span class="fc" id="L176">    genomeViewerRestApi = properties.getProperty(GENOMEVIEWER_RESTAPI);</span>
+
+<span class="fc" id="L178">    tmpFolder = properties.getProperty(TMP_FOLDER);</span>
+<span class="fc" id="L179">    isaConfigFolder = properties.getProperty(ISA_CONFIG);</span>
+<span class="fc" id="L180">    barcodeScriptsFolder = properties.getProperty(BARCODE_SCRIPTS_FOLDER);</span>
+<span class="fc" id="L181">    barcodePathVariable = properties.getProperty(BARCODE_PATH_VARIABLE);</span>
+<span class="fc" id="L182">    barcodeResultsFolder = properties.getProperty(BARCODE_RESULTS);</span>
+
+<span class="fc" id="L184">    pathToGuseWorkflows = properties.getProperty(PATH_TO_GUSE_WORKFLOWS);</span>
+<span class="fc" id="L185">    pathToGuseCertificate = properties.getProperty(PATH_TO_GUSE_CERTIFICATE);</span>
+<span class="fc" id="L186">    pathToWFConfig = properties.getProperty(PATH_TO_WF_CONFIG);</span>
+
+<span class="fc" id="L188">    pathToReferenceConfig = properties.getProperty(PATH_TO_REFERENCE_CONFIG);</span>
+
+<span class="fc" id="L190">    pathToDropboxes = properties.getProperty(PATH_TO_DROPBOXES);</span>
+
+<span class="fc" id="L192">    guseRemoteApiUrl = properties.getProperty(GUSE_REMOTE_API_URL);</span>
+<span class="fc" id="L193">    guseRemoteApiPass = properties.getProperty(GUSE_REMOTE_API_PASS);</span>
+
+<span class="fc" id="L195">    attachmentURI = properties.getProperty(ATTACHMENT_URI);</span>
+<span class="fc" id="L196">    attachmentUser = properties.getProperty(ATTACHMENT_USER);</span>
+<span class="fc" id="L197">    attachmentPass = properties.getProperty(ATTACHMENT_PASS);</span>
+<span class="fc" id="L198">    attachmentMaxSize = properties.getProperty(ATTACHMENT_MAX_SIZE);</span>
+
+<span class="fc" id="L200">    msqlHost = properties.getProperty(MSQL_HOST);</span>
+<span class="fc" id="L201">    msqlDB = properties.getProperty(MSQL_DB);</span>
+<span class="fc" id="L202">    msqlUser = properties.getProperty(MSQL_USER);</span>
+<span class="fc" id="L203">    msqlPort = properties.getProperty(MSQL_PORT);</span>
+<span class="fc" id="L204">    msqlPass = properties.getProperty(MSQL_PASS);</span>
+
+<span class="fc" id="L206">    dbInputUserGrps =</span>
+<span class="fc" id="L207">        new ArrayList&lt;&gt;(Arrays.asList(properties.getProperty(DB_INPUT_USER_GROUPS, &quot;&quot;).split(&quot;,&quot;)));</span>
+<span class="fc bfc" id="L208" title="All 2 branches covered.">    for (int i = 0; i &lt; dbInputUserGrps.size(); i++)</span>
+<span class="fc" id="L209">      dbInputUserGrps.set(i, dbInputUserGrps.get(i).trim());</span>
+<span class="fc" id="L210">    dbInputAdminGrps = new ArrayList&lt;&gt;(</span>
+<span class="fc" id="L211">        Arrays.asList(properties.getProperty(DB_INPUT_ADMIN_GROUPS, &quot;&quot;).split(&quot;,&quot;)));</span>
+<span class="fc bfc" id="L212" title="All 2 branches covered.">    for (int i = 0; i &lt; dbInputAdminGrps.size(); i++)</span>
+<span class="fc" id="L213">      dbInputAdminGrps.set(i, dbInputAdminGrps.get(i).trim());</span>
+
+<span class="fc" id="L215">    ncctMsqlDB = properties.getProperty(MSQL_NCCT_DB);</span>
+
+<span class="fc" id="L217">    metadataOverwriteGroup = properties.getProperty(METADATA_OVERWRITE_GROUP);</span>
+<span class="fc" id="L218">    labelingMethods = properties.getProperty(LABELING_METHODS);</span>
+
+<span class="fc" id="L220">    epitopePredictionVMHost = properties.getProperty(EPITOPE_PREDICTION_VM_HOST);</span>
+<span class="fc" id="L221">    epitopePredictionVMUser = properties.getProperty(EPITOPE_PREDICTION_VM_USER);</span>
+<span class="fc" id="L222">    rnaseqSampleSizeContainerName = properties.getProperty(RNASEQ_SAMPLESIZE_CONTAINER);</span>
+<span class="fc" id="L223">    rserveHost = properties.getProperty(RSERVE_HOST);</span>
+<span class="fc" id="L224">    rservePort = properties.getProperty(RSERVE_PORT);</span>
+<span class="fc" id="L225">    rserveUser = properties.getProperty(RSERVE_USER);</span>
+<span class="fc" id="L226">    rservePass = properties.getProperty(RSERVE_PASS);</span>
+
+<span class="fc" id="L228">    statisticsFilePath = properties.getProperty(STATISTICS_FILE_PATH);</span>
+
+    // go through all properties that start with &lt;ALLOW_UNAUTHENTICATED_ACCESS_PREFIX&gt; and process
+    // them
+    // in the end, this map will contain the ids of the content that can be displayed for
+    // unauthenticated users
+<span class="fc" id="L234">    authorizedUnauthenticatedContentIds = new TreeSet&lt;&gt;();</span>
+<span class="fc bfc" id="L235" title="All 2 branches covered.">    for (final String propertyName : properties.stringPropertyNames()) {</span>
+      // store only properties that:
+      // 1. start with our prefix AND
+      // 2. are set to true
+<span class="fc bfc" id="L239" title="All 2 branches covered.">      if (propertyName.startsWith(ALLOW_UNAUTHENTICATED_ACCESS_PREFIX)</span>
+<span class="fc bfc" id="L240" title="All 2 branches covered.">          &amp;&amp; Boolean.parseBoolean(properties.getProperty(propertyName, &quot;&quot;).trim())) {</span>
+        // we don't need to store the prefix
+<span class="fc" id="L242">        final String contentId =</span>
+<span class="fc" id="L243">            propertyName.substring(ALLOW_UNAUTHENTICATED_ACCESS_PREFIX.length());</span>
+<span class="fc bfc" id="L244" title="All 2 branches covered.">        if (StringUtils.isNotBlank(contentId)) {</span>
+<span class="fc" id="L245">          authorizedUnauthenticatedContentIds.add(contentId);</span>
+        } else {
+          // property is empty
+<span class="fc" id="L248">          LOG.warn(</span>
+              &quot;Invalid property id found in configuration. The format of this property name is: access.unauthenticated.&lt;contentId&gt;=[true|false], &quot;
+                  + &quot;where &lt;contentId&gt; identifies some content&quot;);
+        }
+      }
+<span class="fc" id="L253">    }</span>
+<span class="fc" id="L254">  }</span>
+
+  @Override
+  public String getConfigurationFileName() {
+    // TODO: in the previous implementations (LiferayConfigurationManager,
+    // LiferayIndependentConfigurationManager) this method always returned null because
+    // the member variable holding the configuration value was never set
+<span class="nc" id="L261">    return null;</span>
+  }
+
+  @Override
+  public String getDataSource() {
+<span class="nc" id="L266">    return dataSource;</span>
+  }
+
+  @Override
+  public String getDataSourceUser() {
+<span class="nc" id="L271">    return dataSourceUser;</span>
+  }
+
+  @Override
+  public String getDataSourcePassword() {
+<span class="nc" id="L276">    return dataSourcePass;</span>
+  }
+
+  @Override
+  public String getDataSourceUrl() {
+<span class="nc" id="L281">    return dataSourceUrl;</span>
+  }
+
+  @Override
+  public String getDataSourceApiUrl() {
+<span class="nc" id="L286">    return dataSourceApiUrl;</span>
+  }
+
+  @Override
+  public String getGenomeViewerUrl() {
+<span class="nc" id="L291">    return genomeViewerUrl;</span>
+  }
+
+  @Override
+  public String getGenomeViewerRestApiUrl() {
+<span class="nc" id="L296">    return genomeViewerRestApi;</span>
+  }
+
+  @Override
+  public String getBarcodeScriptsFolder() {
+<span class="nc" id="L301">    return barcodeScriptsFolder;</span>
+  }
+
+  @Override
+  public String getTmpFolder() {
+<span class="nc" id="L306">    return tmpFolder;</span>
+  }
+
+  @Override
+  public String getBarcodePathVariable() {
+<span class="nc" id="L311">    return barcodePathVariable;</span>
+  }
+
+  @Override
+  public String getPathToGuseWorkflows() {
+<span class="nc" id="L316">    return pathToGuseWorkflows;</span>
+  }
+
+  @Override
+  public void setPathToGuseWorkflows(String pathToGuseWorkflows) {
+<span class="nc" id="L321">    this.pathToGuseWorkflows = pathToGuseWorkflows;</span>
+<span class="nc" id="L322">  }</span>
+
+  @Override
+  public String getPathToGuseCertificate() {
+<span class="nc" id="L326">    return pathToGuseCertificate;</span>
+  }
+
+  @Override
+  public void setPathToGuseCertificate(String pathToGuseCertificate) {
+<span class="nc" id="L331">    this.pathToGuseCertificate = pathToGuseCertificate;</span>
+<span class="nc" id="L332">  }</span>
+
+  @Override
+  public String getPathToWFConfig() {
+<span class="nc" id="L336">    return pathToWFConfig;</span>
+  }
+
+  @Override
+  public void setPathToWFConfig(String pathToWFConfig) {
+<span class="nc" id="L341">    this.pathToWFConfig = pathToWFConfig;</span>
+<span class="nc" id="L342">  }</span>
+
+  @Override
+  public String getPathToDropboxes() {
+<span class="nc" id="L346">    return pathToDropboxes;</span>
+  }
+
+  @Override
+  public void setPathToDropboxes(String pathToDropboxes) {
+<span class="nc" id="L351">    this.pathToDropboxes = pathToDropboxes;</span>
+<span class="nc" id="L352">  }</span>
+
+  @Override
+  public String getGuseRemoteApiUrl() {
+<span class="nc" id="L356">    return guseRemoteApiUrl;</span>
+  }
+
+  @Override
+  public void setGuseRemoteApiUrl(String guseRemoteApiUrl) {
+<span class="nc" id="L361">    this.guseRemoteApiUrl = guseRemoteApiUrl;</span>
+<span class="nc" id="L362">  }</span>
+
+  @Override
+  public String getGuseRemoteApiPass() {
+<span class="nc" id="L366">    return guseRemoteApiPass;</span>
+  }
+
+  @Override
+  public void setGuseRemoteApiPass(String guseRemoteApiPass) {
+<span class="nc" id="L371">    this.guseRemoteApiPass = guseRemoteApiPass;</span>
+<span class="nc" id="L372">  }</span>
+
+  @Override
+  public String getAttachmentURI() {
+<span class="nc" id="L376">    return attachmentURI;</span>
+  }
+
+  @Override
+  public String getAttachmentUser() {
+<span class="nc" id="L381">    return attachmentUser;</span>
+  }
+
+  @Override
+  public String getAttachmenPassword() {
+<span class="nc" id="L386">    return attachmentPass;</span>
+  }
+
+  @Override
+  public String getAttachmentMaxSize() {
+<span class="nc" id="L391">    return attachmentMaxSize;</span>
+  }
+
+  @Override
+  public String getMysqlHost() {
+<span class="nc" id="L396">    return msqlHost;</span>
+  }
+
+  @Override
+  public String getMysqlPort() {
+<span class="nc" id="L401">    return msqlPort;</span>
+  }
+
+  @Override
+  public String getMysqlDB() {
+<span class="nc" id="L406">    return msqlDB;</span>
+  }
+
+  @Override
+  public String getMysqlUser() {
+<span class="fc" id="L411">    return msqlUser;</span>
+  }
+
+  @Override
+  public String getMysqlPass() {
+<span class="nc" id="L416">    return msqlPass;</span>
+  }
+
+  public String getPathToReferenceConfig() {
+<span class="nc" id="L420">    return pathToReferenceConfig;</span>
+  }
+
+  public void setPathToReferenceConfig(String pathToReferenceConfig) {
+<span class="nc" id="L424">    this.pathToReferenceConfig = pathToReferenceConfig;</span>
+<span class="nc" id="L425">  }</span>
+
+  @Override
+  public String getVocabularyMSLabeling() {
+<span class="nc" id="L429">    return labelingMethods;</span>
+  }
+
+  @Override
+  public String getBarcodeResultsFolder() {
+<span class="nc" id="L434">    return barcodeResultsFolder;</span>
+  }
+
+  @Override
+  public String getMetadataWriteGrp() {
+<span class="nc" id="L439">    return metadataOverwriteGroup;</span>
+  }
+
+  @Override
+  public String getISAConfigPath() {
+<span class="nc" id="L444">    return isaConfigFolder;</span>
+  }
+
+  @Override
+  public String getEpitopeAndSampleSizeVMHost() {
+<span class="nc" id="L449">    return epitopePredictionVMHost;</span>
+  }
+
+  @Override
+  public String getSampleSizeVMUser() {
+<span class="nc" id="L454">    return epitopePredictionVMUser;</span>
+  }
+
+  @Override
+  public String getRServePort() {
+<span class="nc" id="L459">    return rservePort;</span>
+  }
+
+  @Override
+  public String getRNASeqSampleSizeContainerName() {
+<span class="nc" id="L464">    return rnaseqSampleSizeContainerName;</span>
+  }
+
+  @Override
+  public String getRServeHost() {
+<span class="nc" id="L469">    return rserveHost;</span>
+  }
+
+  @Override
+  public String getRServeUser() {
+<span class="nc" id="L474">    return rserveUser;</span>
+  }
+
+  @Override
+  public String getRServePassword() {
+<span class="nc" id="L479">    return rservePass;</span>
+  }
+
+  @Override
+  public String getNCCTMysqlDB() {
+<span class="nc" id="L484">    return ncctMsqlDB;</span>
+  }
+
+  @Override
+  public List&lt;String&gt; getUserDBInputUserGrps() {
+<span class="nc" id="L489">    return dbInputUserGrps;</span>
+  }
+
+  @Override
+  public List&lt;String&gt; getUserDBInputAdminGrps() {
+<span class="nc" id="L494">    return dbInputAdminGrps;</span>
+  }
+
+  @Override
+  public boolean isAllowUnauthenticatedAccess(final String contentId) {
+<span class="fc" id="L499">    return authorizedUnauthenticatedContentIds.contains(contentId);</span>
+  }
+
+  @Override
+  public String getStatisticsFilePath() {
+<span class="fc" id="L504">    return statisticsFilePath;</span>
+  }
+
+  @Override
+  public String getOmeroHostname() {
+<span class="nc" id="L509">    return omeroHost;</span>
+  }
+
+  @Override
+  public String getOmeroPort() {
+<span class="nc" id="L514">    return omeroPort;</span>
+  }
+
+  @Override
+  public String getOmeroUser() {
+<span class="nc" id="L519">    return omeroUser;</span>
+  }
+
+  @Override
+  public String getOmeroPassword() {
+<span class="nc" id="L524">    return omeroPass;</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Uploader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Portal utilities library</a> &gt; <a href="index.source.html" class="el_package">life.qbic.portal.components</a> &gt; <span class="el_source">Uploader.java</span></div><h1>Uploader.java</h1><pre class="source lang-java linenums">/*******************************************************************************
+ * ''' * QBiC User DB Tools enables users to add people and affiliations to our mysql user database.
+ * Copyright (C) 2016 Andreas Friedrich
+ *
+ * This program is free software: you can redistribute it and/or modify it under the terms of the
+ * GNU General Public License as published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+ * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with this program. If
+ * not, see &lt;http://www.gnu.org/licenses/&gt;.
+ *******************************************************************************/
+package life.qbic.portal.components;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+
+import org.apache.commons.io.FilenameUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.vaadin.ui.Upload;
+
+/**
+ * Uploader for files
+ * 
+ * @author Andreas Friedrich
+ * 
+ */
+@SuppressWarnings(&quot;serial&quot;)
+public class Uploader implements Upload.SucceededListener, Upload.FailedListener, Upload.Receiver {
+
+  private File file; // File to write to.
+  private String error;
+
+<span class="nc" id="L41">  private final static Logger logger = LogManager.getLogger(Uploader.class);</span>
+  private String fileName;
+  private String tmpFolder;
+
+  /**
+   * @param tmpFolder temporary folder to place uploaded files in
+   */
+<span class="nc" id="L48">  public Uploader(String tmpFolder) {</span>
+<span class="nc" id="L49">    this.tmpFolder = tmpFolder;</span>
+<span class="nc" id="L50">  }</span>
+
+  /**
+   * Callback method to begin receiving the upload.
+   */
+  public OutputStream receiveUpload(String filename, String MIMEType) {
+<span class="nc" id="L56">    FileOutputStream fos = null; // Output stream to write to</span>
+<span class="nc" id="L57">    error = null;</span>
+<span class="nc" id="L58">    fileName = filename;</span>
+<span class="nc" id="L59">    file = new File(tmpFolder + &quot;up_&quot; + filename);</span>
+    // TODO probably not needed; some browsers set MIME information to application/octet-stream,
+    // which leads to bug
+    // if (!MIMEType.equals(&quot;text/plain&quot;) &amp;&amp; !MIMEType.equals(&quot;text/tab-separated-values&quot;)) {
+    // error = &quot;Wrong File type. Please only upload tsv or txt files.&quot;;
+    // }
+    try {
+      // Open the file for writing.
+<span class="nc" id="L67">      fos = new FileOutputStream(file);</span>
+<span class="nc" id="L68">    } catch (FileNotFoundException e) {</span>
+      // Error while opening the file. Not reported here.
+<span class="nc" id="L70">      e.printStackTrace();</span>
+<span class="nc" id="L71">      return null;</span>
+<span class="nc" id="L72">    }</span>
+<span class="nc" id="L73">    return fos; // Return the output stream to write to</span>
+  }
+
+  public String getError() {
+<span class="nc" id="L77">    return error;</span>
+  }
+
+  public String getBaseFileName() {
+<span class="nc" id="L81">    return fileName;</span>
+  }
+
+  public String getFileNameWithoutExtension() {
+<span class="nc" id="L85">    return FilenameUtils.removeExtension(fileName);</span>
+  }
+
+  public File getFile() {
+<span class="nc" id="L89">    return file;</span>
+  }
+
+  /**
+   * This is called if the upload is finished.
+   */
+  public void uploadSucceeded(Upload.SucceededEvent event) {
+    // Display the uploaded file in the image panel.
+<span class="nc" id="L97">    logger.info(</span>
+<span class="nc" id="L98">        &quot;Uploading &quot; + event.getFilename() + &quot; of type '&quot; + event.getMIMEType() + &quot;' successful.&quot;);</span>
+<span class="nc" id="L99">  }</span>
+
+  /**
+   * This is called if the upload fails.
+   */
+  public void uploadFailed(Upload.FailedEvent event) {
+    // Log the failure on screen.
+<span class="nc" id="L106">    logger.error(</span>
+<span class="nc" id="L107">        &quot;Uploading &quot; + event.getFilename() + &quot; of type '&quot; + event.getMIMEType() + &quot;' failed.&quot;);</span>
+<span class="nc" id="L108">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
