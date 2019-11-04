@@ -22,8 +22,6 @@ import java.util.List;
 
 import com.vaadin.ui.AbstractComponent;
 import com.vaadin.ui.AbstractField;
-import com.vaadin.ui.AbstractSelect;
-import com.vaadin.ui.OptionGroup;
 
 import life.qbic.portal.controllers.VisibilityChangeListener;
 
@@ -86,24 +84,20 @@ private List<VisibilityChangeListener> listeners = new ArrayList<VisibilityChang
       hl.setVisible(b);
   }
 
+  @Deprecated
   public void setNullSelectionAllowed(boolean b) {
-    if (inner instanceof AbstractSelect)
-      ((AbstractSelect) inner).setNullSelectionAllowed(b);
   }
 
+  @Deprecated
   public void setItemEnabled(String string, boolean b) {
-    if (inner instanceof OptionGroup)
-      ((OptionGroup) inner).setItemEnabled(string, b);
   }
 
+  @Deprecated
   public Object getNullSelectionItemId() {
-    if (inner instanceof AbstractSelect)
-      return ((AbstractSelect) inner).getNullSelectionItemId();
     return null;
   }
 
+  @Deprecated
   public void select(Object item) {
-    if (inner instanceof AbstractSelect)
-      ((AbstractSelect) inner).select(item);
   }
 }

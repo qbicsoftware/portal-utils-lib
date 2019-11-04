@@ -41,7 +41,6 @@ abstract public class AOpenbisInfoComponent extends AbstractField<Object> {
     comp.setWidth(width);
   }
 
-  @Override
   public Class<String> getType() {
     return String.class;
   }

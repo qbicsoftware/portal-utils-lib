@@ -57,6 +57,11 @@ public class OpenbisInfoTextField extends AOpenbisInfoComponent {
   }
 
   public void setInputPrompt(String string) {
-    ((AbstractTextField) inner).setInputPrompt(string);
+    ((AbstractTextField) inner).setPlaceholder(string);
+  }
+
+  @Override
+  protected void doSetValue(Object o) {
+
   }
 }
