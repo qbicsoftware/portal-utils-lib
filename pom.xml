@@ -14,7 +14,7 @@
 	<description>Library that contains several Vaadin and Liferay utilities to use in a portal (formerly life.qbic.openbis.liferayandvaadinutils).</description>
 	<packaging>jar</packaging>
 	<!-- we only need to tell maven where to find our parent pom and other QBiC 
-		dependencies -->
+		dependencies  -->
 	<repositories>
 		<repository>
 			<releases>
