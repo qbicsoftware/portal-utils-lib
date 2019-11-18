@@ -85,6 +85,8 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
 
   static final String STATISTICS_FILE_PATH = "statistics.file.path";
 
+  static final String SERVICES_REGISTRY_URL = "services.registry.url";
+
   // in the properties file we expect properties defined as follows:
   // access.unauthenticated.foo = false
   // access.unauthenticated.bar = true
@@ -151,6 +153,7 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
   private String rservePass;
 
   private String statisticsFilePath;
+  private String servicesRegistryUrl;
 
   // stores all properties that start with <ALLOW_UNAUTHENTICATED_ACCESS_PREFIX> whose value has
   // been set to true
@@ -226,6 +229,8 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
     rservePass = properties.getProperty(RSERVE_PASS);
 
     statisticsFilePath = properties.getProperty(STATISTICS_FILE_PATH);
+
+    servicesRegistryUrl = properties.getProperty(SERVICES_REGISTRY_URL);
 
     // go through all properties that start with <ALLOW_UNAUTHENTICATED_ACCESS_PREFIX> and process
     // them
@@ -522,6 +527,11 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
   @Override
   public String getOmeroPassword() {
     return omeroPass;
+  }
+
+  @Override
+  public String getServicesRegistryUrl() {
+    return servicesRegistryUrl;
   }
 
 }
