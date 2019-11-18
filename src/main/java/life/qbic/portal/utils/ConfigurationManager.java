@@ -143,4 +143,9 @@ public interface ConfigurationManager {
    * @return the path where the statistics file is located.
    */
   String getStatisticsFilePath();
+
+  /**
+   * Getter for the QBiC service registry URL
+   */
+  String getServicesRegistryUrl();
 }

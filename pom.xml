@@ -7,9 +7,8 @@
 		<artifactId>portal-parent-pom</artifactId>
 		<version>1.4.0</version>
 	</parent>
-	<groupId>life.qbic</groupId>
 	<artifactId>portal-utils-lib</artifactId>
-	<version>1.7.0</version>
+	<version>1.7.1-SNAPSHOT</version>
 	<name>Portal utilities library</name>
 	<description>Library that contains several Vaadin and Liferay utilities to use in a portal (formerly life.qbic.openbis.liferayandvaadinutils).</description>
 	<packaging>jar</packaging>
