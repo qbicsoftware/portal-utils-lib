@@ -38,7 +38,8 @@ before_script: if [ "$VAADIN_CHARTS_LICENSE_CODE" != "" ]; then
                fi;
 
 # as agreed in our SOP, build everything (don't deploy, just try to 'mvn package' locally, which covers unit tests)
-script: mvn --quiet --activate-profiles !development-build,!release-build --settings .travis.settings.xml clean cobertura:cobertura package
+script: mvn build-helper:parse-version versions:set -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.incrementalVersion}-SNAPSHOT versions:update-child-modules && mvn versions:commit &&
+        mvn --quiet --activate-profiles !development-build,!release-build --settings .travis.settings.xml clean cobertura:cobertura package
 # upload code coverage report, generate maven site (javadocs, documentation, static code analysis, etc.)
 after_success: 
 - bash <(curl -s https://codecov.io/bash)
@@ -58,7 +59,8 @@ deploy:
   # the version string and version of dependencies are validated (no snapshots allowed)
 - skip_cleanup: true
   provider: script
-  script: mvn --quiet --activate-profiles !development-build,release-build --settings .travis.settings.xml deploy -DskipITs
+  script: mvn build-helper:parse-version versions:set -DnewVersion=$TRAVIS_TAG -DprocessAllModules && mvn versions:commit &&
+          mvn --quiet --activate-profiles !development-build,release-build --settings .travis.settings.xml deploy -DskipITs
   on:
     condition: '"$TRAVIS_EVENT_TYPE" = "push"'
     tags: true
