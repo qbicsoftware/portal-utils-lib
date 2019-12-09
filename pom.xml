@@ -63,6 +63,7 @@
 		</dependency>
 	</dependencies>
     <distributionManagement>
+        <!-- GitHub packages -->
         <repository>
             <id>github</id>
             <name>GitHub OWNER Apache Maven Packages</name>
