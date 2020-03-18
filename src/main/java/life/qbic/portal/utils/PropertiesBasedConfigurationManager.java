@@ -267,7 +267,7 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
     }
   }
 
-  private void createServiceUserFrom(Properties properties) {
+  private void createServiceUser(Properties properties) {
     this.serviceUser = new ServiceUser();
 
     String name = properties.getProperty(SERVICE_USER_NAME);
