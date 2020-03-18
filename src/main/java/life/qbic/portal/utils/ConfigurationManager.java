@@ -1,5 +1,7 @@
 package life.qbic.portal.utils;
 
+import life.qbic.datamodel.services.ServiceUser;
+
 import java.util.List;
 
 /**
@@ -148,4 +150,9 @@ public interface ConfigurationManager {
    * Getter for the QBiC service registry URL
    */
   String getServicesRegistryUrl();
+
+  /**
+   * Get Service user
+   */
+  ServiceUser getServiceUser();
 }

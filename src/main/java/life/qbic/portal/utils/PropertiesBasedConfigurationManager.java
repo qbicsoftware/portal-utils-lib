@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
+
+import life.qbic.datamodel.services.ServiceUser;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 import org.apache.logging.log4j.LogManager;
@@ -87,6 +89,9 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
 
   static final String SERVICES_REGISTRY_URL = "services.registry.url";
 
+  static final String SERVICE_USER_NAME = "services.user.name";
+  static final String SERVICE_USER_PASSWORD = "services.user.password";
+
   // in the properties file we expect properties defined as follows:
   // access.unauthenticated.foo = false
   // access.unauthenticated.bar = true
@@ -154,6 +159,8 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
 
   private String statisticsFilePath;
   private String servicesRegistryUrl;
+
+  private ServiceUser serviceUser;
 
   // stores all properties that start with <ALLOW_UNAUTHENTICATED_ACCESS_PREFIX> whose value has
   // been set to true
@@ -232,6 +239,8 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
 
     servicesRegistryUrl = properties.getProperty(SERVICES_REGISTRY_URL);
 
+    createServiceUser(properties);
+
     // go through all properties that start with <ALLOW_UNAUTHENTICATED_ACCESS_PREFIX> and process
     // them
     // in the end, this map will contain the ids of the content that can be displayed for
@@ -256,6 +265,17 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
         }
       }
     }
+  }
+
+  private void createServiceUser(Properties properties) {
+    this.serviceUser = new ServiceUser();
+
+    String name = properties.getProperty(SERVICE_USER_NAME);
+    String password = properties.getProperty(SERVICE_USER_PASSWORD);
+
+    this.serviceUser.name = name;
+    this.serviceUser.password = password;
+
   }
 
   @Override
@@ -532,6 +552,11 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
   @Override
   public String getServicesRegistryUrl() {
     return servicesRegistryUrl;
+  }
+
+  @Override
+  public ServiceUser getServiceUser() {
+    return serviceUser;
   }
 
 }
