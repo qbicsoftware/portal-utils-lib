@@ -239,7 +239,7 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
 
     servicesRegistryUrl = properties.getProperty(SERVICES_REGISTRY_URL);
 
-    createServiceUserFrom(properties);
+    createServiceUser(properties);
 
     // go through all properties that start with <ALLOW_UNAUTHENTICATED_ACCESS_PREFIX> and process
     // them
