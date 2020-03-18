@@ -62,12 +62,4 @@
 			<version>1.7.0</version>
 		</dependency>
 	</dependencies>
-    <distributionManagement>
-        <!-- GitHub packages -->
-        <repository>
-            <id>github</id>
-            <name>GitHub OWNER Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/qbicsoftware/${project.artifactId}</url>
-        </repository>
-    </distributionManagement>
 </project>
