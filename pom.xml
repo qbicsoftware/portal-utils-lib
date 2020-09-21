@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>life.qbic</groupId>
 		<artifactId>portal-parent-pom</artifactId>
-		<version>2.1.0</version>
+		<version>2.4.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>portal-utils-lib</artifactId>
 	<version>2.2.0-SNAPSHOT</version>
@@ -26,7 +26,7 @@
 			</snapshots>
 			<id>nexus-snapshots</id>
 			<name>QBiC Snapshots</name>
-			<url>https://qbic-repo.am10.uni-tuebingen.de/repository/maven-snapshots</url>
+			<url>https://qbic-repo.qbic.uni-tuebingen.de:8080/repository/maven-snapshots</url>
 		</repository>
 		<repository>
 			<releases>
@@ -39,7 +39,7 @@
 			</snapshots>
 			<id>nexus-releases</id>
 			<name>QBiC Releases</name>
-			<url>https://qbic-repo.am10.uni-tuebingen.de/repository/maven-releases</url>
+			<url>https://qbic-repo.qbic.uni-tuebingen.de:8080/repository/maven-releases</url>
 		</repository>
 	</repositories>
 	<dependencies>
@@ -59,7 +59,7 @@
 		<dependency>
 			<groupId>life.qbic</groupId>
 			<artifactId>data-model-lib</artifactId>
-			<version>1.7.0</version>
+			<version>1.11.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
     <distributionManagement>
