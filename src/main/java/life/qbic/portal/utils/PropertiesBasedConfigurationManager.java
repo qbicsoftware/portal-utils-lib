@@ -92,6 +92,7 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
   static final String SERVICE_USER_NAME = "services.user.name";
   static final String SERVICE_USER_PASSWORD = "services.user.password";
 
+  static final String SERVICES_SUBSCRIPTION_URL = "services.subscription.url";
   // in the properties file we expect properties defined as follows:
   // access.unauthenticated.foo = false
   // access.unauthenticated.bar = true
@@ -159,6 +160,8 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
 
   private String statisticsFilePath;
   private String servicesRegistryUrl;
+
+  private String servicesSubscriptionUrl;
 
   private ServiceUser serviceUser;
 
@@ -238,6 +241,8 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
     statisticsFilePath = properties.getProperty(STATISTICS_FILE_PATH);
 
     servicesRegistryUrl = properties.getProperty(SERVICES_REGISTRY_URL);
+
+    servicesSubscriptionUrl = properties.getProperty(SERVICES_SUBSCRIPTION_URL);
 
     createServiceUser(properties);
 
@@ -553,6 +558,9 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
   public String getServicesRegistryUrl() {
     return servicesRegistryUrl;
   }
+
+  @Override
+  public String getServicesSubscriptionUrl() { return servicesSubscriptionUrl; }
 
   @Override
   public ServiceUser getServiceUser() {

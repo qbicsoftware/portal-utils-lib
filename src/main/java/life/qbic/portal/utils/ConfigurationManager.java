@@ -152,6 +152,11 @@ public interface ConfigurationManager {
   String getServicesRegistryUrl();
 
   /**
+   * Getter for the QBiC subscription service URL
+   */
+  String getServicesSubscriptionUrl();
+
+  /**
    * Get Service user
    */
   ServiceUser getServiceUser();
