@@ -1,0 +1,35 @@
+==========
+Changelog
+==========
+
+This project adheres to `Semantic Versioning <https://semver.org/>`_.
+
+
+2.2.0 (2021-12-17)
+-------------------
+
+**Added**
+
+* Add method for retrieving subscription service URL
+* Introduce Changelog
+* Remove Travis and add Github Action
+
+**Fixed**
+
+**Dependencies**
+
+* life.qbic:portal-parent-pom:2.4.0-SNAPSHOT -> 3.0.0
+* commons-io:commons-io:2.6 -> 2.11.0
+* life.qbic:data-model-lib:1.11.0-SNAPSHOT -> 2.14.2
+* org.mockito:mockito-core:3.5.11 -> 4.1.0
+* org.powermock:powermock-module-junit4:2.0.7 -> 2.0.9
+* com.google.truth:truth:0.32 -> 1.1.3
+* com.google.truth:truth-java8-extension:0.32 -> 1.1.3
+* org.apache.logging.log4j:log4j-core:2.13.2 -> 2.16.0
+* org.apache.logging.log4j:log4j-core:2.13.2 -> 2.16.0
+* com.vaadin:vaadin-server:8.9.0 -> 8.14.0
+* com.vaadin:vaadin-client:8.9.0 -> 8.14.0
+* Remove org.apache.commons:commons-lang3
+* Remove org.apache.commons-:commons-text
+
+**Deprecated**
