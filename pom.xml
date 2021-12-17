@@ -17,7 +17,7 @@
 		<vaadin.version>8.14.0</vaadin.version>
 		<vaadin.plugin.version>8.14.0</vaadin.plugin.version>
 	</properties>
-	<!-- we only need to tell maven where to find our parent pom and other QBiC 
+	<!-- we only need to tell maven where to find our parent pom and other QBiC
 		dependencies  -->
 	<repositories>
 		<repository>
@@ -145,12 +145,4 @@
 			<artifactId>vaadin-themes</artifactId>
 		</dependency>
 	</dependencies>
-    <distributionManagement>
-        <!-- GitHub packages -->
-        <repository>
-            <id>github</id>
-            <name>GitHub OWNER Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/qbicsoftware/${project.artifactId}</url>
-        </repository>
-    </distributionManagement>
 </project>
