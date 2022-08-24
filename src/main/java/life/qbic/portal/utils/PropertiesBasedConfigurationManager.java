@@ -89,6 +89,8 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
 
   static final String SERVICES_REGISTRY_URL = "services.registry.url";
 
+  static final String SAMPLE_TRACKING_SERVICE_URL = "services.sampletracking.url";
+
   static final String SERVICE_USER_NAME = "services.user.name";
   static final String SERVICE_USER_PASSWORD = "services.user.password";
 
@@ -162,6 +164,8 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
   private String servicesRegistryUrl;
 
   private String servicesSubscriptionUrl;
+
+  private String sampleTrackingServiceUrl;
 
   private ServiceUser serviceUser;
 
@@ -240,6 +244,7 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
 
     statisticsFilePath = properties.getProperty(STATISTICS_FILE_PATH);
 
+    sampleTrackingServiceUrl = properties.getProperty(SAMPLE_TRACKING_SERVICE_URL);
     servicesRegistryUrl = properties.getProperty(SERVICES_REGISTRY_URL);
 
     servicesSubscriptionUrl = properties.getProperty(SERVICES_SUBSCRIPTION_URL);
@@ -565,6 +570,11 @@ public class PropertiesBasedConfigurationManager implements ConfigurationManager
   @Override
   public ServiceUser getServiceUser() {
     return serviceUser;
+  }
+
+  @Override
+  public String getSampleTrackingServiceUrl() {
+    return sampleTrackingServiceUrl;
   }
 
 }
