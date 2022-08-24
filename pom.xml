@@ -8,7 +8,7 @@
 		<version>3.0.0</version>
 	</parent>
 	<artifactId>portal-utils-lib</artifactId>
-	<version>2.3.0</version>
+	<version>2.4.0</version>
 	<name>Portal utilities library</name>
 	<description>Library that contains several Vaadin and Liferay utilities to use in a portal (formerly life.qbic.openbis.liferayandvaadinutils).</description>
 	<packaging>jar</packaging>

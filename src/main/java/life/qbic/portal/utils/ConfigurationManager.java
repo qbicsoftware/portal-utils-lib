@@ -160,4 +160,6 @@ public interface ConfigurationManager {
    * Get Service user
    */
   ServiceUser getServiceUser();
+
+  String getSampleTrackingServiceUrl();
 }
